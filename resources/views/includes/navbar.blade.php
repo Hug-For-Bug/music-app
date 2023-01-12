@@ -36,19 +36,19 @@
                         </li>
                     </ul>
                 </li>
-                <li class="ajaxifyPage"><a href="https://xvelopers.com/">Home</a>
+                <li class="ajaxifyPage"><a href="{{ route('dashboard') }}">Home</a>
 
                 </li>
 
-                <li><a class="ajaxifyPage" href="categories.html">
+                <li><a class="ajaxifyPage" href="{{ url('categories') }}">
                         <i class="icon icon-layers-1"></i> <span>Categories</span>
                     </a>
 
-                <li><a class="ajaxifyPage" href="albums.html">
+                <li><a class="ajaxifyPage" href="{{ url('albums') }}">
                         <i class="icon icon-windows "></i> <span>Albums</span>
                     </a>
                 <li>
-                <li><a class="ajaxifyPage" href="videos.html">
+                    {{-- <li><a class="ajaxifyPage" href="videos.html">
                         <i class="icon icon-video-player-2 "></i> <span>Videos</span>
                     </a>
                 </li>
@@ -64,9 +64,9 @@
                 <li><a class="ajaxifyPage" href="blog.html">
                         <i class="icon icon-newspaper "></i> <span>Blog</span>
                     </a>
-                </li>
+                </li> --}}
 
-                <li><a class="ajaxifyPage" href="artists.html">
+                <li><a class="ajaxifyPage" href="{{ url('artist') }}">
                         <i class="icon icon-users "></i> <span>Artists</span>
                     </a>
                 <li><a href="#modalSignUp" class="btn btn-primary nav-btn" data-toggle="modal"

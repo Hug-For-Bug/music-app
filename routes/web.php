@@ -18,4 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [DashboardController::class, 'index']);
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/categories', [DashboardController::class, 'categories']);
+Route::get('/albums', [DashboardController::class, 'albums']);
+Route::get('/artist', [DashboardController::class, 'artist']);

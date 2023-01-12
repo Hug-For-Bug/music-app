@@ -8,6 +8,18 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('layouts.default');
+        return view('pages.home');
+    }
+    public function categories()
+    {
+        return view('pages.category');
+    }
+    public function albums()
+    {
+        return view('pages.album');
+    }
+    public function artist()
+    {
+        return view('pages.artist');
     }
 }
