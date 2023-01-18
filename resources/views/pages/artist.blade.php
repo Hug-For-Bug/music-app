@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
-    <div class="wrapper animated fadeInUpShort p-md-5 p-3">
+    <div class="wrapper animated fadeInUpShort p-5 ml-lg-5 mr-lg-5">
         <div class="relative mb-5">
             <h1 class="mb-2 text-primary">Artists</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>Architecto atque aut blanditiis consectetur

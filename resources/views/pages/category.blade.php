@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('content')
-    <div class="animated fadeInUpShort p-md-5 p-3">
+    <div class="animated fadeInUpShort p-5 ml-lg-5 mr-lg-5">
+        {{-- p-5 ml-lg-5 mr-lg-5 --}}
         <div class="wrapper">
             <section class="section">
                 <h1 class="my-5 text-primary">Genre</h1>

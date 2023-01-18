@@ -1,4 +1,4 @@
-<div class="container relative  px-md-5 ">
+{{-- <div class="container relative  px-md-5 ">
 
     <a class="offcanvas dl-trigger paper-nav-toggle" type="button" data-toggle="offcanvas" aria-controls="navbarNav"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +25,7 @@
                         </li>
                         <li id="menu-item-1356"
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1356">
-                            <a class="ajaxifyPage" href="categories.html">
+                            <a class="" href="categories.html">
                                 <i class="menu-icon icon-microphone-1"></i><span>Podcasts Home</span>
                             </a>
                         </li>
@@ -36,37 +36,20 @@
                         </li>
                     </ul>
                 </li>
-                <li class="ajaxifyPage"><a href="{{ route('dashboard') }}">Home</a>
+                <li class=""><a href="{{ route('dashboard') }}">Home</a>
 
                 </li>
 
-                <li><a class="ajaxifyPage" href="{{ url('categories') }}">
+                <li><a class="" href="{{ url('categories') }}">
                         <i class="icon icon-layers-1"></i> <span>Categories</span>
                     </a>
 
-                <li><a class="ajaxifyPage" href="{{ url('albums') }}">
+                <li><a class="" href="{{ url('albums') }}">
                         <i class="icon icon-windows "></i> <span>Albums</span>
                     </a>
                 <li>
-                    {{-- <li><a class="ajaxifyPage" href="videos.html">
-                        <i class="icon icon-video-player-2 "></i> <span>Videos</span>
-                    </a>
-                </li>
-                <li><a class="ajaxifyPage" href="events.html">
-                        <i class="icon icon-calendar-6 "></i> <span>Events</span>
-                    </a>
-                </li>
 
-                <li><a class="ajaxifyPage" href="gallery.html">
-                        <i class="icon icon-photo-camera-1 "></i> <span>Gallery</span>
-                    </a>
-                </li>
-                <li><a class="ajaxifyPage" href="blog.html">
-                        <i class="icon icon-newspaper "></i> <span>Blog</span>
-                    </a>
-                </li> --}}
-
-                <li><a class="ajaxifyPage" href="{{ url('artist') }}">
+                <li><a class="" href="{{ url('artist') }}">
                         <i class="icon icon-users "></i> <span>Artists</span>
                     </a>
                 <li><a href="#modalSignUp" class="btn btn-primary nav-btn" data-toggle="modal"
@@ -80,4 +63,4 @@
     </div>
 
 
-</div>
+</div> --}}

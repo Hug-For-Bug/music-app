@@ -8,18 +8,22 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('pages.home');
+        $data['navbarType'] = "top";
+        return view('pages.home', $data);
     }
     public function categories()
     {
-        return view('pages.category');
+        $data['navbarType'] = "side";
+        return view('pages.category', $data);
     }
     public function albums()
     {
-        return view('pages.album');
+        $data['navbarType'] = "side";
+        return view('pages.album', $data);
     }
     public function artist()
     {
-        return view('pages.artist');
+        $data['navbarType'] = "side";
+        return view('pages.artist', $data);
     }
 }
