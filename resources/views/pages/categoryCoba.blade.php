@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="assets/img/basic/favicon.html" type="image/x-icon">
-    <title>Record</title>
+    <title>Coba</title>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/app.css">
 </head>
