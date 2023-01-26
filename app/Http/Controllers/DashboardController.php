@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -26,4 +27,8 @@ class DashboardController extends Controller
         $data['navbarType'] = "side";
         return view('pages.artist', $data);
     }
+
+    // public function test() {
+    //     $users = DB::table('users')
+    // }
 }
