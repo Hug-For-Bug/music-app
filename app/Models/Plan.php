@@ -7,5 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Plan extends Model
 {
+
     use HasFactory;
+    protected $fillable = [
+        'plan_name',
+        'description'
+    ];
+
+    protected $table = 'plans';
+    protected $primaryKey = 'id';
+    public $timestamps = true;
+    const CREATED_AT = 'created_date';
+    const UPDATED_AT = 'updated_date';
 }

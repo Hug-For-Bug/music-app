@@ -22,3 +22,4 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/categories', [DashboardController::class, 'categories']);
 Route::get('/albums', [DashboardController::class, 'albums']);
 Route::get('/artist', [DashboardController::class, 'artist']);
+Route::get('/create', [DashboardController::class, 'create']);
