@@ -35,7 +35,6 @@ class CreateUsersTable extends Migration
                 ->on('roles')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->rememberToken();
             $table->timestamps();
         });
     }
