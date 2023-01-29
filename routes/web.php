@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,4 @@ Route::get('/categories', [DashboardController::class, 'categories']);
 Route::get('/albums', [DashboardController::class, 'albums']);
 Route::get('/artist', [DashboardController::class, 'artist']);
 Route::get('/create', [DashboardController::class, 'create']);
+Route::get('/login', [AuthController::class, 'index']);

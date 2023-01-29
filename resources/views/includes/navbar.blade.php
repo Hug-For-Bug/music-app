@@ -33,9 +33,9 @@
                     </a>
                 </li>
 
-                <li><a href="#modalSignUp" class="btn btn-primary nav-btn" data-toggle="modal"
+                <li><a href="{{ url('login') }}" class="btn btn-primary nav-btn" data-toggle="modal"
                         data-target="#modalSignUp">Sign
-                        Up</a>
+                        In</a>
                 </li>
             </ul>
 
