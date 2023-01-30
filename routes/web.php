@@ -25,3 +25,4 @@ Route::get('/albums', [DashboardController::class, 'albums']);
 Route::get('/artist', [DashboardController::class, 'artist']);
 Route::get('/create', [DashboardController::class, 'create']);
 Route::get('/login', [AuthController::class, 'index']);
+Route::get('/register', [AuthController::class, 'register']);

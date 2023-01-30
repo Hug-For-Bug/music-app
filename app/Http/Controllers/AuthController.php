@@ -13,8 +13,8 @@ class AuthController extends Controller
     public function index()
     {
         $data["navbarType"] = "top";
-        $login["login"] = true;
-        return view("pages.login", $data, $login);
+        $data["login"] = true;
+        return view("pages.login", $data);
     }
 
     public function login(Request $req)
@@ -59,6 +59,6 @@ class AuthController extends Controller
     {
         auth()->logout();
         session()->flash("message", "You Have Been Logged Out");
-        return redirect("");
+        return redirect("/login");
     }
 }
