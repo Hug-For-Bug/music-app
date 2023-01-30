@@ -24,5 +24,9 @@ Route::get('/categories', [DashboardController::class, 'categories']);
 Route::get('/albums', [DashboardController::class, 'albums']);
 Route::get('/artist', [DashboardController::class, 'artist']);
 Route::get('/create', [DashboardController::class, 'create']);
+
 Route::get('/login', [AuthController::class, 'index']);
+Route::get('/signIn', [AuthController::class, 'login']);
+
 Route::get('/register', [AuthController::class, 'register']);
+Route::post('/postRegister', [AuthController::class, 'postRegister']);

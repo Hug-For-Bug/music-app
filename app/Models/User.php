@@ -12,7 +12,9 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    // protected $guarded = 'id';
     protected $fillable = [
+        'id',
         'photo',
         'name',
         'email',
@@ -31,6 +33,6 @@ class User extends Authenticatable
     protected $table = 'users';
     protected $primaryKey = 'id';
     public $timestamps = true;
-    const CREATED_AT = 'created_date';
-    const UPDATED_AT = 'updated_date';
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
 }

@@ -14,43 +14,49 @@ class AuthController extends Controller
     {
         $data["navbarType"] = "top";
         $data["login"] = true;
-        return view("pages.login", $data);
+        return view("login", $data);
     }
 
     public function login(Request $req)
     {
         if (!Auth::attempt(["email" => $req->email, "password" => $req->password])) {
-            return response()->json([
-                "success" => false,
-                "message" => "Email / Password yang anda masukkan salah!"
-            ]);
+            // return response()->json([
+            //     "success" => false,
+            //     "message" => "Email / Password yang anda masukkan salah!"
+            // ]);
+            return redirect("/login");
         } else {
             $user = Auth::user();
-            return response()->json([
-                "success" => true,
-                "message" => "Login Berhasil",
-                "user" => $user,
-                "redirect" => "administrator"
-            ]);
+            // return response()->json([
+            //     "success" => true,
+            //     "message" => "Login Berhasil",
+            //     "user" => $user,
+            //     "redirect" => "administrator"
+            // ]);
+            dd($user);
         }
     }
 
     public function register()
     {
-        $data["role"] = DB::select("SELECT * FROM role");
+        // $data["role"] = DB::select("SELECT * FROM role");
+        $data["navbarType"] = "top";
+        $data["login"] = true;
         return view("register", $data);
     }
 
     public function postRegister(Request $req)
     {
         User::create([
-            "first_name" => $req->first_name,
-            "last_name" => $req->last_name,
-            "address" => $req->address,
-            "phone_number" => $req->phone_number,
+            "id" => "3cf5f68a-a0b8-11ed-9025-00163e01b81a",
+            "name" => $req->name,
             "email" => $req->email,
+            "phone" => $req->phone,
             "password" => Hash::make($req->password),
-            "id_role" => $req->role
+            "id_plan" => "1",
+            "id_role" => "1",
+            "verified_status" => "1",
+            "verified_at" => date("Y-m-d H:i:s")
         ]);
         return redirect("/");
     }

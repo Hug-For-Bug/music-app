@@ -15,30 +15,32 @@
                         <div class="mt-5">
                             <div class="row grid">
                                 <div class="col-md-7 card p-5">
-                                    <form class="form-material" action="https://xvelopers.com/demos/html/rekord/index.html">
+                                    <form class="form-material" method="GET" action="{{ url('signIn') }}">
+                                        @csrf
                                         <!-- Input -->
                                         <div class="body">
                                             <div class="form-group form-float">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control">
-                                                    <label class="form-label">Username</label>
+                                                    <input type="text" name="email" class="form-control">
+                                                    <label class="form-label">Email</label>
                                                 </div>
                                             </div>
                                             <div class="form-group form-float">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" name="password" class="form-control">
                                                     <label class="form-label">Password</label>
                                                 </div>
                                             </div>
 
-                                            <input type="submit" class="btn btn-outline-primary btn-sm pl-4 pr-4"
-                                                value="Log In">
 
-                                            <div class="pt-5">
-                                                <small><a href="#">Forgot Password?</a></small>
-                                            </div>
                                         </div>
                                         <!-- #END# Input -->
+                                        <input type="submit" class="btn btn-outline-primary btn-sm pl-4 pr-4"
+                                            value="Log In">
+
+                                        <div class="pt-5">
+                                            <small><a href="#">Forgot Password?</a></small>
+                                        </div>
                                     </form>
                                 </div>
                                 <div class="col-md-5  p-5">
@@ -47,8 +49,9 @@
                                     <div class="pt-3 mb-5">
                                         <p>Lorem ipsum dolor sit amet, sapiente tenetur ut, veritatis.</p>
                                     </div>
-                                    <input type="submit" value="Create Account"
-                                        class="btn btn-outline-primary s-14 pl-4 pr-4">
+                                    <a href="{{ url('register') }}"><input type="submit" value="Create Account"
+                                            class="btn btn-outline-primary s-14 pl-4 pr-4"></a>
+
 
 
                                 </div>
