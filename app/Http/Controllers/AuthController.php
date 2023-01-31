@@ -33,13 +33,13 @@ class AuthController extends Controller
             //     "user" => $user,
             //     "redirect" => "administrator"
             // ]);
-            dd($user);
+            print_r("Success Login");
+            die;
         }
     }
 
     public function register()
     {
-        // $data["role"] = DB::select("SELECT * FROM role");
         $data["navbarType"] = "top";
         $data["login"] = true;
         return view("register", $data);
@@ -47,8 +47,10 @@ class AuthController extends Controller
 
     public function postRegister(Request $req)
     {
+        date_default_timezone_set('Asia/Jakarta');
+        $uuid = DB::select("SELECT uuid() as uuid");
         User::create([
-            "id" => "3cf5f68a-a0b8-11ed-9025-00163e01b81a",
+            "id" => $uuid[0]->uuid,
             "name" => $req->name,
             "email" => $req->email,
             "phone" => $req->phone,
