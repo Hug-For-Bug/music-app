@@ -33,8 +33,7 @@ class AuthController extends Controller
             //     "user" => $user,
             //     "redirect" => "administrator"
             // ]);
-            print_r("Success Login");
-            die;
+            return redirect("/artist");
         }
     }
 
