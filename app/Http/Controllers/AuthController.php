@@ -27,13 +27,12 @@ class AuthController extends Controller
             return redirect("/login");
         } else {
             $user = Auth::user();
-            // return response()->json([
-            //     "success" => true,
-            //     "message" => "Login Berhasil",
-            //     "user" => $user,
-            //     "redirect" => "administrator"
-            // ]);
-            return redirect("/artist");
+            return response()->json([
+                "success" => true,
+                "message" => "Login Success",
+                "user" => $user,
+                "redirect" => "user"
+            ]);
         }
     }
 
