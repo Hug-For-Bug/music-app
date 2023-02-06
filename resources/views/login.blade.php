@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('user.layouts.default')
 @section('content')
     <main>
         <div id="primary">

@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\user\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+
+//Admin
+Route::get('/administrator', [AdminController::class, 'index']);
+
+//User
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/categories', [DashboardController::class, 'categories']);
 Route::get('/albums', [DashboardController::class, 'albums']);
