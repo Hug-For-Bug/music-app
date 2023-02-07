@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 //Admin
 Route::get('/administrator', [AdminController::class, 'index']);
+Route::get('/administrator/list-admin', [AdminController::class, 'listAdmin']);
+Route::get('/administrator/list-user', [AdminController::class, 'listUser']);
 
 //User
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');

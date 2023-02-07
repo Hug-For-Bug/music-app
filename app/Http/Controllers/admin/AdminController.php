@@ -9,7 +9,14 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view("admin.layouts.default");
-        // dd('test');
+        return view("admin.pages.home");
+    }
+    public function listAdmin()
+    {
+        return view("admin.pages.list-admin");
+    }
+    public function listUser()
+    {
+        return view("admin.pages.list-user");
     }
 }
