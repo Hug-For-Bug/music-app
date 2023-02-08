@@ -32,4 +32,10 @@ class DashboardController extends Controller
         $data["login"] = false;
         return view("user.pages.artist", $data);
     }
+    public function profile()
+    {
+        $data["navbarType"] = "side";
+        $data["login"] = false;
+        return view("user.pages.profile", $data);
+    }
 }
