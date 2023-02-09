@@ -11,12 +11,8 @@ class AdminController extends Controller
     {
         return view("admin.pages.home");
     }
-    public function listAdmin()
+    public function listData()
     {
-        return view("admin.pages.list-admin");
-    }
-    public function listUser()
-    {
-        return view("admin.pages.list-user");
+        return view("admin.pages.list-data");
     }
 }

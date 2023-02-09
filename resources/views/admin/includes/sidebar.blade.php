@@ -7,14 +7,9 @@
                     <span class="nav-text">dashboard</span>
                 </a>
             </li>
-            <li><a href="{{ url('administrator/list-admin') }}" class="ai-icon" aria-expanded="false">
+            <li><a href="{{ url('administrator/list-data') }}" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-settings-2"></i>
-                    <span class="nav-text">List Admin</span>
-                </a>
-            </li>
-            <li><a href="{{ url('administrator/list-user') }}" class="ai-icon" aria-expanded="false">
-                    <i class="flaticon-381-settings-2"></i>
-                    <span class="nav-text">List User</span>
+                    <span class="nav-text font-size">List Data</span>
                 </a>
             </li>
 
