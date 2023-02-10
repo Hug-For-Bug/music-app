@@ -55,25 +55,10 @@
                                                                 <div class="modal-body">
                                                                     <div class="form-validation">
                                                                         <form class="form-valide" action="#"
-                                                                            method="post">
+                                                                            method="POST">
                                                                             <div class="row">
                                                                                 <div class="col-6">
 
-                                                                                    <div class="form-group row">
-                                                                                        <label
-                                                                                            class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Photo
-                                                                                            <span
-                                                                                                class="text-danger">*</span>
-                                                                                        </label>
-                                                                                        <div class="col-lg-8">
-                                                                                            <input type="text"
-                                                                                                class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
-                                                                                                placeholder="Enter a username..">
-                                                                                        </div>
-                                                                                    </div>
                                                                                     <div class="form-group row">
                                                                                         <label
                                                                                             class="col-lg-4 col-form-label"
@@ -104,10 +89,6 @@
                                                                                                 placeholder="Enter a username..">
                                                                                         </div>
                                                                                     </div>
-
-                                                                                </div>
-
-                                                                                <div class="col-xl-6">
                                                                                     <div class="form-group row">
                                                                                         <label
                                                                                             class="col-lg-4 col-form-label"
@@ -122,6 +103,30 @@
                                                                                                 name="val-username"
                                                                                                 placeholder="Enter a username..">
                                                                                         </div>
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                                <div class="col-xl-6">
+
+                                                                                    <div class="form-group row">
+                                                                                        <label
+                                                                                            class="col-lg-4 col-form-label"
+                                                                                            for="val-username">Gender
+                                                                                            <span
+                                                                                                class="text-danger">*</span>
+                                                                                        </label>
+                                                                                        <select class="col-lg-8"
+                                                                                            id="inlineFormCustomSelect">
+                                                                                            <option selected>Choose...
+                                                                                            </option>
+                                                                                            <option value="1">One
+                                                                                            </option>
+                                                                                            <option value="2">Two
+                                                                                            </option>
+                                                                                            <option value="3">Three
+                                                                                            </option>
+                                                                                        </select>
                                                                                     </div>
                                                                                     <div class="form-group row">
                                                                                         <label
@@ -156,17 +161,38 @@
                                                                                     </div>
 
                                                                                 </div>
+                                                                                <div class="col-xl-12">
+                                                                                    <div
+                                                                                        class="form-group row basic-form custom_file_input">
+                                                                                        <label
+                                                                                            class="col-sm-2 col-form-label"
+                                                                                            for="val-username">Photo
+                                                                                        </label>
+                                                                                        <div class="input-group col-lg-10">
+                                                                                            <div class="custom-file">
+                                                                                                <input type="file"
+                                                                                                    class="custom-file-input">
+                                                                                                <label
+                                                                                                    class="custom-file-label">Choose
+                                                                                                    file</label>
+
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
 
                                                                             </div>
-                                                                        </form>
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-danger light"
                                                                         data-dismiss="modal">Close</button>
-                                                                    <button type="button" class="btn btn-primary">Save
+                                                                    <button type="submit" class="btn btn-primary">Save
                                                                         changes</button>
                                                                 </div>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -246,25 +272,10 @@
                                                                 <div class="modal-body">
                                                                     <div class="form-validation">
                                                                         <form class="form-valide" action="#"
-                                                                            method="post">
+                                                                            method="POST">
                                                                             <div class="row">
                                                                                 <div class="col-6">
 
-                                                                                    <div class="form-group row">
-                                                                                        <label
-                                                                                            class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Photo
-                                                                                            <span
-                                                                                                class="text-danger">*</span>
-                                                                                        </label>
-                                                                                        <div class="col-lg-8">
-                                                                                            <input type="text"
-                                                                                                class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
-                                                                                                placeholder="Enter a username..">
-                                                                                        </div>
-                                                                                    </div>
                                                                                     <div class="form-group row">
                                                                                         <label
                                                                                             class="col-lg-4 col-form-label"
@@ -295,10 +306,6 @@
                                                                                                 placeholder="Enter a username..">
                                                                                         </div>
                                                                                     </div>
-
-                                                                                </div>
-
-                                                                                <div class="col-xl-6">
                                                                                     <div class="form-group row">
                                                                                         <label
                                                                                             class="col-lg-4 col-form-label"
@@ -313,6 +320,30 @@
                                                                                                 name="val-username"
                                                                                                 placeholder="Enter a username..">
                                                                                         </div>
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                                <div class="col-xl-6">
+
+                                                                                    <div class="form-group row">
+                                                                                        <label
+                                                                                            class="col-lg-4 col-form-label"
+                                                                                            for="val-username">Gender
+                                                                                            <span
+                                                                                                class="text-danger">*</span>
+                                                                                        </label>
+                                                                                        <select class="col-lg-8"
+                                                                                            id="inlineFormCustomSelect">
+                                                                                            <option selected>Choose...
+                                                                                            </option>
+                                                                                            <option value="1">One
+                                                                                            </option>
+                                                                                            <option value="2">Two
+                                                                                            </option>
+                                                                                            <option value="3">Three
+                                                                                            </option>
+                                                                                        </select>
                                                                                     </div>
                                                                                     <div class="form-group row">
                                                                                         <label
@@ -347,9 +378,29 @@
                                                                                     </div>
 
                                                                                 </div>
+                                                                                <div class="col-xl-12">
+                                                                                    <div
+                                                                                        class="form-group row basic-form custom_file_input">
+                                                                                        <label
+                                                                                            class="col-sm-2 col-form-label"
+                                                                                            for="val-username">Photo
+                                                                                        </label>
+                                                                                        <div class="input-group col-lg-10">
+                                                                                            <div class="custom-file">
+                                                                                                <input type="file"
+                                                                                                    class="custom-file-input">
+                                                                                                <label
+                                                                                                    class="custom-file-label">Choose
+                                                                                                    file</label>
+
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
 
                                                                             </div>
-                                                                        </form>
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
