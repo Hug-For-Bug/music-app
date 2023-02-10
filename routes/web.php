@@ -24,6 +24,10 @@ use Illuminate\Support\Facades\Route;
 //Admin
 Route::get('/administrator', [AdminController::class, 'index']);
 
+Route::get('/administrator/list-data', [AdminController::class, 'listData']);
+Route::post('/administrator/post-data-admin', [AdminController::class, 'postAdmin']);
+Route::post('/administrator/post-data-user', [AdminController::class, 'postUser']);
+
 //User
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/categories', [DashboardController::class, 'categories']);
@@ -35,4 +39,4 @@ Route::get('/login', [AuthController::class, 'index']);
 Route::get('/signIn', [AuthController::class, 'login']);
 
 Route::get('/register', [AuthController::class, 'register']);
-Route::post('/postRegister', [AuthController::class, 'postRegister']);
+Route::post('/post-register', [AuthController::class, 'postRegister']);
