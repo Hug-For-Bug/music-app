@@ -20,19 +20,29 @@ class AuthController extends Controller
     public function login(Request $req)
     {
         if (!Auth::attempt(["email" => $req->email, "password" => $req->password])) {
-            // return response()->json([
-            //     "success" => false,
-            //     "message" => "Email / Password yang anda masukkan salah!"
-            // ]);
+            return response()->json([
+                "success" => false,
+                "message" => "Email / Password yang anda masukkan salah!"
+            ]);
             return redirect("/login");
         } else {
             $user = Auth::user();
-            return response()->json([
-                "success" => true,
-                "message" => "Login Success",
-                "user" => $user,
-                "redirect" => "user"
-            ]);
+            if($user->id_role == 1){
+               return response()->json([
+                    "success" => true,
+                    "message" => "Login Success",
+                    "user" => $user,
+                    "redirect" => "administrator"
+                ]); 
+            } else {
+                return response()->json([
+                    "success" => true,
+                    "message" => "Login Success",
+                    "user" => $user,
+                    "redirect" => "user"
+                ]);
+            }
+            
         }
     }
 
