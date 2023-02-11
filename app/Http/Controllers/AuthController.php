@@ -34,6 +34,7 @@ class AuthController extends Controller
                     "user" => $user,
                     "redirect" => "administrator"
                 ]); 
+                session()->flash('admin_login');
             } else {
                 return response()->json([
                     "success" => true,
@@ -41,6 +42,7 @@ class AuthController extends Controller
                     "user" => $user,
                     "redirect" => "user"
                 ]);
+                session()->flash('user_login');
             }
             
         }
@@ -56,9 +58,10 @@ class AuthController extends Controller
     public function postRegister(Request $req)
     {
         date_default_timezone_set('Asia/Jakarta');
-        $uuid = DB::select("SELECT uuid() as uuid");
+        $getUUID = DB::select("SELECT uuid() as uuid");
+        $uuid = $getUUID[0]->uuid;
         User::create([
-            "id" => $uuid[0]->uuid,
+            "id" => $uuid,
             "name" => $req->name,
             "email" => $req->email,
             "phone" => $req->phone,
