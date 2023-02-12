@@ -24,7 +24,6 @@ class AuthController extends Controller
                 "success" => false,
                 "message" => "Email / Password yang anda masukkan salah!"
             ]);
-            return redirect("/login");
         } else {
             $user = Auth::user();
             if($user->id_role == 1){
@@ -34,7 +33,6 @@ class AuthController extends Controller
                     "user" => $user,
                     "redirect" => "administrator"
                 ]); 
-                session()->flash('admin_login');
             } else {
                 return response()->json([
                     "success" => true,
@@ -42,7 +40,6 @@ class AuthController extends Controller
                     "user" => $user,
                     "redirect" => "user"
                 ]);
-                session()->flash('user_login');
             }
             
         }
