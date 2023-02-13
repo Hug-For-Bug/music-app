@@ -54,8 +54,9 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <div class="form-validation">
-                                                                        <form class="form-valide" action="#"
-                                                                            method="POST">
+                                                                        <form class="form-valide" method="POST"
+                                                                            action="{{ url('administrator/post-data-user') }}">
+                                                                            @csrf
                                                                             <div class="row">
                                                                                 <div class="col-6">
 
@@ -69,8 +70,8 @@
                                                                                         <div class="col-lg-8">
                                                                                             <input type="text"
                                                                                                 class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
+                                                                                                id="name"
+                                                                                                name="name"
                                                                                                 placeholder="Enter a username..">
                                                                                         </div>
                                                                                     </div>
@@ -82,11 +83,11 @@
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
                                                                                         <div class="col-lg-8">
-                                                                                            <input type="text"
+                                                                                            <input type="email"
                                                                                                 class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
-                                                                                                placeholder="Enter a username..">
+                                                                                                id="email"
+                                                                                                name="email"
+                                                                                                placeholder="Enter a email..">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group row">
@@ -97,10 +98,10 @@
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
                                                                                         <div class="col-lg-8">
-                                                                                            <input type="text"
+                                                                                            <input type="tel"
                                                                                                 class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
+                                                                                                id="phone"
+                                                                                                name="phone"
                                                                                                 placeholder="Enter a username..">
                                                                                         </div>
                                                                                     </div>
@@ -117,14 +118,12 @@
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
                                                                                         <select class="col-lg-8"
-                                                                                            id="inlineFormCustomSelect">
+                                                                                            id="gender" name="gender">
                                                                                             <option selected>Choose...
                                                                                             </option>
-                                                                                            <option value="1">One
+                                                                                            <option value="male">Male
                                                                                             </option>
-                                                                                            <option value="2">Two
-                                                                                            </option>
-                                                                                            <option value="3">Three
+                                                                                            <option value="female">Female
                                                                                             </option>
                                                                                         </select>
                                                                                     </div>
@@ -136,11 +135,11 @@
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
                                                                                         <div class="col-lg-8">
-                                                                                            <input type="text"
+                                                                                            <input type="password"
                                                                                                 class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
-                                                                                                placeholder="Enter a username..">
+                                                                                                id="password"
+                                                                                                name="password"
+                                                                                                placeholder="Enter a password..">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group row">
@@ -152,11 +151,20 @@
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
                                                                                         <div class="col-lg-8">
-                                                                                            <input type="text"
+                                                                                            <input type="password"
                                                                                                 class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
+                                                                                                id="password-confirmation"
+                                                                                                name="password-confirmation"
                                                                                                 placeholder="Enter a username..">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group row">
+                                                                                        <div class="col-lg-8">
+                                                                                            <input type="hidden"
+                                                                                                class="form-control"
+                                                                                                id="id_role"
+                                                                                                name="id_role"
+                                                                                                value="1">
                                                                                         </div>
                                                                                     </div>
 
@@ -271,8 +279,10 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <div class="form-validation">
-                                                                        <form class="form-valide" action="#"
+                                                                        <form class="form-valide"
+                                                                            action="{{ url('administrator/post-data-user') }}"
                                                                             method="POST">
+                                                                            @csrf
                                                                             <div class="row">
                                                                                 <div class="col-6">
 
@@ -286,8 +296,8 @@
                                                                                         <div class="col-lg-8">
                                                                                             <input type="text"
                                                                                                 class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
+                                                                                                id="name"
+                                                                                                name="name"
                                                                                                 placeholder="Enter a username..">
                                                                                         </div>
                                                                                     </div>
@@ -299,11 +309,11 @@
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
                                                                                         <div class="col-lg-8">
-                                                                                            <input type="text"
+                                                                                            <input type="email"
                                                                                                 class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
-                                                                                                placeholder="Enter a username..">
+                                                                                                id="email"
+                                                                                                name="email"
+                                                                                                placeholder="Enter a email..">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group row">
@@ -314,11 +324,11 @@
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
                                                                                         <div class="col-lg-8">
-                                                                                            <input type="text"
+                                                                                            <input type="tel"
                                                                                                 class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
-                                                                                                placeholder="Enter a username..">
+                                                                                                id="phone"
+                                                                                                name="phone"
+                                                                                                placeholder="Enter a No Phone..">
                                                                                         </div>
                                                                                     </div>
 
@@ -353,11 +363,11 @@
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
                                                                                         <div class="col-lg-8">
-                                                                                            <input type="text"
+                                                                                            <input type="password"
                                                                                                 class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
-                                                                                                placeholder="Enter a username..">
+                                                                                                id="password"
+                                                                                                name="password"
+                                                                                                placeholder="Enter a password..">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group row">
@@ -369,11 +379,20 @@
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
                                                                                         <div class="col-lg-8">
-                                                                                            <input type="text"
+                                                                                            <input type="password"
                                                                                                 class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
+                                                                                                id="password-confirmation"
+                                                                                                name="password-confirmation"
                                                                                                 placeholder="Enter a username..">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group row">
+                                                                                        <div>
+                                                                                            <input type="hidden"
+                                                                                                class="form-control"
+                                                                                                id="id_role"
+                                                                                                name="id_role"
+                                                                                                value="2">
                                                                                         </div>
                                                                                     </div>
 
@@ -406,9 +425,10 @@
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-danger light"
                                                                         data-dismiss="modal">Close</button>
-                                                                    <button type="button" class="btn btn-primary">Save
+                                                                    <button type="submit" class="btn btn-primary">Save
                                                                         changes</button>
                                                                 </div>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
