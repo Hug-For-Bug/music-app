@@ -21,23 +21,6 @@ class AdminController extends Controller
         return view("admin.pages.list-data");
     }
 
-    public function postAdmin(Request $req)
-    {
-        User::create([
-            "id" => $this->uuid(),
-            "photo" => $req->photo,
-            "name" => $req->name,
-            "email" => $req->email,
-            "phone" => $req->phone,
-            "gender" => $req->gender,
-            "password" => Hash::make($req->password),
-            "id_plan" => "1",
-            "id_role" => "1",
-            "verified_status" => "1",
-            "verified_at" => date("Y-m-d H:i:s")
-        ]);
-    }
-
     public function postUser(Request $req)
     {
         User::create([
@@ -49,15 +32,15 @@ class AdminController extends Controller
             "gender" => $req->gender,
             "password" => Hash::make($req->password),
             "id_plan" => "1",
-            "id_role" => "2",
-            "verified_status" => "1",
+            "id_role" => $req->id_role,
+            "verified_status" => "0",
             "verified_at" => date("Y-m-d H:i:s")
         ]);
     }
     
     public function getUUID(){
-        $data = DB::select("SELECT uuid() as uuid");
-        $uuid = $data[0]->uuid;
+        $data = DB::select("SELECT uuid() as uuid_value");
+        $uuid = $data[0]->uuid_value;
         return $uuid;
     }
 }
