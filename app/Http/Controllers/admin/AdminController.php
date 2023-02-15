@@ -16,15 +16,16 @@ class AdminController extends Controller
     }
     public function listData()
     {
+        $data['role'] = DB::select("SELECT * FROM role");
+        $data['plan'] = DB::select("SELECT * FROM plan");
         return view("admin.pages.list-data");
     }
 
     public function postUser(Request $req)
     {
-        // dd($req->all());
         $uuid = DB::select("SELECT uuid() as uuid");
         User::create([
-            "id" => $uuid[0]->uuid,
+            "id" => $uuid,
             "photo" => $req->photo,
             "name" => $req->name,
             "email" => $req->email,
@@ -33,7 +34,7 @@ class AdminController extends Controller
             "password" => Hash::make($req->password),
             "id_plan" => "1",
             "id_role" => $req->id_role,
-            "verified_status" => "1",
+            "verified_status" => "0",
             "verified_at" => date("Y-m-d H:i:s")
         ]);
         return redirect("/administrator/list-data");
