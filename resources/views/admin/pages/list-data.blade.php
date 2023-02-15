@@ -63,7 +63,7 @@
                                                                                     <div class="form-group row">
                                                                                         <label
                                                                                             class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Name
+                                                                                            for="name">Name
                                                                                             <span
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
@@ -72,13 +72,13 @@
                                                                                                 class="form-control"
                                                                                                 id="name"
                                                                                                 name="name"
-                                                                                                placeholder="Enter a username..">
+                                                                                                placeholder="Username">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group row">
                                                                                         <label
                                                                                             class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Email
+                                                                                            for="email">Email
                                                                                             <span
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
@@ -87,13 +87,13 @@
                                                                                                 class="form-control"
                                                                                                 id="email"
                                                                                                 name="email"
-                                                                                                placeholder="Enter a email..">
+                                                                                                placeholder="Email">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group row">
                                                                                         <label
                                                                                             class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Phone
+                                                                                            for="phone">Phone
                                                                                             <span
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
@@ -102,7 +102,7 @@
                                                                                                 class="form-control"
                                                                                                 id="phone"
                                                                                                 name="phone"
-                                                                                                placeholder="Enter a username..">
+                                                                                                placeholder="Phone Number">
                                                                                         </div>
                                                                                     </div>
 
@@ -113,13 +113,13 @@
                                                                                     <div class="form-group row">
                                                                                         <label
                                                                                             class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Gender
+                                                                                            for="gender">Gender
                                                                                             <span
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
                                                                                         <select class="col-lg-8"
                                                                                             id="gender" name="gender">
-                                                                                            <option selected>Choose...
+                                                                                            <option selected>Choose Gender
                                                                                             </option>
                                                                                             <option value="male">Male
                                                                                             </option>
@@ -130,7 +130,7 @@
                                                                                     <div class="form-group row">
                                                                                         <label
                                                                                             class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Password
+                                                                                            for="password">Password
                                                                                             <span
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
@@ -139,13 +139,13 @@
                                                                                                 class="form-control"
                                                                                                 id="password"
                                                                                                 name="password"
-                                                                                                placeholder="Enter a password..">
+                                                                                                placeholder="Password">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group row">
                                                                                         <label
                                                                                             class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Confirm
+                                                                                            for="password_confirmation">Confirm
                                                                                             Password
                                                                                             <span
                                                                                                 class="text-danger">*</span>
@@ -153,9 +153,9 @@
                                                                                         <div class="col-lg-8">
                                                                                             <input type="password"
                                                                                                 class="form-control"
-                                                                                                id="password-confirmation"
-                                                                                                name="password-confirmation"
-                                                                                                placeholder="Enter a username..">
+                                                                                                id="password_confirmation"
+                                                                                                name="password_confirmation"
+                                                                                                placeholder="Confirm Password">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group row">
@@ -174,7 +174,7 @@
                                                                                         class="form-group row basic-form custom_file_input">
                                                                                         <label
                                                                                             class="col-sm-2 col-form-label"
-                                                                                            for="val-username">Photo
+                                                                                            for="photo">Photo
                                                                                         </label>
                                                                                         <div class="input-group col-lg-10">
                                                                                             <div class="custom-file">
@@ -211,6 +211,7 @@
                                                         <table id="example3" class="display min-w850">
                                                             <thead>
                                                                 <tr>
+                                                                    <th>No</th>
                                                                     <th>Photo</th>
                                                                     <th>Name</th>
                                                                     <th>Email</th>
@@ -221,31 +222,40 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <td><img class="rounded-circle" width="35"
-                                                                            src="{{ asset('admin/images/profile/small/pic1.jpg') }}"
-                                                                            alt="">
-                                                                    </td>
-                                                                    <td>Tiger Nixon</td>
-                                                                    <td><a
-                                                                            href="javascript:void(0);"><strong>info@example.com</strong></a>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0);"><strong>123 456
-                                                                                7890</strong></a></td>
-                                                                    <td>Male</td>
-                                                                    <td>2011/04/25</td>
-                                                                    <td>
-                                                                        <div class="d-flex">
-                                                                            <a href="#"
-                                                                                class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                                                                    class="fa fa-pencil"></i></a>
-                                                                            <a href="#"
-                                                                                class="btn btn-danger shadow btn-xs sharp"><i
-                                                                                    class="fa fa-trash"></i></a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-
+                                                                @php
+                                                                    $no = 1;
+                                                                @endphp
+                                                                @foreach ($listData as $data)
+                                                                    @if ($data->id_role == 1)
+                                                                        <tr>
+                                                                            <td>{{ $no++ }}</td>
+                                                                            <td><img class="rounded-circle" width="35"
+                                                                                    src="{{ asset('admin/images/profile/small/pic1.jpg') }}"
+                                                                                    alt="">
+                                                                            </td>
+                                                                            <td>{{ $data->name }}</td>
+                                                                            <td><a
+                                                                                    href="javascript:void(0);"><strong>{{ $data->email }}</strong></a>
+                                                                            </td>
+                                                                            <td><a
+                                                                                    href="javascript:void(0);"><strong>{{ $data->phone }}</strong></a>
+                                                                            </td>
+                                                                            <td>{{ $data->gender }}</td>
+                                                                            <td>{{ date('d F Y', strtotime($data->created_at)) }}
+                                                                            </td>
+                                                                            <td>
+                                                                                <div class="d-flex">
+                                                                                    <a href="#"
+                                                                                        class="btn btn-primary shadow btn-xs sharp mr-1"><i
+                                                                                            class="fa fa-pencil"></i></a>
+                                                                                    <a href="#"
+                                                                                        class="btn btn-danger shadow btn-xs sharp"><i
+                                                                                            class="fa fa-trash"></i></a>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    @endif
+                                                                @endforeach
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -279,9 +289,8 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <div class="form-validation">
-                                                                        <form class="form-valide"
-                                                                            action="{{ url('administrator/post-data-user') }}"
-                                                                            method="POST">
+                                                                        <form class="form-valide" method="POST"
+                                                                            action="{{ url('administrator/post-data-user') }}">
                                                                             @csrf
                                                                             <div class="row">
                                                                                 <div class="col-6">
@@ -289,7 +298,7 @@
                                                                                     <div class="form-group row">
                                                                                         <label
                                                                                             class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Name
+                                                                                            for="name">Name
                                                                                             <span
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
@@ -298,13 +307,13 @@
                                                                                                 class="form-control"
                                                                                                 id="name"
                                                                                                 name="name"
-                                                                                                placeholder="Enter a username..">
+                                                                                                placeholder="Username">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group row">
                                                                                         <label
                                                                                             class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Email
+                                                                                            for="email">Email
                                                                                             <span
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
@@ -313,13 +322,13 @@
                                                                                                 class="form-control"
                                                                                                 id="email"
                                                                                                 name="email"
-                                                                                                placeholder="Enter a email..">
+                                                                                                placeholder="Email">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group row">
                                                                                         <label
                                                                                             class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Phone
+                                                                                            for="phone">Phone
                                                                                             <span
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
@@ -328,7 +337,7 @@
                                                                                                 class="form-control"
                                                                                                 id="phone"
                                                                                                 name="phone"
-                                                                                                placeholder="Enter a No Phone..">
+                                                                                                placeholder="Phone Number">
                                                                                         </div>
                                                                                     </div>
 
@@ -339,26 +348,24 @@
                                                                                     <div class="form-group row">
                                                                                         <label
                                                                                             class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Gender
+                                                                                            for="gender">Gender
                                                                                             <span
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
                                                                                         <select class="col-lg-8"
-                                                                                            id="inlineFormCustomSelect">
-                                                                                            <option selected>Choose...
+                                                                                            id="gender" name="gender">
+                                                                                            <option selected>Choose Gender
                                                                                             </option>
-                                                                                            <option value="1">One
+                                                                                            <option value="male">Male
                                                                                             </option>
-                                                                                            <option value="2">Two
-                                                                                            </option>
-                                                                                            <option value="3">Three
+                                                                                            <option value="female">Female
                                                                                             </option>
                                                                                         </select>
                                                                                     </div>
                                                                                     <div class="form-group row">
                                                                                         <label
                                                                                             class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Password
+                                                                                            for="password">Password
                                                                                             <span
                                                                                                 class="text-danger">*</span>
                                                                                         </label>
@@ -367,13 +374,13 @@
                                                                                                 class="form-control"
                                                                                                 id="password"
                                                                                                 name="password"
-                                                                                                placeholder="Enter a password..">
+                                                                                                placeholder="Password">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group row">
                                                                                         <label
                                                                                             class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Confirm
+                                                                                            for="password_confirmation">Confirm
                                                                                             Password
                                                                                             <span
                                                                                                 class="text-danger">*</span>
@@ -381,13 +388,13 @@
                                                                                         <div class="col-lg-8">
                                                                                             <input type="password"
                                                                                                 class="form-control"
-                                                                                                id="password-confirmation"
-                                                                                                name="password-confirmation"
-                                                                                                placeholder="Enter a username..">
+                                                                                                id="password_confirmation"
+                                                                                                name="password_confirmation"
+                                                                                                placeholder="Confirm Password">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group row">
-                                                                                        <div>
+                                                                                        <div class="col-lg-8">
                                                                                             <input type="hidden"
                                                                                                 class="form-control"
                                                                                                 id="id_role"
@@ -402,7 +409,7 @@
                                                                                         class="form-group row basic-form custom_file_input">
                                                                                         <label
                                                                                             class="col-sm-2 col-form-label"
-                                                                                            for="val-username">Photo
+                                                                                            for="photo">Photo
                                                                                         </label>
                                                                                         <div class="input-group col-lg-10">
                                                                                             <div class="custom-file">
@@ -439,6 +446,7 @@
                                                         <table id="example3" class="display min-w850">
                                                             <thead>
                                                                 <tr>
+                                                                    <th>No</th>
                                                                     <th>Photo</th>
                                                                     <th>Name</th>
                                                                     <th>Email</th>
@@ -449,31 +457,40 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <td><img class="rounded-circle" width="35"
-                                                                            src="{{ asset('admin/images/profile/small/pic1.jpg') }}"
-                                                                            alt="">
-                                                                    </td>
-                                                                    <td>Tiger Nixon</td>
-                                                                    <td><a
-                                                                            href="javascript:void(0);"><strong>info@example.com</strong></a>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0);"><strong>123 456
-                                                                                7890</strong></a></td>
-                                                                    <td>Male</td>
-                                                                    <td>2011/04/25</td>
-                                                                    <td>
-                                                                        <div class="d-flex">
-                                                                            <a href="#"
-                                                                                class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                                                                    class="fa fa-pencil"></i></a>
-                                                                            <a href="#"
-                                                                                class="btn btn-danger shadow btn-xs sharp"><i
-                                                                                    class="fa fa-trash"></i></a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-
+                                                                @php
+                                                                    $no = 1;
+                                                                @endphp
+                                                                @foreach ($listData as $data)
+                                                                    @if ($data->id_role == 2)
+                                                                        <tr>
+                                                                            <td>{{ $no++ }}</td>
+                                                                            <td><img class="rounded-circle" width="35"
+                                                                                    src="{{ asset('admin/images/profile/small/pic1.jpg') }}"
+                                                                                    alt="">
+                                                                            </td>
+                                                                            <td>{{ $data->name }}</td>
+                                                                            <td><a
+                                                                                    href="javascript:void(0);"><strong>{{ $data->email }}</strong></a>
+                                                                            </td>
+                                                                            <td><a
+                                                                                    href="javascript:void(0);"><strong>{{ $data->phone }}</strong></a>
+                                                                            </td>
+                                                                            <td>{{ $data->gender }}</td>
+                                                                            <td>{{ date('d F Y', strtotime($data->created_at)) }}
+                                                                            </td>
+                                                                            <td>
+                                                                                <div class="d-flex">
+                                                                                    <a href="#"
+                                                                                        class="btn btn-primary shadow btn-xs sharp mr-1"><i
+                                                                                            class="fa fa-pencil"></i></a>
+                                                                                    <a href="#"
+                                                                                        class="btn btn-danger shadow btn-xs sharp"><i
+                                                                                            class="fa fa-trash"></i></a>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    @endif
+                                                                @endforeach
                                                             </tbody>
                                                         </table>
                                                     </div>
