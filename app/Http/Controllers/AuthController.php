@@ -20,20 +20,28 @@ class AuthController extends Controller
     public function login(Request $req)
     {
         if (!Auth::attempt(["email" => $req->email, "password" => $req->password])) {
-            // return response()->json([
-            //     "success" => false,
-            //     "message" => "Email / Password yang anda masukkan salah!"
-            // ]);
-            return redirect("/login");
+            return response()->json([
+                "success" => false,
+                "message" => "Email / Password yang anda masukkan salah!"
+            ]);
         } else {
             $user = Auth::user();
-            // return response()->json([
-            //     "success" => true,
-            //     "message" => "Login Berhasil",
-            //     "user" => $user,
-            //     "redirect" => "administrator"
-            // ]);
-            return redirect("/artist");
+            if($user->id_role == 1){
+               return response()->json([
+                    "success" => true,
+                    "message" => "Login Success",
+                    "user" => $user,
+                    "redirect" => "administrator"
+                ]); 
+            } else {
+                return response()->json([
+                    "success" => true,
+                    "message" => "Login Success",
+                    "user" => $user,
+                    "redirect" => "user"
+                ]);
+            }
+            
         }
     }
 
@@ -47,9 +55,10 @@ class AuthController extends Controller
     public function postRegister(Request $req)
     {
         date_default_timezone_set('Asia/Jakarta');
-        $uuid = DB::select("SELECT uuid() as uuid");
+        $getUUID = DB::select("SELECT uuid() as uuid");
+        $uuid = $getUUID[0]->uuid;
         User::create([
-            "id" => $uuid[0]->uuid,
+            "id" => $uuid,
             "name" => $req->name,
             "email" => $req->email,
             "phone" => $req->phone,
