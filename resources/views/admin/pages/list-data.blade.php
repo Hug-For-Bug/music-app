@@ -497,22 +497,22 @@
     <!-- End Modal Edit Admin -->
 
     <!-- Modal Delete Admin -->
-    {{-- @foreach ($category as $ca)
-        <div class="modal fade" id="modalDelete{{ $ca->id_category }}">
+    @foreach ($listData as $data)
+        <div class="modal fade" id="modalDeleteAdmin{{ $data->id }}">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Hapus Data</h5>
+                        <h5 class="modal-title">Delete Data Admin</h5>
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ url('deleteCategory') }}" method="post">
+                        <form action="{{ url('/administrator/delete-data-user') }}" method="POST">
                             @csrf
-                            <input type="hidden" name="id_category" value="{{ $ca->id_category }}">
+                            <input type="hidden" name="id" value="{{ $data->id }}">
 
                             <div class="alert alert-danger text-center">
-                                Apakah anda yakin akan menghapus data bernama <b>{{ $ca->nama_category }}</b> ?
+                                Are you sure you want to delete data named <b>{{ $data->name }}</b> ?
                             </div>
                     </div>
                     <div class="modal-footer">
@@ -523,7 +523,7 @@
                 </div>
             </div>
         </div>
-    @endforeach --}}
+    @endforeach
     <!-- End Modal Delete Admin -->
 
     <!-- Modal Create User -->
@@ -770,6 +770,36 @@
         </div>
     @endforeach
     <!-- End Modal Edit User -->
+
+    <!-- Modal Delete User -->
+    @foreach ($listData as $data)
+        <div class="modal fade" id="modalDeleteUser{{ $data->id }}">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete Data User</h5>
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ url('/administrator/delete-data-user') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $data->id }}">
+
+                            <div class="alert alert-danger text-center">
+                                Are you sure you want to delete data named <b>{{ $data->name }}</b> ?
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success light" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+    <!-- End Modal Delete User -->
 
     @push('after-script')
         <!-- Datatable -->

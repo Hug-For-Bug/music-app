@@ -33,9 +33,7 @@ class DataUserController extends Controller
     {
         // dd($req->all());
         date_default_timezone_set('Asia/Jakarta');
-        $user = User::where('id', $req->id);
-
-        $user->update([
+        User::where('id', $req->id)->update([
             "photo" => $req->photo,
             "name" => $req->name,
             "email" => $req->email,
@@ -50,9 +48,12 @@ class DataUserController extends Controller
         return redirect("/administrator/list-data");
     }
 
-    // public function deleteUser()
-    // {
-    // }
+    public function deleteUser(Request $req)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        User::where('id', $req->id)->delete();
+        return redirect("/administrator/list-data");
+    }
 
     public function getUUID()
     {
