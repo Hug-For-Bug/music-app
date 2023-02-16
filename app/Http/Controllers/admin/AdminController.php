@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 
-use App\Http\Controllers\Controller;
+use App\Models\Plan;
+use App\Models\Role;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
@@ -14,7 +17,8 @@ class AdminController extends Controller
     }
     public function listData()
     {
-        $data['listData'] = User::all();
+        // $data["plan"] = Plan::all();
+        $data["listData"] = User::all();
         return view("admin.pages.list-data", $data);
     }
 }

@@ -26,7 +26,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/administrator', [AdminController::class, 'index']);
 
 Route::get('/administrator/list-data', [AdminController::class, 'listData']);
-Route::post('/administrator/post-data-user', [DataUserController::class, 'addUser']);
+Route::post('/administrator/add-data-user', [DataUserController::class, 'addUser']);
+Route::post('/administrator/edit-data-user', [DataUserController::class, 'editUser']);
 
 //User
 Route::get('/', [UserController::class, 'index'])->name('dashboard');
