@@ -30,8 +30,11 @@ class User extends Authenticatable
         'password',
     ];
 
+
+
     protected $table = 'users';
     protected $primaryKey = 'id';
+    protected $keyType = 'string';
     public $timestamps = true;
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';

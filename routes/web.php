@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\DataUserController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\user\DashboardController;
+use App\Http\Controllers\user\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,15 +26,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/administrator', [AdminController::class, 'index']);
 
 Route::get('/administrator/list-data', [AdminController::class, 'listData']);
-Route::post('/administrator/post-data-admin', [AdminController::class, 'postAdmin']);
-Route::post('/administrator/post-data-user', [AdminController::class, 'postUser']);
+Route::post('/administrator/add-data-user', [DataUserController::class, 'addUser']);
+Route::post('/administrator/edit-data-user', [DataUserController::class, 'editUser']);
+Route::post('/administrator/delete-data-user', [DataUserController::class, 'deleteUser']);
 
 //User
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/categories', [DashboardController::class, 'categories']);
-Route::get('/albums', [DashboardController::class, 'albums']);
-Route::get('/artist', [DashboardController::class, 'artist']);
-Route::get('/create', [DashboardController::class, 'create']);
+Route::get('/', [UserController::class, 'index'])->name('dashboard');
+Route::get('/categories', [UserController::class, 'categories']);
+Route::get('/albums', [UserController::class, 'albums']);
+Route::get('/artist', [UserController::class, 'artist']);
+Route::get('/create', [UserController::class, 'create']);
 
 Route::get('/login', [AuthController::class, 'index']);
 Route::get('/signIn', [AuthController::class, 'login']);

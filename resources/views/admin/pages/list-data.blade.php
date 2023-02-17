@@ -41,161 +41,7 @@
                                                         data-target="#modalAdmin">Add
                                                         Admin</button>
 
-                                                    <!-- Modal -->
-                                                    <div class="modal fade bd-example-modal-lg" id="modalAdmin"
-                                                        data-backdrop="static">
-                                                        <div class="modal-dialog modal-lg" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title">Add Data Admin</h5>
-                                                                    <button type="button" class="close"
-                                                                        data-dismiss="modal"><span>&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="form-validation">
-                                                                        <form class="form-valide" action="#"
-                                                                            method="POST">
-                                                                            <div class="row">
-                                                                                <div class="col-6">
 
-                                                                                    <div class="form-group row">
-                                                                                        <label
-                                                                                            class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Name
-                                                                                            <span
-                                                                                                class="text-danger">*</span>
-                                                                                        </label>
-                                                                                        <div class="col-lg-8">
-                                                                                            <input type="text"
-                                                                                                class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
-                                                                                                placeholder="Enter a username..">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="form-group row">
-                                                                                        <label
-                                                                                            class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Email
-                                                                                            <span
-                                                                                                class="text-danger">*</span>
-                                                                                        </label>
-                                                                                        <div class="col-lg-8">
-                                                                                            <input type="text"
-                                                                                                class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
-                                                                                                placeholder="Enter a username..">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="form-group row">
-                                                                                        <label
-                                                                                            class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Phone
-                                                                                            <span
-                                                                                                class="text-danger">*</span>
-                                                                                        </label>
-                                                                                        <div class="col-lg-8">
-                                                                                            <input type="text"
-                                                                                                class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
-                                                                                                placeholder="Enter a username..">
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                </div>
-
-                                                                                <div class="col-xl-6">
-
-                                                                                    <div class="form-group row">
-                                                                                        <label
-                                                                                            class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Gender
-                                                                                            <span
-                                                                                                class="text-danger">*</span>
-                                                                                        </label>
-                                                                                        <select class="col-lg-8"
-                                                                                            id="inlineFormCustomSelect">
-                                                                                            <option selected>Choose...
-                                                                                            </option>
-                                                                                            <option value="1">One
-                                                                                            </option>
-                                                                                            <option value="2">Two
-                                                                                            </option>
-                                                                                            <option value="3">Three
-                                                                                            </option>
-                                                                                        </select>
-                                                                                    </div>
-                                                                                    <div class="form-group row">
-                                                                                        <label
-                                                                                            class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Password
-                                                                                            <span
-                                                                                                class="text-danger">*</span>
-                                                                                        </label>
-                                                                                        <div class="col-lg-8">
-                                                                                            <input type="text"
-                                                                                                class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
-                                                                                                placeholder="Enter a username..">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="form-group row">
-                                                                                        <label
-                                                                                            class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Confirm
-                                                                                            Password
-                                                                                            <span
-                                                                                                class="text-danger">*</span>
-                                                                                        </label>
-                                                                                        <div class="col-lg-8">
-                                                                                            <input type="text"
-                                                                                                class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
-                                                                                                placeholder="Enter a username..">
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                </div>
-                                                                                <div class="col-xl-12">
-                                                                                    <div
-                                                                                        class="form-group row basic-form custom_file_input">
-                                                                                        <label
-                                                                                            class="col-sm-2 col-form-label"
-                                                                                            for="val-username">Photo
-                                                                                        </label>
-                                                                                        <div class="input-group col-lg-10">
-                                                                                            <div class="custom-file">
-                                                                                                <input type="file"
-                                                                                                    class="custom-file-input">
-                                                                                                <label
-                                                                                                    class="custom-file-label">Choose
-                                                                                                    file</label>
-
-                                                                                            </div>
-
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-
-                                                                            </div>
-
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-danger light"
-                                                                        data-dismiss="modal">Close</button>
-                                                                    <button type="submit" class="btn btn-primary">Save
-                                                                        changes</button>
-                                                                </div>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
 
                                                 </div>
                                                 <div class="card-body">
@@ -203,6 +49,8 @@
                                                         <table id="example3" class="display min-w850">
                                                             <thead>
                                                                 <tr>
+                                                                    <th>No</th>
+                                                                    {{-- <th>uuid</th> --}}
                                                                     <th>Photo</th>
                                                                     <th>Name</th>
                                                                     <th>Email</th>
@@ -213,31 +61,74 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <td><img class="rounded-circle" width="35"
-                                                                            src="{{ asset('admin/images/profile/small/pic1.jpg') }}"
-                                                                            alt="">
-                                                                    </td>
-                                                                    <td>Tiger Nixon</td>
-                                                                    <td><a
-                                                                            href="javascript:void(0);"><strong>info@example.com</strong></a>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0);"><strong>123 456
-                                                                                7890</strong></a></td>
-                                                                    <td>Male</td>
-                                                                    <td>2011/04/25</td>
-                                                                    <td>
-                                                                        <div class="d-flex">
-                                                                            <a href="#"
-                                                                                class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                                                                    class="fa fa-pencil"></i></a>
-                                                                            <a href="#"
-                                                                                class="btn btn-danger shadow btn-xs sharp"><i
-                                                                                    class="fa fa-trash"></i></a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-
+                                                                @php
+                                                                    $no = 1;
+                                                                @endphp
+                                                                @foreach ($listData as $data)
+                                                                    @if ($data->id_role == 1)
+                                                                        <tr>
+                                                                            <td>{{ $no++ }}</td>
+                                                                            {{-- <td>{{ $data->id }}</td> --}}
+                                                                            <td><img class="rounded-circle" width="35"
+                                                                                    src="{{ asset('admin/images/profile/small/pic1.jpg') }}"
+                                                                                    alt="">
+                                                                            </td>
+                                                                            <td>{{ $data->name }}</td>
+                                                                            <td><a
+                                                                                    href="javascript:void(0);"><strong>{{ $data->email }}</strong></a>
+                                                                            </td>
+                                                                            <td><a
+                                                                                    href="javascript:void(0);"><strong>{{ $data->phone }}</strong></a>
+                                                                            </td>
+                                                                            <td>{{ $data->gender }}</td>
+                                                                            <td>{{ date('d F Y', strtotime($data->created_at)) }}
+                                                                            </td>
+                                                                            <td>
+                                                                                <div class="dropdown">
+                                                                                    <button type="button"
+                                                                                        class="btn btn-primary light sharp"
+                                                                                        data-toggle="dropdown">
+                                                                                        <svg width="20px" height="20px"
+                                                                                            viewBox="0 0 24 24"
+                                                                                            version="1.1">
+                                                                                            <g stroke="none"
+                                                                                                stroke-width="1"
+                                                                                                fill="none"
+                                                                                                fill-rule="evenodd">
+                                                                                                <rect x="0"
+                                                                                                    y="0"
+                                                                                                    width="24"
+                                                                                                    height="24" />
+                                                                                                <circle fill="#000000"
+                                                                                                    cx="5"
+                                                                                                    cy="12"
+                                                                                                    r="2" />
+                                                                                                <circle fill="#000000"
+                                                                                                    cx="12"
+                                                                                                    cy="12"
+                                                                                                    r="2" />
+                                                                                                <circle fill="#000000"
+                                                                                                    cx="19"
+                                                                                                    cy="12"
+                                                                                                    r="2" />
+                                                                                            </g>
+                                                                                        </svg>
+                                                                                    </button>
+                                                                                    <div class="dropdown-menu">
+                                                                                        <a class="dropdown-item"
+                                                                                            href="#modalEditAdmin{{ $data->id }}"
+                                                                                            data-toggle="modal">Edit
+                                                                                        </a>
+                                                                                        <a class="dropdown-item text-danger"
+                                                                                            href="#modalDeleteAdmin{{ $data->id }}"
+                                                                                            data-toggle="modal">Delete
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    @endif
+                                                                @endforeach
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -255,170 +146,16 @@
                                                     <h4 class="card-title">Data Admin</h4>
 
                                                     <!-- Button trigger modal -->
-                                                    <button type="button" class="btn btn-primary mb-2"
-                                                        data-toggle="modal" data-target="#modalUser">Add
+                                                    <button type="button" class="btn btn-primary mb-2" data-toggle="modal"
+                                                        data-target="#modalUser">Add
                                                         User</button>
-                                                    <!-- Modal -->
-                                                    <div class="modal fade bd-example-modal-lg" id="modalUser"
-                                                        data-backdrop="static">
-                                                        <div class="modal-dialog modal-lg" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title">Add data User</h5>
-                                                                    <button type="button" class="close"
-                                                                        data-dismiss="modal"><span>&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="form-validation">
-                                                                        <form class="form-valide" action="#"
-                                                                            method="POST">
-                                                                            <div class="row">
-                                                                                <div class="col-6">
-
-                                                                                    <div class="form-group row">
-                                                                                        <label
-                                                                                            class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Name
-                                                                                            <span
-                                                                                                class="text-danger">*</span>
-                                                                                        </label>
-                                                                                        <div class="col-lg-8">
-                                                                                            <input type="text"
-                                                                                                class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
-                                                                                                placeholder="Enter a username..">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="form-group row">
-                                                                                        <label
-                                                                                            class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Email
-                                                                                            <span
-                                                                                                class="text-danger">*</span>
-                                                                                        </label>
-                                                                                        <div class="col-lg-8">
-                                                                                            <input type="text"
-                                                                                                class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
-                                                                                                placeholder="Enter a username..">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="form-group row">
-                                                                                        <label
-                                                                                            class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Phone
-                                                                                            <span
-                                                                                                class="text-danger">*</span>
-                                                                                        </label>
-                                                                                        <div class="col-lg-8">
-                                                                                            <input type="text"
-                                                                                                class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
-                                                                                                placeholder="Enter a username..">
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                </div>
-
-                                                                                <div class="col-xl-6">
-
-                                                                                    <div class="form-group row">
-                                                                                        <label
-                                                                                            class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Gender
-                                                                                            <span
-                                                                                                class="text-danger">*</span>
-                                                                                        </label>
-                                                                                        <select class="col-lg-8"
-                                                                                            id="inlineFormCustomSelect">
-                                                                                            <option selected>Choose...
-                                                                                            </option>
-                                                                                            <option value="1">One
-                                                                                            </option>
-                                                                                            <option value="2">Two
-                                                                                            </option>
-                                                                                            <option value="3">Three
-                                                                                            </option>
-                                                                                        </select>
-                                                                                    </div>
-                                                                                    <div class="form-group row">
-                                                                                        <label
-                                                                                            class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Password
-                                                                                            <span
-                                                                                                class="text-danger">*</span>
-                                                                                        </label>
-                                                                                        <div class="col-lg-8">
-                                                                                            <input type="text"
-                                                                                                class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
-                                                                                                placeholder="Enter a username..">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="form-group row">
-                                                                                        <label
-                                                                                            class="col-lg-4 col-form-label"
-                                                                                            for="val-username">Confirm
-                                                                                            Password
-                                                                                            <span
-                                                                                                class="text-danger">*</span>
-                                                                                        </label>
-                                                                                        <div class="col-lg-8">
-                                                                                            <input type="text"
-                                                                                                class="form-control"
-                                                                                                id="val-username"
-                                                                                                name="val-username"
-                                                                                                placeholder="Enter a username..">
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                </div>
-                                                                                <div class="col-xl-12">
-                                                                                    <div
-                                                                                        class="form-group row basic-form custom_file_input">
-                                                                                        <label
-                                                                                            class="col-sm-2 col-form-label"
-                                                                                            for="val-username">Photo
-                                                                                        </label>
-                                                                                        <div class="input-group col-lg-10">
-                                                                                            <div class="custom-file">
-                                                                                                <input type="file"
-                                                                                                    class="custom-file-input">
-                                                                                                <label
-                                                                                                    class="custom-file-label">Choose
-                                                                                                    file</label>
-
-                                                                                            </div>
-
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-
-                                                                            </div>
-
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-danger light"
-                                                                        data-dismiss="modal">Close</button>
-                                                                    <button type="button" class="btn btn-primary">Save
-                                                                        changes</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="table-responsive">
                                                         <table id="example3" class="display min-w850">
                                                             <thead>
                                                                 <tr>
+                                                                    <th>No</th>
                                                                     <th>Photo</th>
                                                                     <th>Name</th>
                                                                     <th>Email</th>
@@ -429,31 +166,73 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <td><img class="rounded-circle" width="35"
-                                                                            src="{{ asset('admin/images/profile/small/pic1.jpg') }}"
-                                                                            alt="">
-                                                                    </td>
-                                                                    <td>Tiger Nixon</td>
-                                                                    <td><a
-                                                                            href="javascript:void(0);"><strong>info@example.com</strong></a>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0);"><strong>123 456
-                                                                                7890</strong></a></td>
-                                                                    <td>Male</td>
-                                                                    <td>2011/04/25</td>
-                                                                    <td>
-                                                                        <div class="d-flex">
-                                                                            <a href="#"
-                                                                                class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                                                                    class="fa fa-pencil"></i></a>
-                                                                            <a href="#"
-                                                                                class="btn btn-danger shadow btn-xs sharp"><i
-                                                                                    class="fa fa-trash"></i></a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-
+                                                                @php
+                                                                    $no = 1;
+                                                                @endphp
+                                                                @foreach ($listData as $data)
+                                                                    @if ($data->id_role == 2)
+                                                                        <tr>
+                                                                            <td>{{ $no++ }}</td>
+                                                                            <td><img class="rounded-circle" width="35"
+                                                                                    src="{{ asset('admin/images/profile/small/pic1.jpg') }}"
+                                                                                    alt="">
+                                                                            </td>
+                                                                            <td>{{ $data->name }}</td>
+                                                                            <td><a
+                                                                                    href="javascript:void(0);"><strong>{{ $data->email }}</strong></a>
+                                                                            </td>
+                                                                            <td><a
+                                                                                    href="javascript:void(0);"><strong>{{ $data->phone }}</strong></a>
+                                                                            </td>
+                                                                            <td>{{ $data->gender }}</td>
+                                                                            <td>{{ date('d F Y', strtotime($data->created_at)) }}
+                                                                            </td>
+                                                                            <td>
+                                                                                <div class="dropdown">
+                                                                                    <button type="button"
+                                                                                        class="btn btn-primary light sharp"
+                                                                                        data-toggle="dropdown">
+                                                                                        <svg width="20px" height="20px"
+                                                                                            viewBox="0 0 24 24"
+                                                                                            version="1.1">
+                                                                                            <g stroke="none"
+                                                                                                stroke-width="1"
+                                                                                                fill="none"
+                                                                                                fill-rule="evenodd">
+                                                                                                <rect x="0"
+                                                                                                    y="0"
+                                                                                                    width="24"
+                                                                                                    height="24" />
+                                                                                                <circle fill="#000000"
+                                                                                                    cx="5"
+                                                                                                    cy="12"
+                                                                                                    r="2" />
+                                                                                                <circle fill="#000000"
+                                                                                                    cx="12"
+                                                                                                    cy="12"
+                                                                                                    r="2" />
+                                                                                                <circle fill="#000000"
+                                                                                                    cx="19"
+                                                                                                    cy="12"
+                                                                                                    r="2" />
+                                                                                            </g>
+                                                                                        </svg>
+                                                                                    </button>
+                                                                                    <div class="dropdown-menu">
+                                                                                        <a class="dropdown-item"
+                                                                                            href="#modalEditUser{{ $data->id }}"
+                                                                                            data-toggle="modal">Edit
+                                                                                        </a>
+                                                                                        <a class="dropdown-item text-danger"
+                                                                                            href="#modalDeleteUser{{ $data->id }}"
+                                                                                            data-toggle="modal">Delete
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    @endif
+                                                                @endforeach
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -471,6 +250,556 @@
 
         </div>
     </div>
+
+    <!-- Modal Create Admin -->
+    <div class="modal fade bd-example-modal-lg" id="modalAdmin" data-backdrop="static">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Data Admin</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-validation">
+                        <form class="form-valide" method="POST" action="{{ url('administrator/add-data-user') }}">
+                            @csrf
+                            <div class="row">
+                                <div class="col-6">
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="name">Name
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" id="name" name="name"
+                                                placeholder="Username" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="email">Email
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <input type="email" class="form-control" id="email" name="email"
+                                                placeholder="Email" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="phone">Phone
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <input type="tel" class="form-control" id="phone" name="phone"
+                                                placeholder="Phone Number" required>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-xl-6">
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="gender">Gender
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <select class="col-lg-8" id="gender" name="gender">
+                                            <option selected>Choose Gender
+                                            </option>
+                                            <option value="male">Male
+                                            </option>
+                                            <option value="female">Female
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="password">Password
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <input type="password" class="form-control" id="password" name="password"
+                                                placeholder="Password" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="password_confirmation">Confirm
+                                            Password
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <input type="password" class="form-control" id="password_confirmation"
+                                                name="password_confirmation" placeholder="Confirm Password" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-8">
+                                            <input type="hidden" class="form-control" id="id_role" name="id_role"
+                                                value="1">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-xl-12">
+                                    <div class="form-group row basic-form custom_file_input">
+                                        <label class="col-sm-2 col-form-label" for="photo">Photo
+                                        </label>
+                                        <div class="input-group col-lg-10">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input">
+                                                <label class="custom-file-label">Choose
+                                                    file</label>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save
+                        changes</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal Create Admin -->
+
+    <!-- Modal Edit Admin -->
+    @foreach ($listData as $data)
+        <div class="modal fade bd-example-modal-lg" id="modalEditAdmin{{ $data->id }}" data-backdrop="static">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Data Admin</h5>
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-validation">
+                            <form class="form-valide" method="POST" action="{{ url('administrator/edit-data-user') }}">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-6">
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="name">Name
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-8">
+                                                <input type="text" class="form-control" id="name" name="name"
+                                                    placeholder="Username" value="{{ $data->name }}" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="email">Email
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-8">
+                                                <input type="email" class="form-control" id="email" name="email"
+                                                    placeholder="Email" value="{{ $data->email }}" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="phone">Phone
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-8">
+                                                <input type="tel" class="form-control" id="phone" name="phone"
+                                                    placeholder="Phone Number" value="{{ $data->phone }}" required>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-xl-6">
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="gender">Gender
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <select class="col-lg-8" id="gender" name="gender">
+                                                <option selected>Choose Gender
+                                                </option>
+                                                <option value="male">Male
+                                                </option>
+                                                <option value="female">Female
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="password">Password
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-8">
+                                                <input type="password" class="form-control" id="password"
+                                                    name="password" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="password_confirmation">Confirm
+                                                Password
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-8">
+                                                <input type="password" class="form-control" id="password_confirmation"
+                                                    name="password_confirmation" placeholder="Confirm Password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-8">
+                                                <input type="hidden" class="form-control" id="id_role" name="id_role"
+                                                    value="1">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-8">
+                                                <input type="hidden" name="id" value="{{ $data->id }}">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <div class="form-group row basic-form custom_file_input">
+                                            <label class="col-sm-2 col-form-label" for="photo">Photo
+                                            </label>
+                                            <div class="input-group col-lg-10">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input">
+                                                    <label class="custom-file-label">Choose
+                                                        file</label>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save
+                            changes</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
+    <!-- End Modal Edit Admin -->
+
+    <!-- Modal Delete Admin -->
+    @foreach ($listData as $data)
+        <div class="modal fade" id="modalDeleteAdmin{{ $data->id }}">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete Data Admin</h5>
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ url('/administrator/delete-data-user') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $data->id }}">
+
+                            <div class="alert alert-danger text-center">
+                                Are you sure you want to delete data named <b>{{ $data->name }}</b> ?
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success light" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+    <!-- End Modal Delete Admin -->
+
+    <!-- Modal Create User -->
+    <div class="modal fade bd-example-modal-lg" id="modalUser" data-backdrop="static">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add data User</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-validation">
+                        <form class="form-valide" method="POST" action="{{ url('administrator/add-data-user') }}">
+                            @csrf
+                            <div class="row">
+                                <div class="col-6">
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="name">Name
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" id="name" name="name"
+                                                placeholder="Username">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="email">Email
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <input type="email" class="form-control" id="email" name="email"
+                                                placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="phone">Phone
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <input type="tel" class="form-control" id="phone" name="phone"
+                                                placeholder="Phone Number">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-xl-6">
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="gender">Gender
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <select class="col-lg-8" id="gender" name="gender">
+                                            <option selected>Choose Gender
+                                            </option>
+                                            <option value="male">Male
+                                            </option>
+                                            <option value="female">Female
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="password">Password
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <input type="password" class="form-control" id="password" name="password"
+                                                placeholder="Password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="password_confirmation">Confirm
+                                            Password
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <input type="password" class="form-control" id="password_confirmation"
+                                                name="password_confirmation" placeholder="Confirm Password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-8">
+                                            <input type="hidden" class="form-control" id="id_role" name="id_role"
+                                                value="2">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-xl-12">
+                                    <div class="form-group row basic-form custom_file_input">
+                                        <label class="col-sm-2 col-form-label" for="photo">Photo
+                                        </label>
+                                        <div class="input-group col-lg-10">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input">
+                                                <label class="custom-file-label">Choose
+                                                    file</label>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save
+                        changes</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal Create User -->
+
+    <!-- Modal Edit User -->
+    @foreach ($listData as $data)
+        <div class="modal fade bd-example-modal-lg" id="modalEditUser{{ $data->id }}" data-backdrop="static">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Data User</h5>
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-validation">
+                            <form class="form-valide" method="POST" action="{{ url('administrator/edit-data-user') }}">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-6">
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="name">Name
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-8">
+                                                <input type="text" class="form-control" id="name" name="name"
+                                                    placeholder="Username" value="{{ $data->name }}" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="email">Email
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-8">
+                                                <input type="email" class="form-control" id="email" name="email"
+                                                    placeholder="Email" value="{{ $data->email }}" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="phone">Phone
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-8">
+                                                <input type="tel" class="form-control" id="phone" name="phone"
+                                                    placeholder="Phone Number" value="{{ $data->phone }}" required>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-xl-6">
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="gender">Gender
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <select class="col-lg-8" id="gender" name="gender">
+                                                <option selected>Choose Gender
+                                                </option>
+                                                <option value="male">Male
+                                                </option>
+                                                <option value="female">Female
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="password">Password
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-8">
+                                                <input type="password" class="form-control" id="password"
+                                                    name="password" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="password_confirmation">Confirm
+                                                Password
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-8">
+                                                <input type="password" class="form-control" id="password_confirmation"
+                                                    name="password_confirmation" placeholder="Confirm Password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-8">
+                                                <input type="hidden" class="form-control" id="id_role" name="id_role"
+                                                    value="2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-8">
+                                                <input type="hidden" name="id" value="{{ $data->id }}">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <div class="form-group row basic-form custom_file_input">
+                                            <label class="col-sm-2 col-form-label" for="photo">Photo
+                                            </label>
+                                            <div class="input-group col-lg-10">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input">
+                                                    <label class="custom-file-label">Choose
+                                                        file</label>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save
+                            changes</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
+    <!-- End Modal Edit User -->
+
+    <!-- Modal Delete User -->
+    @foreach ($listData as $data)
+        <div class="modal fade" id="modalDeleteUser{{ $data->id }}">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete Data User</h5>
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ url('/administrator/delete-data-user') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $data->id }}">
+
+                            <div class="alert alert-danger text-center">
+                                Are you sure you want to delete data named <b>{{ $data->name }}</b> ?
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success light" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+    <!-- End Modal Delete User -->
 
     @push('after-script')
         <!-- Datatable -->
