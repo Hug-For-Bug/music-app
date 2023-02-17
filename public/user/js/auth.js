@@ -56,13 +56,9 @@ $(document).ready(function(e){
                     var role = data.user.role_id
                     toastr.success('Login Berhasil', 'Success')
                     if(role == 1){
-                        window.location.href = 'superadmin'
-                    }else if(role == 2){
                         window.location.href = 'admin'
-                    }else if(role == 3){
-                        window.location.href = 'instruktur'
                     }else{
-                        window.location.href = 'peserta'
+                        window.location.href = 'user'
                     }
                 }
             }
