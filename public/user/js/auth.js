@@ -53,7 +53,7 @@ $(document).ready(function(e){
                     $('#btnLogin').html("MASUK")
                     return false
                 }else{
-                    var role = data.user.role_id
+                    const role = data.user.role_id
                     toastr.success('Login Berhasil', 'Success')
                     if(role == 1){
                         window.location.href = 'admin'
