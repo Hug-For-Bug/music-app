@@ -12,7 +12,7 @@ class DataUserController extends Controller
 {
     public function addUser(Request $req)
     {
-        date_default_timezone_set('Asia/Jakarta');
+        date_default_timezone_set("Asia/Jakarta");
         User::create([
             "id" => $this->getUUID(),
             "photo" => $req->photo,
@@ -26,14 +26,14 @@ class DataUserController extends Controller
             "verified_status" => "0",
             "verified_at" => date("Y-m-d H:i:s")
         ]);
-        return redirect("/administrator/list-data");
+        return redirect("/administrator/list-data")
+            ->with("msg_success_user_add", "berhasil");
     }
 
     public function editUser(Request $req)
     {
-        // dd($req->all());
-        date_default_timezone_set('Asia/Jakarta');
-        User::where('id', $req->id)->update([
+        date_default_timezone_set("Asia/Jakarta");
+        User::where("id", $req->id)->update([
             "photo" => $req->photo,
             "name" => $req->name,
             "email" => $req->email,
@@ -45,14 +45,15 @@ class DataUserController extends Controller
             "verified_status" => "1",
             "verified_at" => date("Y-m-d H:i:s")
         ]);
-        return redirect("/administrator/list-data");
+        return redirect("/administrator/list-data")
+            ->with("msg_success_user_edit", "berhasil");
     }
 
     public function deleteUser(Request $req)
     {
-        date_default_timezone_set('Asia/Jakarta');
-        User::where('id', $req->id)->delete();
-        return redirect("/administrator/list-data");
+        User::where("id", $req->id)->delete();
+        return redirect("/administrator/list-data")
+            ->with("msg_success_user_delete", "berhasil");
     }
 
     public function getUUID()
