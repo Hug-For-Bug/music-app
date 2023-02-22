@@ -263,7 +263,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-validation">
-                        <form class="form-valide" method="POST" action="{{ url('administrator/add-data-user') }}">
+                        <form class="form-valide" method="POST" action="{{ url('administrator/add-data-user') }}"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-6">
@@ -273,8 +274,16 @@
                                             <span class="text-danger">*</span>
                                         </label>
                                         <div class="col-lg-8">
-                                            <input type="text" class="form-control" id="name" name="name"
-                                                placeholder="Username" required>
+                                            <input type="text" class="form-control" id="first_name" name="first_name"
+                                                placeholder="First Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="name">
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" id="last_name" name="last_name"
+                                                placeholder="Last Name" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -346,11 +355,16 @@
                                         </label>
                                         <div class="input-group col-lg-10">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input">
-                                                <label class="custom-file-label">Choose
-                                                    file</label>
+                                                <input type="file" class="custom-file-input" name="photo"
+                                                    id="photo" accept="image/*">
+                                                <label class="custom-file-label">Choose file</label>
 
                                             </div>
+                                            {{-- <div class="custom-file mb-3">
+                                                <input type="file" class="custom-file-input" id="customFile"
+                                                    name="filename">
+                                                <label class="custom-file-label" for="customFile">Choosee file</label>
+                                            </div> --}}
 
                                         </div>
                                     </div>

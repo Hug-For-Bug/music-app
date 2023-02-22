@@ -12,11 +12,20 @@ class DataUserController extends Controller
 {
     public function addUser(Request $req)
     {
+        $validatedData = $req->validate([
+            'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+
+        ]);
+        // dd($req->all());
         date_default_timezone_set("Asia/Jakarta");
         User::create([
             "id" => $this->getUUID(),
             "photo" => $req->photo,
-            "name" => $req->name,
+            "photo" => $req->file('photo')->store(
+                'asset/images/user',
+                'public'
+            ),
+            "name" => $req->first_name . " " . $req->last_name,
             "email" => $req->email,
             "phone" => $req->phone,
             "gender" => $req->gender,
@@ -26,6 +35,7 @@ class DataUserController extends Controller
             "verified_status" => "0",
             "verified_at" => date("Y-m-d H:i:s")
         ]);
+
         return redirect("/administrator/list-data")
             ->with("msg_success_user_add", "berhasil");
     }
