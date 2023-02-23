@@ -355,16 +355,12 @@
                                         </label>
                                         <div class="input-group col-lg-10">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" name="photo"
-                                                    id="photo" accept="image/*">
-                                                <label class="custom-file-label">Choose file</label>
+                                                <input type="file" class="custom-file-input" id="custom-file-input"
+                                                    name="photo" id="photo" accept="image/*">
+                                                <label class="custom-file-label" id="custom-file-label">Choose
+                                                    file</label>
 
                                             </div>
-                                            {{-- <div class="custom-file mb-3">
-                                                <input type="file" class="custom-file-input" id="customFile"
-                                                    name="filename">
-                                                <label class="custom-file-label" for="customFile">Choosee file</label>
-                                            </div> --}}
 
                                         </div>
                                     </div>
@@ -825,6 +821,14 @@
         crossorigin="anonymous"></script>
     <script src="{{ asset('admin/vendor/toastr/js/toastr.min.js') }}"></script>
     <script src="{{ asset('admin/js/plugins-init/toastr-init.js') }}"></script>
+
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $("#custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings("#custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
 
     {{-- Message Success create --}}
     @if (Session::has('msg_success_user_add'))

@@ -12,11 +12,6 @@ class DataUserController extends Controller
 {
     public function addUser(Request $req)
     {
-        $validatedData = $req->validate([
-            'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-
-        ]);
-        // dd($req->all());
         date_default_timezone_set("Asia/Jakarta");
         User::create([
             "id" => $this->getUUID(),
