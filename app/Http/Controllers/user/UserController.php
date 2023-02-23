@@ -12,42 +12,39 @@ class UserController extends Controller
     {
         $data["navbarType"] = "top";
         $data["login"] = false;
+        $data["title"] = "Home";
         return view("user.pages.home", $data);
     }
-    
+
     public function categories()
     {
         $data["navbarType"] = "side";
         $data["login"] = false;
+        $data["title"] = "Category";
         return view("user.pages.category", $data);
     }
-    
+
     public function albums()
     {
         $data["navbarType"] = "side";
         $data["login"] = false;
+        $data["title"] = "Albums";
         return view("user.pages.album", $data);
     }
-    
+
     public function artist()
     {
         $data["navbarType"] = "side";
         $data["login"] = false;
+        $data["title"] = "Artist";
         return view("user.pages.artist", $data);
     }
-    
+
     public function profile()
     {
         $data["navbarType"] = "side";
         $data["login"] = false;
-        $data["session"] = session()->all();
+        $data["title"] = "Profile";
         return view("user.pages.profile", $data);
-    }
-    
-    public function getUUID()
-    {
-        $getUUID = DB::select("SELECT uuid() as uuid_value");
-        $uuid = $getUUID[0]->uuid_value;
-        return $uuid;
     }
 }
