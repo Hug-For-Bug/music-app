@@ -149,7 +149,8 @@ $(document).ready(function () {
                 $("#btnLogin").val("Please Wait ...");
             },
             success: function (data) {
-                console.log(data);
+                // console.log({ data, role: data.user.id_role });
+                const role = data?.user?.id_role == 1 ? "admin" : "user";
                 if (!data.success) {
                     authAlert("error", "Error", data.message);
                     $("#btnLogin").prop("disabled", false);
@@ -157,7 +158,11 @@ $(document).ready(function () {
                     return false;
                 } else {
                     setTimeout(function () {
-                        window.location.href = "/";
+                        if (role == "admin") {
+                            window.location.href = "/administrator";
+                        } else {
+                            window.location.href = "/";
+                        }
                     }, 1500);
                 }
             },
