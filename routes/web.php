@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\DataUserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\user\UserController;
+use App\Http\Controllers\SendEmailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,3 +43,5 @@ Route::post('/signIn', [AuthController::class, 'login']);
 
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/post-register', [AuthController::class, 'postRegister']);
+
+Route::get('/sendEmail', [SendEmailController::class, 'index']);
