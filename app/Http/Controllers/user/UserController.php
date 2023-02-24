@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -13,6 +14,7 @@ class UserController extends Controller
         $data["navbarType"] = "top";
         $data["login"] = false;
         $data["title"] = "Home";
+        $data['user'] = Auth::user();
         return view("user.pages.home", $data);
     }
 
@@ -21,6 +23,7 @@ class UserController extends Controller
         $data["navbarType"] = "side";
         $data["login"] = false;
         $data["title"] = "Category";
+        $data['user'] = Auth::user();
         return view("user.pages.category", $data);
     }
 
@@ -29,6 +32,7 @@ class UserController extends Controller
         $data["navbarType"] = "side";
         $data["login"] = false;
         $data["title"] = "Albums";
+        $data['user'] = Auth::user();
         return view("user.pages.album", $data);
     }
 
@@ -37,6 +41,7 @@ class UserController extends Controller
         $data["navbarType"] = "side";
         $data["login"] = false;
         $data["title"] = "Artist";
+        $data['user'] = Auth::user();
         return view("user.pages.artist", $data);
     }
 
@@ -45,6 +50,7 @@ class UserController extends Controller
         $data["navbarType"] = "side";
         $data["login"] = false;
         $data["title"] = "Profile";
+        $data['user'] = Auth::user();
         return view("user.pages.profile", $data);
     }
 }

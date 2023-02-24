@@ -15,6 +15,7 @@ class AuthController extends Controller
         $data["navbarType"] = "top";
         $data["login"] = true;
         $data["title"] = "Login";
+        $data['user'] = Auth::user();
         return view("login", $data);
     }
 
@@ -50,6 +51,7 @@ class AuthController extends Controller
         $data["navbarType"] = "top";
         $data["login"] = true;
         $data["title"] = "Register";
+        $data['user'] = Auth::user();
         return view("register", $data);
     }
 
