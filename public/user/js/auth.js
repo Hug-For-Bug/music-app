@@ -102,6 +102,75 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
+    $("#formLogin").submit(function (e) {
+        const email = $("#email").val();
+        const password = $("#password").val();
+
+        if (!email) {
+            authAlert("error", "Error", "Email is required");
+            return false;
+        }
+        if (
+            !email.match(
+                /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            )
+        ) {
+            authAlert("error", "Error", "Email format is not correct");
+            return false;
+        }
+        if (!password) {
+            authAlert("error", "Error", "Password is required");
+            return false;
+        }
+        if (password.length <= 5) {
+            authAlert(
+                "error",
+                "Error",
+                "The password must consist of at least 5 characters"
+            );
+            return false;
+        }
+
+        var formData = new FormData($("#formLogin")[0]);
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+        });
+        $.ajax({
+            type: "POST",
+            url: $("#formLogin").attr("action"),
+            data: formData,
+            dataType: "json",
+            processData: false,
+            contentType: false,
+            beforeSend: function () {
+                $("#btnLogin").prop("disabled", true);
+                $("#btnLogin").val("Please Wait ...");
+            },
+            success: function (data) {
+                // console.log({ data, role: data.user.id_role });
+                const role = data?.user?.id_role == 1 ? "admin" : "user";
+                if (!data.success) {
+                    authAlert("error", "Error", data.message);
+                    $("#btnLogin").prop("disabled", false);
+                    $("#btnLogin").val("Log In");
+                    return false;
+                } else {
+                    setTimeout(function () {
+                        if (role == "admin") {
+                            window.location.href = "/administrator";
+                        } else {
+                            window.location.href = "/";
+                        }
+                    }, 1500);
+                }
+            },
+        });
+
+        e.preventDefault();
+    });
+
     function authAlert(icon, title, text) {
         Swal.fire({
             icon,

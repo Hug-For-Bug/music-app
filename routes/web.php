@@ -38,7 +38,7 @@ Route::get('/artist', [UserController::class, 'artist']);
 Route::get('/create', [UserController::class, 'create']);
 
 Route::get('/login', [AuthController::class, 'index']);
-Route::get('/signIn', [AuthController::class, 'login']);
+Route::post('/signIn', [AuthController::class, 'login']);
 
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/post-register', [AuthController::class, 'postRegister']);

@@ -23,7 +23,7 @@ class AuthController extends Controller
         if (!Auth::attempt(["email" => $req->email, "password" => $req->password])) {
             return response()->json([
                 "success" => false,
-                "message" => "Email / Password yang anda masukkan salah!"
+                "message" => "Email or password you entered is incorrect!"
             ]);
         } else {
             $user = Auth::user();
