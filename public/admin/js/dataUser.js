@@ -1,27 +1,11 @@
 $(document).ready(function () {
     const createStatus = localStorage.getItem("create-success");
+    const editStatus = localStorage.getItem("edit-success");
 
     if (createStatus) {
-        toastr
-            .success("New Data User Added Successfully!", "Created", {
-                positionClass: "toast-top-right",
-                timeOut: 5e3,
-                closeButton: !0,
-                debug: !1,
-                newestOnTop: !0,
-                progressBar: !0,
-                preventDuplicates: !0,
-                onclick: null,
-                showDuration: "300",
-                hideDuration: "1000",
-                extendedTimeOut: "1000",
-                showEasing: "swing",
-                hideEasing: "linear",
-                showMethod: "fadeIn",
-                hideMethod: "fadeOut",
-                tapToDismiss: !1,
-            })
-            .then(localStorage.clear());
+        toastrAlert("New Data User Added Successfully!", "Created").then(
+            localStorage.clear()
+        );
     }
 
     $("#form_create").submit(function (e) {
@@ -44,6 +28,56 @@ $(document).ready(function () {
 
         e.preventDefault();
     });
+
+    if (editStatus) {
+        toastrAlert("User Data Updated Successfully!", "Updated").then(
+            localStorage.clear()
+        );
+    }
+
+    $("#form_edit").submit(function (e) {
+        var formData = new FormData($("#form_edit")[0]);
+        $.ajax({
+            type: "POST",
+            url: $("#form_edit").attr("action"),
+            data: formData,
+            dataType: "json",
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                console.log(data);
+                {
+                    localStorage.setItem("edit-success", true);
+                    window.location.href = "list-data";
+                }
+            },
+        });
+
+        e.preventDefault();
+    });
+
+    // Toastr
+    function toastrAlert(text, title) {
+        toastr.success(text, title, {
+            positionClass: "toast-top-right",
+            timeOut: 5e3,
+            closeButton: !0,
+            debug: !1,
+            newestOnTop: !0,
+            progressBar: !0,
+            preventDuplicates: !0,
+            onclick: null,
+            showDuration: "300",
+            hideDuration: "1000",
+            extendedTimeOut: "1000",
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut",
+            tapToDismiss: !1,
+        });
+        return false;
+    }
 });
 
 // Add the following code if you want the name of the file appear on select

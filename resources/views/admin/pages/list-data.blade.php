@@ -393,7 +393,8 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-validation">
-                            <form class="form-valide" method="POST" action="{{ url('administrator/edit-data-user') }}">
+                            <form class="form-valide" id="form_edit" method="POST"
+                                action="{{ url('administrator/edit-data-user') }}">
                                 @csrf
                                 <div class="row">
                                     <div class="col-6">
@@ -625,14 +626,16 @@
                                     </div>
 
                                 </div>
+
                                 <div class="col-xl-12">
                                     <div class="form-group row basic-form custom_file_input">
                                         <label class="col-sm-2 col-form-label" for="photo">Photo
                                         </label>
                                         <div class="input-group col-lg-10">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input">
-                                                <label class="custom-file-label">Choose
+                                                <input type="file" class="custom-file-input" id="custom-file-input"
+                                                    name="photo" id="photo" accept="image/*">
+                                                <label class="custom-file-label" id="custom-file-label">Choose
                                                     file</label>
 
                                             </div>
@@ -640,6 +643,7 @@
                                         </div>
                                     </div>
                                 </div>
+
 
                             </div>
 
@@ -821,30 +825,6 @@
         crossorigin="anonymous"></script>
     <script src="{{ asset('admin/vendor/toastr/js/toastr.min.js') }}"></script>
     <script src="{{ asset('admin/js/plugins-init/toastr-init.js') }}"></script>
-
-    {{-- Message Success edit --}}
-    @if (Session::has('msg_success_user_edit'))
-        <script>
-            toastr.success("User Data Updated Successfully!", "Updated", {
-                positionClass: "toast-top-right",
-                timeOut: 5e3,
-                closeButton: !0,
-                debug: !1,
-                newestOnTop: !0,
-                progressBar: !0,
-                preventDuplicates: !0,
-                onclick: null,
-                showDuration: "300",
-                hideDuration: "1000",
-                extendedTimeOut: "1000",
-                showEasing: "swing",
-                hideEasing: "linear",
-                showMethod: "fadeIn",
-                hideMethod: "fadeOut",
-                tapToDismiss: !1
-            })
-        </script>
-    @endif
 
     {{-- Message Success delete --}}
     @if (Session::has('msg_success_user_delete'))
