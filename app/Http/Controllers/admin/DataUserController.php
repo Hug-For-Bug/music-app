@@ -31,8 +31,10 @@ class DataUserController extends Controller
             "verified_at" => date("Y-m-d H:i:s")
         ]);
 
-        return redirect("/administrator/list-data")
-            ->with("msg_success_user_add", "berhasil");
+        return response()->json([
+            "success" => true,
+            "message" => "User has been created"
+        ]);
     }
 
     public function editUser(Request $req)

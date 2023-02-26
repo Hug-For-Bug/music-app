@@ -263,8 +263,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-validation">
-                        <form class="form-valide" method="POST" action="{{ url('administrator/add-data-user') }}"
-                            enctype="multipart/form-data">
+                        <form class="form-valide" id="form_create" method="POST"
+                            action="{{ url('administrator/add-data-user') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-6">
@@ -821,38 +821,6 @@
         crossorigin="anonymous"></script>
     <script src="{{ asset('admin/vendor/toastr/js/toastr.min.js') }}"></script>
     <script src="{{ asset('admin/js/plugins-init/toastr-init.js') }}"></script>
-
-    <script>
-        // Add the following code if you want the name of the file appear on select
-        $("#custom-file-input").on("change", function() {
-            var fileName = $(this).val().split("\\").pop();
-            $(this).siblings("#custom-file-label").addClass("selected").html(fileName);
-        });
-    </script>
-
-    {{-- Message Success create --}}
-    @if (Session::has('msg_success_user_add'))
-        <script>
-            toastr.success("New Data User Added Successfully!", "Created", {
-                positionClass: "toast-top-right",
-                timeOut: 5e3,
-                closeButton: !0,
-                debug: !1,
-                newestOnTop: !0,
-                progressBar: !0,
-                preventDuplicates: !0,
-                onclick: null,
-                showDuration: "300",
-                hideDuration: "1000",
-                extendedTimeOut: "1000",
-                showEasing: "swing",
-                hideEasing: "linear",
-                showMethod: "fadeIn",
-                hideMethod: "fadeOut",
-                tapToDismiss: !1
-            })
-        </script>
-    @endif
 
     {{-- Message Success edit --}}
     @if (Session::has('msg_success_user_edit'))

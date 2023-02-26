@@ -8,6 +8,7 @@
  <script src="{{ asset('admin/js/custom.min.js') }}"></script>
  <script src="{{ asset('admin/js/deznav-init.js') }}"></script>
  <script src="{{ asset('admin/vendor/owl-carousel/owl.carousel.js') }}"></script>
+ <script src="{{ asset('admin/js/dataUser.js') }}"></script>
 
  <!-- Apex Chart -->
  <script src="{{ asset('admin/vendor/apexchart/apexchart.js') }}"></script>
