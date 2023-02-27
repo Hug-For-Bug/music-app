@@ -857,6 +857,13 @@
     <script src="{{ asset('admin/vendor/toastr/js/toastr.min.js') }}"></script>
     <script src="{{ asset('admin/js/plugins-init/toastr-init.js') }}"></script>
 
+    {{-- Message Success create --}}
+    @if (Session::has('msg_success_user_create'))
+        <script>
+            toastrAlert("New Data User Added Successfully!", "Created");
+        </script>
+    @endif
+
     {{-- Message Success delete --}}
     @if (Session::has('msg_success_user_delete'))
         <script>

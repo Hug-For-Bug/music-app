@@ -1,13 +1,4 @@
 $(document).ready(function () {
-    const createStatus = localStorage.getItem("create-success");
-    const editStatus = localStorage.getItem("edit-success");
-
-    if (createStatus) {
-        toastrAlert("New Data User Added Successfully!", "Created").then(
-            localStorage.clear()
-        );
-    }
-
     $("#formCreate").submit(function (e) {
         var formData = new FormData($("#formCreate")[0]);
         $.ajaxSetup({
@@ -25,7 +16,6 @@ $(document).ready(function () {
             success: function (data) {
                 console.log(data);
                 {
-                    localStorage.setItem("create-success", true);
                     window.location.href = "list-data";
                 }
             },
@@ -34,11 +24,11 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-    if (editStatus) {
-        toastrAlert("User Data Updated Successfully!", "Updated").then(
-            localStorage.clear()
-        );
-    }
+    // if (editStatus) {
+    //     toastrAlert("User Data Updated Successfully!", "Updated").then(
+    //         localStorage.clear()
+    //     );
+    // }
 
     $("#form_edit").submit(function (e) {
         var formData = new FormData($("#form_edit")[0]);
@@ -57,7 +47,6 @@ $(document).ready(function () {
             success: function (data) {
                 console.log(data);
                 {
-                    localStorage.setItem("edit-success", true);
                     window.location.href = "list-data";
                 }
             },
