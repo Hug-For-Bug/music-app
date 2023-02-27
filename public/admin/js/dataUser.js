@@ -24,37 +24,6 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-    // if (editStatus) {
-    //     toastrAlert("User Data Updated Successfully!", "Updated").then(
-    //         localStorage.clear()
-    //     );
-    // }
-
-    $("#form_edit").submit(function (e) {
-        var formData = new FormData($("#form_edit")[0]);
-        $.ajaxSetup({
-            headers: {
-                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-            },
-        });
-        $.ajax({
-            type: "POST",
-            url: $("#form_edit").attr("action"),
-            data: formData,
-            dataType: "json",
-            processData: false,
-            contentType: false,
-            success: function (data) {
-                console.log(data);
-                {
-                    window.location.href = "list-data";
-                }
-            },
-        });
-
-        e.preventDefault();
-    });
-
     // Toastr
     function toastrAlert(text, title) {
         toastr.success(text, title, {

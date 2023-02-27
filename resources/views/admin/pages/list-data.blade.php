@@ -406,7 +406,9 @@
                                             <div class="col-lg-8">
                                                 <input type="text" class="form-control" id="first_name"
                                                     name="first_name" placeholder="First Name"
-                                                    value="{{ $data->first_name }}" required>
+                                                    @php $name = $data->name;
+                                                    $first_name = explode(' ', trim($name))[0]; @endphp
+                                                    value="{{ $first_name }}" required>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -415,7 +417,9 @@
                                             <div class="col-lg-8">
                                                 <input type="text" class="form-control" id="last_name"
                                                     name="last_name" placeholder="Last Name"
-                                                    value="{{ $data->last_name }}" required>
+                                                    @php $name = $data->name;
+                                                    $last_name = explode(' ', trim($name))[1]; @endphp
+                                                    value="{{ $last_name }}" required>
                                             </div>
                                         </div>
                                         <div class="form-group
@@ -705,7 +709,9 @@
                                             <div class="col-lg-8">
                                                 <input type="text" class="form-control" id="first_name"
                                                     name="first_name" placeholder="First Name"
-                                                    value="{{ $data->first_name }}" required>
+                                                    @php $name = $data->name;
+                                                    $first_name = explode(' ', trim($name))[0]; @endphp
+                                                    value="{{ $first_name }}" required>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -714,7 +720,9 @@
                                             <div class="col-lg-8">
                                                 <input type="text" class="form-control" id="last_name"
                                                     name="last_name" placeholder="Last Name"
-                                                    value="{{ $data->last_name }}" required>
+                                                    @php $name = $data->name;
+                                                    $last_name = explode(' ', trim($name))[1]; @endphp
+                                                    value="{{ $last_name }}" required>
                                             </div>
                                         </div>
                                         <div class="form-group
