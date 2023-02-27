@@ -263,7 +263,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-validation">
-                        <form class="form-valide" id="form_create" method="POST"
+                        <form class="form-valide" id="formCreate" method="POST"
                             action="{{ url('administrator/add-data-user') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
@@ -355,9 +355,9 @@
                                         </label>
                                         <div class="input-group col-lg-10">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="custom-file-input"
-                                                    name="photo" id="photo" accept="image/*">
-                                                <label class="custom-file-label" id="custom-file-label">Choose
+                                                <input type="file" class="custom-file-input" name="photo"
+                                                    id="photo" accept="image/*">
+                                                <label class="custom-file-label">Choose
                                                     file</label>
 
                                             </div>
@@ -393,7 +393,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-validation">
-                            <form class="form-valide" id="form_edit" method="POST"
+                            <form class="form-valide" id="formEdit" method="POST"
                                 action="{{ url('administrator/edit-data-user') }}">
                                 @csrf
                                 <div class="row">
@@ -404,11 +404,22 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <input type="text" class="form-control" id="name" name="name"
-                                                    placeholder="Username" value="{{ $data->name }}" required>
+                                                <input type="text" class="form-control" id="first_name"
+                                                    name="first_name" placeholder="First Name"
+                                                    value="{{ $data->first_name }}" required>
                                             </div>
                                         </div>
                                         <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="name">
+                                            </label>
+                                            <div class="col-lg-8">
+                                                <input type="text" class="form-control" id="last_name"
+                                                    name="last_name" placeholder="Last Name"
+                                                    value="{{ $data->last_name }}" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group
+                                                    row">
                                             <label class="col-lg-4 col-form-label" for="email">Email
                                                 <span class="text-danger">*</span>
                                             </label>
@@ -482,7 +493,8 @@
                                             </label>
                                             <div class="input-group col-lg-10">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input">
+                                                    <input type="file" class="custom-file-input" name="photo"
+                                                        id="photo" value="{{ $data->photo }}" accept="image/*">
                                                     <label class="custom-file-label">Choose
                                                         file</label>
 
@@ -549,7 +561,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-validation">
-                        <form class="form-valide" method="POST" action="{{ url('administrator/add-data-user') }}">
+                        <form class="form-valide" id="formCreate" method="POST"
+                            action="{{ url('administrator/add-data-user') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-6">
@@ -559,8 +572,16 @@
                                             <span class="text-danger">*</span>
                                         </label>
                                         <div class="col-lg-8">
-                                            <input type="text" class="form-control" id="name" name="name"
-                                                placeholder="Username">
+                                            <input type="text" class="form-control" id="first_name" name="first_name"
+                                                placeholder="First Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="name">
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" id="last_name" name="last_name"
+                                                placeholder="Last Name" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -633,9 +654,9 @@
                                         </label>
                                         <div class="input-group col-lg-10">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="custom-file-input"
-                                                    name="photo" id="photo" accept="image/*">
-                                                <label class="custom-file-label" id="custom-file-label">Choose
+                                                <input type="file" class="custom-file-input" name="photo"
+                                                    id="photo" accept="image/*">
+                                                <label class="custom-file-label">Choose
                                                     file</label>
 
                                             </div>
@@ -682,11 +703,22 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <input type="text" class="form-control" id="name" name="name"
-                                                    placeholder="Username" value="{{ $data->name }}" required>
+                                                <input type="text" class="form-control" id="first_name"
+                                                    name="first_name" placeholder="First Name"
+                                                    value="{{ $data->first_name }}" required>
                                             </div>
                                         </div>
                                         <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="name">
+                                            </label>
+                                            <div class="col-lg-8">
+                                                <input type="text" class="form-control" id="last_name"
+                                                    name="last_name" placeholder="Last Name"
+                                                    value="{{ $data->last_name }}" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group
+                                                    row">
                                             <label class="col-lg-4 col-form-label" for="email">Email
                                                 <span class="text-danger">*</span>
                                             </label>
@@ -760,12 +792,11 @@
                                             </label>
                                             <div class="input-group col-lg-10">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input">
+                                                    <input type="file" class="custom-file-input" name="photo"
+                                                        id="photo" value="{{ $data->photo }}" accept="image/*">
                                                     <label class="custom-file-label">Choose
                                                         file</label>
-
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>

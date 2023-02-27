@@ -8,11 +8,16 @@ $(document).ready(function () {
         );
     }
 
-    $("#form_create").submit(function (e) {
-        var formData = new FormData($("#form_create")[0]);
+    $("#formCreate").submit(function (e) {
+        var formData = new FormData($("#formCreate")[0]);
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+        });
         $.ajax({
             type: "POST",
-            url: $("#form_create").attr("action"),
+            url: $("#formCreate").attr("action"),
             data: formData,
             dataType: "json",
             processData: false,
@@ -37,6 +42,11 @@ $(document).ready(function () {
 
     $("#form_edit").submit(function (e) {
         var formData = new FormData($("#form_edit")[0]);
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+        });
         $.ajax({
             type: "POST",
             url: $("#form_edit").attr("action"),
@@ -81,7 +91,7 @@ $(document).ready(function () {
 });
 
 // Add the following code if you want the name of the file appear on select
-$("#custom-file-input").on("change", function () {
+$(".custom-file-input").on("change", function () {
     var fileName = $(this).val().split("\\").pop();
-    $(this).siblings("#custom-file-label").addClass("selected").html(fileName);
+    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 });

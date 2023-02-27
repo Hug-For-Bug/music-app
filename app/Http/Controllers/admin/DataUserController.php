@@ -42,7 +42,7 @@ class DataUserController extends Controller
         date_default_timezone_set("Asia/Jakarta");
         User::where("id", $req->id)->update([
             "photo" => $req->photo,
-            "name" => $req->name,
+            "name" => $req->first_name . " " . $req->last_name,
             "email" => $req->email,
             "phone" => $req->phone,
             "gender" => $req->gender,
