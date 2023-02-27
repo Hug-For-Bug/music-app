@@ -86,7 +86,6 @@ $(document).ready(function () {
                 $("#btnRegister").val("Please Wait ...");
             },
             success: function (data) {
-                console.log(data);
                 if (!data.success) {
                     authAlert("error", "Error", data.message);
                     $("#btnRegister").prop("disabled", false);
@@ -163,7 +162,7 @@ $(document).ready(function () {
                         } else {
                             window.location.href = "/";
                         }
-                    }, 1500);
+                    }, 2000);
                 }
             },
         });
