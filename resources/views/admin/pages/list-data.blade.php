@@ -39,9 +39,11 @@
                                                     <h4 class="card-title">Data Admin</h4>
 
                                                     <!-- Button trigger modal -->
-                                                    <button type="button" class="btn btn-primary mb-2" data-toggle="modal"
-                                                        data-target="#modalAdmin">Add
-                                                        Admin</button>
+                                                    <button type="button" class="btn btn-rounded btn-primary"
+                                                        data-toggle="modal" data-target="#modalAdmin"><span
+                                                            class="btn-icon-left text-primary"><i
+                                                                class="fa fa-plus color-primary"></i>
+                                                        </span>Add Admin</button>
 
                                                 </div>
                                                 <div class="card-body">
@@ -146,9 +148,11 @@
                                                     <h4 class="card-title">Data Admin</h4>
 
                                                     <!-- Button trigger modal -->
-                                                    <button type="button" class="btn btn-primary mb-2" data-toggle="modal"
-                                                        data-target="#modalUser">Add
-                                                        User</button>
+                                                    <button type="button" class="btn btn-rounded btn-primary"
+                                                        data-toggle="modal" data-target="#modalUser"><span
+                                                            class="btn-icon-left text-primary"><i
+                                                                class="fa fa-plus color-primary"></i>
+                                                        </span>Add User</button>
 
                                                 </div>
                                                 <div class="card-body">
@@ -273,17 +277,13 @@
                                         <label class="col-lg-4 col-form-label" for="name">Name
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <div class="col-lg-8">
+                                        <div class="col-lg-4">
                                             <input type="text" class="form-control" id="first_name" name="first_name"
-                                                placeholder="First Name" required>
+                                                placeholder="First Name" style="font-size:1.5ch" required>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-4 col-form-label" for="name">
-                                        </label>
-                                        <div class="col-lg-8">
+                                        <div class="col-lg-4">
                                             <input type="text" class="form-control" id="last_name" name="last_name"
-                                                placeholder="Last Name" required>
+                                                placeholder="Last Name" style="font-size:1.5ch" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -403,23 +403,19 @@
                                             <label class="col-lg-4 col-form-label" for="name">Name
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <div class="col-lg-8">
+                                            <div class="col-lg-4">
                                                 <input type="text" class="form-control" id="first_name"
                                                     name="first_name" placeholder="First Name"
                                                     @php $name = $data->name;
                                                     $first_name = explode(' ', trim($name))[0]; @endphp
-                                                    value="{{ $first_name }}" required>
+                                                    value="{{ $first_name }}" style="font-size:1.5ch" required>
                                             </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="name">
-                                            </label>
-                                            <div class="col-lg-8">
+                                            <div class="col-lg-4">
                                                 <input type="text" class="form-control" id="last_name"
                                                     name="last_name" placeholder="Last Name"
                                                     @php $name = $data->name;
                                                     $last_name = explode(' ', trim($name))[1]; @endphp
-                                                    value="{{ $last_name }}" required>
+                                                    value="{{ $last_name }}" style="font-size:1.5ch" required>
                                             </div>
                                         </div>
                                         <div class="form-group
@@ -451,12 +447,17 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <select class="col-lg-8" id="gender" name="gender">
-                                                <option selected>Choose Gender
-                                                </option>
-                                                <option value="male">Male
-                                                </option>
-                                                <option value="female">Female
-                                                </option>
+                                                @if ($data->gender === 'male')
+                                                    <option selected value="male">Male
+                                                    </option>
+                                                    <option value="female">Female
+                                                    </option>
+                                                @else
+                                                    <option value="male">Male
+                                                    </option>
+                                                    <option selected value="female">Female
+                                                    </option>
+                                                @endif
                                             </select>
                                         </div>
                                         <div class="form-group row">
@@ -575,17 +576,13 @@
                                         <label class="col-lg-4 col-form-label" for="name">Name
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <div class="col-lg-8">
+                                        <div class="col-lg-4">
                                             <input type="text" class="form-control" id="first_name" name="first_name"
-                                                placeholder="First Name" required>
+                                                placeholder="First Name" style="font-size:1.5ch" required>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-4 col-form-label" for="name">
-                                        </label>
-                                        <div class="col-lg-8">
+                                        <div class="col-lg-4">
                                             <input type="text" class="form-control" id="last_name" name="last_name"
-                                                placeholder="Last Name" required>
+                                                placeholder="Last Name" style="font-size:1.5ch" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -706,25 +703,22 @@
                                             <label class="col-lg-4 col-form-label" for="name">Name
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <div class="col-lg-8">
+                                            <div class="col-lg-4">
                                                 <input type="text" class="form-control" id="first_name"
                                                     name="first_name" placeholder="First Name"
                                                     @php $name = $data->name;
                                                     $first_name = explode(' ', trim($name))[0]; @endphp
-                                                    value="{{ $first_name }}" required>
+                                                    value="{{ $first_name }}" style="font-size:1.5ch" required>
                                             </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="name">
-                                            </label>
-                                            <div class="col-lg-8">
+                                            <div class="col-lg-4">
                                                 <input type="text" class="form-control" id="last_name"
                                                     name="last_name" placeholder="Last Name"
                                                     @php $name = $data->name;
                                                     $last_name = explode(' ', trim($name))[1]; @endphp
-                                                    value="{{ $last_name }}" required>
+                                                    value="{{ $last_name }}" style="font-size:1.5ch" required>
                                             </div>
                                         </div>
+
                                         <div class="form-group
                                                     row">
                                             <label class="col-lg-4 col-form-label" for="email">Email
@@ -754,12 +748,17 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <select class="col-lg-8" id="gender" name="gender">
-                                                <option selected>Choose Gender
-                                                </option>
-                                                <option value="male">Male
-                                                </option>
-                                                <option value="female">Female
-                                                </option>
+                                                @if ($data->gender === 'male')
+                                                    <option selected value="male">Male
+                                                    </option>
+                                                    <option value="female">Female
+                                                    </option>
+                                                @else
+                                                    <option value="male">Male
+                                                    </option>
+                                                    <option selected value="female">Female
+                                                    </option>
+                                                @endif
                                             </select>
                                         </div>
                                         <div class="form-group row">
