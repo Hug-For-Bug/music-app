@@ -57,12 +57,12 @@ class DataUserController extends Controller
             "verified_status" => "1",
             "verified_at" => date("Y-m-d H:i:s")
         ]);
-        // return redirect("/administrator/list-data")
-        //     ->with("msg_success_user_edit", "berhasil");
-        return response()->json([
-            "success" => true,
-            "message" => "User has been updated"
-        ]);
+        return redirect("/administrator/list-data")
+            ->with("msg_success_user_edit", "berhasil");
+        // return response()->json([
+        //     "success" => true,
+        //     "message" => "User has been updated"
+        // ]);
     }
 
     public function deleteUser(Request $req)

@@ -163,6 +163,7 @@
                                                                     <th>No</th>
                                                                     <th>Photo</th>
                                                                     <th>Name</th>
+                                                                    <th>Plan</th>
                                                                     <th>Email</th>
                                                                     <th>Phone</th>
                                                                     <th>Gender</th>
@@ -183,6 +184,25 @@
                                                                                     alt="">
                                                                             </td>
                                                                             <td>{{ $data->name }}</td>
+                                                                            @foreach ($plans as $plan)
+                                                                                @if ($data->id_plan == $plan->id)
+                                                                                    @if ($plan->plan_name === 'Free')
+                                                                                        <td
+                                                                                            class="badge badge-rounded badge-xs mt-3 badge-info">
+                                                                                            {{ $plan->plan_name }}</td>
+                                                                                    @endif
+                                                                                    @if ($plan->plan_name === 'Silver')
+                                                                                        <td
+                                                                                            class="badge badge-rounded badge-xs mt-3 badge-light">
+                                                                                            {{ $plan->plan_name }}</td>
+                                                                                    @endif
+                                                                                    {{-- @if ($plan->plan_name === 'Premium')
+                                                                                        <td
+                                                                                            class="badge badge-rounded badge-xs mt-3 badge-secondary">
+                                                                                            {{ $plan->plan_name }}</td>
+                                                                                    @endif --}}
+                                                                                @endif
+                                                                            @endforeach
                                                                             <td><a
                                                                                     href="javascript:void(0);"><strong>{{ $data->email }}</strong></a>
                                                                             </td>
@@ -786,17 +806,14 @@
                                             <select class="col-lg-8" id="id_plan" name="id_plan">
                                                 <option selected>Choose Plans
                                                 </option>
-                                                @if ($plans->plan_name === 'Free')
-                                                    <option selected value="c50673f0-b2ce-11ed-8049-1dcba2ca0ee7">Free
-                                                    </option>
-                                                    <option value="c5067738-b2ce-11ed-8049-1dcba2ca0ee7">Silver
-                                                    </option>
-                                                @else
-                                                    <option value="c50673f0-b2ce-11ed-8049-1dcba2ca0ee7">Free
-                                                    </option>
-                                                    <option selected value="c5067738-b2ce-11ed-8049-1dcba2ca0ee7">Silver
-                                                    </option>
-                                                @endif
+                                                @foreach ($plans as $plan)
+                                                    @if ($plan->plan_name === $plan->plan_name)
+                                                        <option value="{{ $plan->id }}"
+                                                            {{ $plan->id == $data->id_plan ? 'selected' : '' }}>
+                                                            {{ $plan->plan_name }}
+                                                        </option>
+                                                    @endif
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="form-group row">
@@ -906,6 +923,30 @@
     @if (Session::has('msg_success_user_create'))
         <script>
             toastr.success("New Data User Added Successfully!", "Created", {
+                positionClass: "toast-top-right",
+                timeOut: 5e3,
+                closeButton: !0,
+                debug: !1,
+                newestOnTop: !0,
+                progressBar: !0,
+                preventDuplicates: !0,
+                onclick: null,
+                showDuration: "300",
+                hideDuration: "1000",
+                extendedTimeOut: "1000",
+                showEasing: "swing",
+                hideEasing: "linear",
+                showMethod: "fadeIn",
+                hideMethod: "fadeOut",
+                tapToDismiss: !1
+            })
+        </script>
+    @endif
+
+    {{-- Message Success edit --}}
+    @if (Session::has('msg_success_user_edit'))
+        <script>
+            toastr.success("User Data Updated Successfully!", "Updated", {
                 positionClass: "toast-top-right",
                 timeOut: 5e3,
                 closeButton: !0,
