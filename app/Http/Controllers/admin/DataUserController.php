@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Plan;
+use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
 
 class DataUserController extends Controller
@@ -25,9 +27,9 @@ class DataUserController extends Controller
             "phone" => $req->phone,
             "gender" => $req->gender,
             "password" => Hash::make($req->password),
-            "id_plan" => "1",
+            "id_plan" => $req->id_plan,
             "id_role" => $req->id_role,
-            "verified_status" => "0",
+            "verified_status" => "1",
             "verified_at" => date("Y-m-d H:i:s")
         ]);
 
@@ -50,7 +52,7 @@ class DataUserController extends Controller
             "phone" => $req->phone,
             "gender" => $req->gender,
             "password" => Hash::make($req->password),
-            "id_plan" => "1",
+            "id_plan" => "$req->id_plan",
             "id_role" => $req->id_role,
             "verified_status" => "1",
             "verified_at" => date("Y-m-d H:i:s")

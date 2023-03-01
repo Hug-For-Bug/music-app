@@ -17,7 +17,7 @@ class AdminController extends Controller
     }
     public function listData()
     {
-        // $data["plan"] = Plan::all();
+        $data["plans"] = Plan::all();
         $data["listData"] = User::all();
         return view("admin.pages.list-data", $data);
     }

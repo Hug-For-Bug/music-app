@@ -347,6 +347,12 @@
                                                 value="1">
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-8">
+                                            <input type="hidden" class="form-control" id="id_plan" name="id_plan"
+                                                value="c5067739-b2ce-11ed-8049-1dcba2ca0ee7">
+                                        </div>
+                                    </div>
 
                                 </div>
                                 <div class="col-xl-12">
@@ -483,6 +489,12 @@
                                             <div class="col-lg-8">
                                                 <input type="hidden" class="form-control" id="id_role" name="id_role"
                                                     value="1">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-8">
+                                                <input type="hidden" class="form-control" id="id_plan" name="id_plan"
+                                                    value="c5067739-b2ce-11ed-8049-1dcba2ca0ee7">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -646,6 +658,12 @@
                                                 value="2">
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-8">
+                                            <input type="hidden" class="form-control" id="id_plan" name="id_plan"
+                                                value="c50673f0-b2ce-11ed-8049-1dcba2ca0ee7">
+                                        </div>
+                                    </div>
 
                                 </div>
 
@@ -762,6 +780,26 @@
                                             </select>
                                         </div>
                                         <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="id_plan">Plans
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <select class="col-lg-8" id="id_plan" name="id_plan">
+                                                <option selected>Choose Plans
+                                                </option>
+                                                @if ($plans->plan_name === 'Free')
+                                                    <option selected value="c50673f0-b2ce-11ed-8049-1dcba2ca0ee7">Free
+                                                    </option>
+                                                    <option value="c5067738-b2ce-11ed-8049-1dcba2ca0ee7">Silver
+                                                    </option>
+                                                @else
+                                                    <option value="c50673f0-b2ce-11ed-8049-1dcba2ca0ee7">Free
+                                                    </option>
+                                                    <option selected value="c5067738-b2ce-11ed-8049-1dcba2ca0ee7">Silver
+                                                    </option>
+                                                @endif
+                                            </select>
+                                        </div>
+                                        <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="password">Password
                                                 <span class="text-danger">*</span>
                                             </label>
@@ -867,7 +905,24 @@
     {{-- Message Success create --}}
     @if (Session::has('msg_success_user_create'))
         <script>
-            toastrAlert("New Data User Added Successfully!", "Created");
+            toastr.success("New Data User Added Successfully!", "Created", {
+                positionClass: "toast-top-right",
+                timeOut: 5e3,
+                closeButton: !0,
+                debug: !1,
+                newestOnTop: !0,
+                progressBar: !0,
+                preventDuplicates: !0,
+                onclick: null,
+                showDuration: "300",
+                hideDuration: "1000",
+                extendedTimeOut: "1000",
+                showEasing: "swing",
+                hideEasing: "linear",
+                showMethod: "fadeIn",
+                hideMethod: "fadeOut",
+                tapToDismiss: !1
+            })
         </script>
     @endif
 
