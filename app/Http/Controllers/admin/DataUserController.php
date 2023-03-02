@@ -14,6 +14,22 @@ class DataUserController extends Controller
 {
     public function addUser(Request $req)
     {
+        $email = $req->email;
+        $phone = $req->phone;
+        $checkEmail = User::where('email', $email)->get();
+        if ($checkEmail->isNotEmpty()) {
+            return response()->json([
+                "success" => false,
+                "message" => "Email has been used, choose other email!"
+            ]);
+        }
+        $checkPhone = User::where('phone', $phone)->get();
+        if ($checkPhone->isNotEmpty()) {
+            return response()->json([
+                "success" => false,
+                "message" => "Phone has been used, choose other Phone!"
+            ]);
+        }
         date_default_timezone_set("Asia/Jakarta");
         User::create([
             "id" => $this->getUUID(),
@@ -23,8 +39,8 @@ class DataUserController extends Controller
                 'public'
             ),
             "name" => $req->first_name . " " . $req->last_name,
-            "email" => $req->email,
-            "phone" => $req->phone,
+            "email" => $email,
+            "phone" => $phone,
             "gender" => $req->gender,
             "password" => Hash::make($req->password),
             "id_plan" => $req->id_plan,
@@ -33,13 +49,13 @@ class DataUserController extends Controller
             "verified_at" => date("Y-m-d H:i:s")
         ]);
 
-        // return response()->json([
-        //     "success" => true,
-        //     "message" => "User has been created"
-        // ]);
+        return response()->json([
+            "success" => true,
+            "message" => "User has been created"
+        ]);
 
-        return redirect("/administrator/list-data")
-            ->with("msg_success_user_create", "berhasil");
+        // return redirect("/administrator/list-data")
+        //     ->with("msg_success_user_create", "berhasil");
     }
 
     public function editUser(Request $req)
