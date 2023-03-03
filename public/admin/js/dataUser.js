@@ -64,7 +64,7 @@ $(document).ready(function () {
             return false;
         }
 
-        var formData = new FormData($("#formCreateAdmin")[0]);
+        let formData = new FormData($("#formCreateAdmin")[0]);
         $.ajaxSetup({
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -162,7 +162,7 @@ $(document).ready(function () {
             return false;
         }
 
-        var formData = new formData($("#formCreateUser")[0]);
+        let formData = new FormData($("#formCreateUser")[0]);
         $.ajaxSetup({
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -192,6 +192,7 @@ $(document).ready(function () {
                 }
             },
         });
+        e.preventDefault();
     });
 });
 
