@@ -400,7 +400,7 @@
                                         <div class="input-group col-lg-10">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" name="photo"
-                                                    id="photo" accept="image/*">
+                                                    id="photoAdmin" accept="image/*">
                                                 <label class="custom-file-label">Choose
                                                     file</label>
 

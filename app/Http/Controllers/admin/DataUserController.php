@@ -30,14 +30,30 @@ class DataUserController extends Controller
                 "message" => "Phone has been used, choose other Phone!"
             ]);
         }
+
+        $file = $req->file('photo');
+        //Cek atau validasi gambar yang harus sesuai format
+        if (!$file->isValid() || !in_array($file->getClientOriginalExtension(), ['jpeg', 'jpg', 'png'])) {
+            return response()->json([
+                "success" => false,
+                "message" => "Invalid photo format, please choose a JPEG or PNG image."
+            ]);
+        }
+
+        // Cek atau validasi photo agar ukuran tidak terlalu besar
+        if ($file->getSize() > 2048 * 1024) {
+            return response()->json([
+                "success" => false,
+                "message" => "Photo size exceeds the maximum allowed size of 2 MB."
+            ]);
+        }
         date_default_timezone_set("Asia/Jakarta");
         User::create([
             "id" => $this->getUUID(),
-            "photo" => $req->photo,
-            // "photo" => $req->file('photo')->store(
-            //     'asset/images/user',
-            //     'public'
-            // ),
+            "photo" => $file->store(
+                'asset/images/user',
+                'public'
+            ),
             "name" => $req->first_name . " " . $req->last_name,
             "email" => $email,
             "phone" => $phone,
@@ -53,9 +69,6 @@ class DataUserController extends Controller
             "success" => true,
             "message" => "User has been created"
         ]);
-
-        // return redirect("/administrator/list-data")
-        //     ->with("msg_success_user_create", "berhasil");
     }
 
     public function editUser(Request $req)
