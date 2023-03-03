@@ -34,10 +34,10 @@ class DataUserController extends Controller
         User::create([
             "id" => $this->getUUID(),
             "photo" => $req->photo,
-            "photo" => $req->file('photo')->store(
-                'asset/images/user',
-                'public'
-            ),
+            // "photo" => $req->file('photo')->store(
+            //     'asset/images/user',
+            //     'public'
+            // ),
             "name" => $req->first_name . " " . $req->last_name,
             "email" => $email,
             "phone" => $phone,
