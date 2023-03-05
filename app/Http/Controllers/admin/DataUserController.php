@@ -69,6 +69,12 @@ class DataUserController extends Controller
             "success" => true,
             "message" => "User has been created"
         ]);
+        // return redirect("/administrator/list-data")
+        //     ->with([
+        //         "msg_success_user_create" => "berhasil",
+        //         "success" => true,
+        //         "message" => "User has been created"
+        //     ]);
     }
 
     public function editUser(Request $req)

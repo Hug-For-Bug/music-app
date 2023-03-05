@@ -1,4 +1,32 @@
 $(document).ready(function () {
+    let createAdminStatus = localStorage.getItem("create-admin-success");
+    let createUserStatus = localStorage.getItem("create-user-success");
+
+    if (createAdminStatus) {
+        Swal.fire({
+            icon: "success",
+            title: "Created",
+            text: "New Data Admin Added Successfully!",
+            confirmButtonText: "OK",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.clear();
+            }
+        });
+    }
+
+    if (createUserStatus) {
+        Swal.fire({
+            icon: "success",
+            title: "Created",
+            text: "New Data User Added Successfully",
+            confirmButtonText: "OK",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.clear();
+            }
+        });
+    }
     //Form Create Admin User
     $("#formCreateAdmin").submit(function (e) {
         console.log("Form Create Admin");
@@ -90,7 +118,8 @@ $(document).ready(function () {
                     $("#btnTextAdmin").text("Create Admin");
                     return false;
                 } else {
-                    window.location.href = "administrator/list-data";
+                    localStorage.setItem("create-admin-success", true);
+                    window.location.href = "list-data";
                 }
             },
         });
@@ -188,7 +217,8 @@ $(document).ready(function () {
                     $("#btnTextUser").text("Create User");
                     return false;
                 } else {
-                    window.location.href = "administrator/list-data";
+                    localStorage.setItem("create-user-success", true);
+                    window.location.href = "list-data";
                 }
             },
         });

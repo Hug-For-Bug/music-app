@@ -5,7 +5,7 @@
         <link href="{{ asset('admin/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
         <!--Toastr-->
     @endpush
-    <link rel="stylesheet" href="{{ asset('admin/vendor/toastr/css/toastr.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('admin/vendor/toastr/css/toastr.min.css') }}"> --}}
 
     <div class="container">
         <div class="row">
@@ -665,7 +665,7 @@
                                             <span class="text-danger">*</span>
                                         </label>
                                         <div class="col-lg-8">
-                                            <input type="tel" class="form-control" id="phoneUser" name="phone"
+                                            <input type="number" class="form-control" id="phoneUser" name="phone"
                                                 placeholder="Phone Number">
                                         </div>
                                     </div>
@@ -949,13 +949,13 @@
         <script src="{{ asset('admin/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
         <script src="{{ asset('admin/js/plugins-init/datatables.init.js') }}"></script>
     @endpush
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
     <script src="{{ asset('admin/vendor/toastr/js/toastr.min.js') }}"></script>
-    <script src="{{ asset('admin/js/plugins-init/toastr-init.js') }}"></script>
+    <script src="{{ asset('admin/js/plugins-init/toastr-init.js') }}"></script> --}}
 
     {{-- Message Success create --}}
-    @if (Session::has('msg_success_user_create'))
+    {{-- @if (Session::has('msg_success_user_create'))
         <script>
             toastr.success("New Data User Added Successfully!", "Created", {
                 positionClass: "toast-top-right",
@@ -976,7 +976,17 @@
                 tapToDismiss: !1
             })
         </script>
-    @endif
+    @endif --}}
+
+    {{-- <script>
+        if (data.message == true) {
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+            )
+        }
+    </script> --}}
 
     {{-- Message Success edit --}}
     @if (Session::has('msg_success_user_edit'))
