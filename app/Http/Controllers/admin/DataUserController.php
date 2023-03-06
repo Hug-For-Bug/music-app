@@ -31,29 +31,33 @@ class DataUserController extends Controller
             ]);
         }
 
-        $file = $req->file('photo');
-        //Cek atau validasi gambar yang harus sesuai format
-        if (!$file->isValid() || !in_array($file->getClientOriginalExtension(), ['jpeg', 'jpg', 'png'])) {
-            return response()->json([
-                "success" => false,
-                "message" => "Invalid photo format, please choose a JPEG or PNG image."
-            ]);
+        // Validation for photo
+        if ($req->file('photo')) {
+            $file = $req->file('photo');
+
+            if (!$file->isValid() || !in_array($file->getClientOriginalExtension(), ['jpeg', 'jpg', 'png'])) {
+                return response()->json([
+                    "success" => false,
+                    "message" => "Invalid photo format, please choose a JPEG or PNG image."
+                ]);
+            }
+
+            if ($file->getSize() > 2048 * 1024) {
+                return response()->json([
+                    "success" => false,
+                    "message" => "Photo size exceeds the maximum allowed size of 2 MB."
+                ]);
+            }
+
+            $photo_path = $file->store('asset/images/user', 'public');
+        } else {
+            $photo_path = 'admin/images/default_user_photo.png';
         }
 
-        // Cek atau validasi photo agar ukuran tidak terlalu besar
-        if ($file->getSize() > 2048 * 1024) {
-            return response()->json([
-                "success" => false,
-                "message" => "Photo size exceeds the maximum allowed size of 2 MB."
-            ]);
-        }
         date_default_timezone_set("Asia/Jakarta");
         User::create([
             "id" => $this->getUUID(),
-            "photo" => $file->store(
-                'asset/images/user',
-                'public'
-            ),
+            "photo" => $photo_path,
             "name" => $req->first_name . " " . $req->last_name,
             "email" => $email,
             "phone" => $phone,
