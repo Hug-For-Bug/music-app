@@ -5,7 +5,7 @@
         <link href="{{ asset('admin/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
         <!--Toastr-->
     @endpush
-    {{-- <link rel="stylesheet" href="{{ asset('admin/vendor/toastr/css/toastr.min.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('admin/vendor/toastr/css/toastr.min.css') }}">
 
     <div class="container">
         <div class="row">
@@ -351,8 +351,8 @@
                                         <label class="col-lg-4 col-form-label" for="gender">Gender
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <select class="col-lg-8" id="gender" name="gender">
-                                            <option selected>Choose Gender
+                                        <select class="col-lg-8" id="genderAdmin" name="gender">
+                                            <option value="" selected>Choose Gender
                                             </option>
                                             <option value="male">Male
                                             </option>
@@ -678,8 +678,8 @@
                                         <label class="col-lg-4 col-form-label" for="gender">Gender
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <select class="col-lg-8" id="gender" name="gender">
-                                            <option selected>Choose Gender
+                                        <select class="col-lg-8" id="genderUser" name="gender">
+                                            <option value="" selected>Choose Gender
                                             </option>
                                             <option value="male">Male
                                             </option>
@@ -949,44 +949,10 @@
         <script src="{{ asset('admin/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
         <script src="{{ asset('admin/js/plugins-init/datatables.init.js') }}"></script>
     @endpush
-    {{-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
     <script src="{{ asset('admin/vendor/toastr/js/toastr.min.js') }}"></script>
-    <script src="{{ asset('admin/js/plugins-init/toastr-init.js') }}"></script> --}}
-
-    {{-- Message Success create --}}
-    {{-- @if (Session::has('msg_success_user_create'))
-        <script>
-            toastr.success("New Data User Added Successfully!", "Created", {
-                positionClass: "toast-top-right",
-                timeOut: 5e3,
-                closeButton: !0,
-                debug: !1,
-                newestOnTop: !0,
-                progressBar: !0,
-                preventDuplicates: !0,
-                onclick: null,
-                showDuration: "300",
-                hideDuration: "1000",
-                extendedTimeOut: "1000",
-                showEasing: "swing",
-                hideEasing: "linear",
-                showMethod: "fadeIn",
-                hideMethod: "fadeOut",
-                tapToDismiss: !1
-            })
-        </script>
-    @endif --}}
-
-    {{-- <script>
-        if (data.message == true) {
-            Swal.fire(
-                'Good job!',
-                'You clicked the button!',
-                'success'
-            )
-        }
-    </script> --}}
+    <script src="{{ asset('admin/js/plugins-init/toastr-init.js') }}"></script>
 
     {{-- Message Success edit --}}
     @if (Session::has('msg_success_user_edit'))

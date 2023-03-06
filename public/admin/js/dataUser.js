@@ -34,6 +34,7 @@ $(document).ready(function () {
         const lastName = $("#lastNameAdmin").val();
         const email = $("#emailAdmin").val();
         const phone = $("#phoneAdmin").val();
+        const gender = $("#genderAdmin").val();
         const password = $("#passwordAdmin").val();
         const passwordConfirmation = $("#passwordConfirmationAdmin").val();
 
@@ -67,6 +68,11 @@ $(document).ready(function () {
         if (phone.length <= 10) {
             alertAdmin.show(400);
             alertMessageAdmin.text("Enter a valid cellphone number");
+            return false;
+        }
+        if (gender == "") {
+            alertAdmin.show(400);
+            alertMessageAdmin.text("Please select gender");
             return false;
         }
         if (!password) {
@@ -133,6 +139,7 @@ $(document).ready(function () {
         const lastName = $("#lastNameUser").val();
         const email = $("#emailUser").val();
         const phone = $("#phoneUser").val();
+        const gender = $("#genderUser").val();
         const password = $("#passwordUser").val();
         const passwordConfirmation = $("#passwordConfirmationUser").val();
 
@@ -166,6 +173,11 @@ $(document).ready(function () {
         if (phone.length <= 10) {
             alertUser.show(400);
             alertMessageUser.text("Enter a valid cellphone number");
+            return false;
+        }
+        if (gender == "") {
+            alertUser.show(400);
+            alertMessageUser.text("Please select gender");
             return false;
         }
         if (!password) {
