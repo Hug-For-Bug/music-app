@@ -13,6 +13,7 @@ class Role extends Model
 
     protected $table = 'roles';
     protected $primaryKey = 'id';
+    protected $keyType = 'string';
     public $timestamps = true;
     const CREATED_AT = 'created_date';
     const UPDATED_AT = 'updated_date';

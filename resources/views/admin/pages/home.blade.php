@@ -16,7 +16,7 @@
     </div>
     <div class="row">
         <div class="col-xl-3 col-xxl-6 col-sm-6">
-            <div class="card  text-white bg-gray rounded">
+            <div class="card  text-white bg-primary rounded">
                 <div class="card-body">
                     <div class="media align-items-center">
                         <div class="media-body">
