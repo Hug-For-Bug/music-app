@@ -1,11 +1,13 @@
 @extends('admin.layouts.default')
 @section('content')
-    @push('after-style')
+    @push('before-style')
         <!-- Datatable -->
         <link href="{{ asset('admin/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
-        <!--Toastr-->
     @endpush
-    <link rel="stylesheet" href="{{ asset('admin/vendor/toastr/css/toastr.min.css') }}">
+    @push('after-style')
+        <!--Toastr-->
+        <link rel="stylesheet" href="{{ asset('admin/vendor/toastr/css/toastr.min.css') }}">
+    @endpush
 
     <div class="container">
         <div class="row">
