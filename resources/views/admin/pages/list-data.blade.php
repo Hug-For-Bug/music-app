@@ -312,7 +312,6 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
-
                                     <div class="form-group row">
                                         <label class="col-lg-4 col-form-label" for="name">Name
                                             <span class="text-danger">*</span>
@@ -439,26 +438,47 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-validation">
-                            <form class="form-valide" id="formEdit" method="POST"
+                            <form class="form-valide" id="formEditAdmin{{ $data->id }}" method="POST"
                                 action="{{ url('administrator/edit-data-user') }}">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-6">
 
+                                    <div class="col-12" id="alertEditAdmin{{ $data->id }}">
+                                        <div class="alert alert-danger solid alert-right-icon alert-dismissible show">
+                                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                                                stroke-width="2" fill="none" stroke-linecap="round"
+                                                stroke-linejoin="round" class="mr-2">
+                                                <polygon
+                                                    points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2">
+                                                </polygon>
+                                                <line x1="15" y1="9" x2="9" y2="15">
+                                                </line>
+                                                <line x1="9" y1="9" x2="15" y2="15">
+                                                </line>
+                                            </svg>
+                                            <button type="button" class="close h-100" data-id="{{ $data->id }}"
+                                                aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+                                            </button>
+                                            <strong>Error!</strong> <span
+                                                id="alertMessageEditAdmin{{ $data->id }}">Message Sending
+                                                failed.</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="name">Name
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-4">
-                                                <input type="text" class="form-control" id="first_name"
-                                                    name="first_name" placeholder="First Name"
+                                                <input type="text" class="form-control firstNameEditAdmin"
+                                                    id="firstNameEditAdmin" name="first_name" placeholder="First Name"
                                                     @php $name = $data->name;
                                                     $first_name = explode(' ', trim($name))[0]; @endphp
                                                     value="{{ $first_name }}" style="font-size:1.5ch">
                                             </div>
                                             <div class="col-lg-4">
-                                                <input type="text" class="form-control" id="last_name"
-                                                    name="last_name" placeholder="Last Name"
+                                                <input type="text" class="form-control lastNameEditAdmin"
+                                                    id="lastNameEditAdmin" name="last_name" placeholder="Last Name"
                                                     @php $name = $data->name;
                                                     $last_name = explode(' ', trim($name))[1]; @endphp
                                                     value="{{ $last_name }}" style="font-size:1.5ch">
@@ -567,8 +587,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save
-                            changes</button>
+                        <button type="submit" class="btn btn-primary btnEditAdmin" id="btnEditAdmin"> <span
+                                class="btnTextEditAdmin" id="btnTextEditAdmin">Save changes</span></button>
                     </div>
                     </form>
                 </div>
@@ -957,7 +977,7 @@
     <script src="{{ asset('admin/js/plugins-init/toastr-init.js') }}"></script>
 
     {{-- Message Success edit --}}
-    @if (Session::has('msg_success_user_edit'))
+    {{-- @if (Session::has('msg_success_user_edit'))
         <script>
             toastr.success("User Data Updated Successfully!", "Updated", {
                 positionClass: "toast-top-right",
@@ -978,7 +998,7 @@
                 tapToDismiss: !1
             })
         </script>
-    @endif
+    @endif --}}
 
     {{-- Message Success delete --}}
     @if (Session::has('msg_success_user_delete'))
