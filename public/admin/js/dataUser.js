@@ -27,7 +27,7 @@ $(document).ready(function () {
             }
         });
     }
-    //Form Create Admin User
+    //Form Create Admin
     $("#formCreateAdmin").submit(function (e) {
         console.log("Form Create Admin");
         const firstName = $("#firstNameAdmin").val();
@@ -133,6 +133,7 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
+    //Form Create User
     $("#formCreateUser").submit(function (e) {
         console.log("Form Create User");
         const firstName = $("#firstNameUser").val();
@@ -247,6 +248,12 @@ $(".custom-file-input").on("change", function () {
 $("#closeAlertAdmin").click(function () {
     $("#alertAdmin").hide(300);
 });
+
+$(".close").click(function () {
+    var id = $(this).data("id");
+    $("#alertEditAdmin" + id).hide(300);
+});
+
 $("#closeAlertUser").click(function () {
     $("#alertUser").hide(300);
 });
