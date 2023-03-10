@@ -353,7 +353,7 @@
                                         <label class="col-lg-4 col-form-label" for="gender">Gender
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <select class="col-lg-8" id="genderAdmin" name="gender">
+                                        <select class="col-lg-8 select" id="genderAdmin" name="gender">
                                             <option value="" selected>Choose Gender
                                             </option>
                                             <option value="male">Male
@@ -492,7 +492,7 @@
                                             <label class="col-lg-4 col-form-label" for="gender">Gender
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <select class="col-lg-8" id="gender" name="gender">
+                                            <select class="col-lg-8 select" id="gender" name="gender">
                                                 @if ($data->gender === 'male')
                                                     <option selected value="male">Male
                                                     </option>
@@ -680,7 +680,7 @@
                                         <label class="col-lg-4 col-form-label" for="gender">Gender
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <select class="col-lg-8" id="genderUser" name="gender">
+                                        <select class="col-lg-8 select" id="genderUser" name="gender">
                                             <option value="" selected>Choose Gender
                                             </option>
                                             <option value="male">Male
@@ -822,7 +822,7 @@
                                             <label class="col-lg-4 col-form-label" for="gender">Gender
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <select class="col-lg-8" id="gender" name="gender">
+                                            <select class="col-lg-8 select" id="gender" name="gender">
                                                 @if ($data->gender === 'male')
                                                     <option selected value="male">Male
                                                     </option>
@@ -840,7 +840,7 @@
                                             <label class="col-lg-4 col-form-label" for="id_plan">Plans
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <select class="col-lg-8" id="id_plan" name="id_plan">
+                                            <select class="col-lg-8 select" id="id_plan" name="id_plan">
                                                 <option selected>Choose Plans
                                                 </option>
                                                 @foreach ($plans as $plan)
