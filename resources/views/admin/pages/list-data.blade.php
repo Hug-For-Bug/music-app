@@ -443,7 +443,7 @@
                                 @csrf
                                 <div class="row">
 
-                                    <div class="col-12" id="alertEditAdmin{{ $data->id }}">
+                                    <div class="col-12" id="alertEditAdmin{{ $data->id }}" style="display: none;">
                                         <div class="alert alert-danger solid alert-right-icon alert-dismissible show">
                                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
                                                 stroke-width="2" fill="none" stroke-linecap="round"
@@ -456,8 +456,9 @@
                                                 <line x1="9" y1="9" x2="15" y2="15">
                                                 </line>
                                             </svg>
-                                            <button type="button" class="close h-100" data-id="{{ $data->id }}"
-                                                aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+                                            <button type="button" class="close h-100 closeAlertEditAdmin"
+                                                data-id="{{ $data->id }}" aria-label="Close"><span><i
+                                                        class="mdi mdi-close"></i></span>
                                             </button>
                                             <strong>Error!</strong> <span
                                                 id="alertMessageEditAdmin{{ $data->id }}">Message Sending
