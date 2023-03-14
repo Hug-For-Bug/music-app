@@ -133,6 +133,31 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
+    //Form Edit Admin
+    $("#formEditAdmin").submit(function (e) {
+        console.log("Form Edit Admin");
+
+        let id = $(this).data("id");
+        const firstName = $("#firstNameEditAdmin" + id).val();
+        const lastName = $("#lastNameEditAdmin" + id).val();
+
+        const alertAdmin = $("#alertEditAdmin" + id);
+        const alertMessageAdmin = $("#alertMessageEditAdmin" + id);
+
+        if (!firstName) {
+            alertAdmin.show(400);
+            alertMessageAdmin.text("First Name is required");
+            return false;
+        }
+        if (!lastName) {
+            alertAdmin.show(400);
+            alertMessageAdmin.text("Last Name is required");
+            return false;
+        }
+
+        e.preventDefault();
+    });
+
     //Form Create User
     $("#formCreateUser").submit(function (e) {
         console.log("Form Create User");
@@ -249,11 +274,12 @@ $("#closeAlertAdmin").click(function () {
     $("#alertAdmin").hide(300);
 });
 
-$(".close").click(function () {
-    var id = $(this).data("id");
+$(".closeAlertEditAdmin").click(function () {
+    let id = $(this).data("id");
     $("#alertEditAdmin" + id).hide(300);
 });
 
 $("#closeAlertUser").click(function () {
     $("#alertUser").hide(300);
+    console.log("Close button clicked");
 });
