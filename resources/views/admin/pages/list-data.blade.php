@@ -121,7 +121,8 @@
                                                                                     <div class="dropdown-menu">
                                                                                         <a class="dropdown-item"
                                                                                             href="#modalEditAdmin{{ $data->id }}"
-                                                                                            data-toggle="modal">Edit
+                                                                                            data-toggle="modal"
+                                                                                            data-id="{{ $data->id }}">Edit
                                                                                         </a>
                                                                                         <a class="dropdown-item text-danger"
                                                                                             href="#modalDeleteAdmin{{ $data->id }}"
@@ -438,12 +439,12 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-validation">
-                            <form class="form-valide" id="formEditAdmin{{ $data->id }}" method="POST"
+                            <form class="form-valide" id="formEditAdmin" method="POST"
                                 action="{{ url('administrator/edit-data-user') }}">
                                 @csrf
                                 <div class="row">
 
-                                    <div class="col-12" id="alertEditAdmin{{ $data->id }}" style="display: none;">
+                                    <div class="col-12" id="alertEditAdmin{{ $data->id }}">
                                         <div class="alert alert-danger solid alert-right-icon alert-dismissible show">
                                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
                                                 stroke-width="2" fill="none" stroke-linecap="round"
@@ -457,8 +458,8 @@
                                                 </line>
                                             </svg>
                                             <button type="button" class="close h-100 closeAlertEditAdmin"
-                                                data-id="{{ $data->id }}" aria-label="Close"><span><i
-                                                        class="mdi mdi-close"></i></span>
+                                                id="closeAlertEditAdmin" aria-label="Close"
+                                                data-id="{{ $data->id }}"><span><i class="mdi mdi-close"></i></span>
                                             </button>
                                             <strong>Error!</strong> <span
                                                 id="alertMessageEditAdmin{{ $data->id }}">Message Sending
@@ -471,15 +472,17 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-4">
-                                                <input type="text" class="form-control firstNameEditAdmin"
-                                                    id="firstNameEditAdmin" name="first_name" placeholder="First Name"
+                                                <input type="text" class="form-control"
+                                                    id="firstNameEditAdmin{{ $data->id }}" name="first_name"
+                                                    placeholder="First Name"
                                                     @php $name = $data->name;
                                                     $first_name = explode(' ', trim($name))[0]; @endphp
                                                     value="{{ $first_name }}" style="font-size:1.5ch">
                                             </div>
                                             <div class="col-lg-4">
-                                                <input type="text" class="form-control lastNameEditAdmin"
-                                                    id="lastNameEditAdmin" name="last_name" placeholder="Last Name"
+                                                <input type="text" class="form-control"
+                                                    id="lastNameEditAdmin{{ $data->id }}" name="last_name"
+                                                    placeholder="Last Name"
                                                     @php $name = $data->name;
                                                     $last_name = explode(' ', trim($name))[1]; @endphp
                                                     value="{{ $last_name }}" style="font-size:1.5ch">
@@ -560,7 +563,8 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-lg-8">
-                                                <input type="hidden" name="id" value="{{ $data->id }}">
+                                                <input type="hidden" id="idEditUser" name="id"
+                                                    value="{{ $data->id }}">
                                             </div>
                                         </div>
 

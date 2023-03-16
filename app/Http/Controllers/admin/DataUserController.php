@@ -85,17 +85,17 @@ class DataUserController extends Controller
             "phone" => $req->phone,
             "gender" => $req->gender,
             "password" => Hash::make($req->password),
-            "id_plan" => "$req->id_plan",
+            "id_plan" => $req->id_plan,
             "id_role" => $req->id_role,
             "verified_status" => "1",
             "verified_at" => date("Y-m-d H:i:s")
         ]);
-        return redirect("/administrator/list-data")
-            ->with("msg_success_user_edit", "berhasil");
-        // return response()->json([
-        //     "success" => true,
-        //     "message" => "User has been updated"
-        // ]);
+        // return redirect("/administrator/list-data")
+        //     ->with("msg_success_user_edit", "berhasil");
+        return response()->json([
+            "success" => true,
+            "message" => "User has been updated"
+        ]);
     }
 
     public function deleteUser(Request $req)

@@ -134,29 +134,33 @@ $(document).ready(function () {
     });
 
     //Form Edit Admin
-    $("#formEditAdmin").submit(function (e) {
-        console.log("Form Edit Admin");
+    // $("#formEditAdmin").submit(function (e) {
+    //     console.log("Form Edit Admin");
 
-        let id = $(this).data("id");
-        const firstName = $("#firstNameEditAdmin" + id).val();
-        const lastName = $("#lastNameEditAdmin" + id).val();
+    //     let id = $(this).data("id");
+    //     let firstName = $("#firstNameEditAdmin" + id).val();
+    //     let lastName = $("#lastNameEditAdmin" + id).val();
 
-        const alertAdmin = $("#alertEditAdmin" + id);
-        const alertMessageAdmin = $("#alertMessageEditAdmin" + id);
+    //     let alertAdmin = $("#alertEditAdmin" + id);
+    //     let alertMessageAdmin = $("#alertMessageEditAdmin" + id);
 
-        if (!firstName) {
-            alertAdmin.show(400);
-            alertMessageAdmin.text("First Name is required");
-            return false;
-        }
-        if (!lastName) {
-            alertAdmin.show(400);
-            alertMessageAdmin.text("Last Name is required");
-            return false;
-        }
+    //     if (!firstName) {
+    //         console.log("First name is empty");
+    //         alertAdmin.show(400);
+    //         alertMessageAdmin.text("First Name is required");
+    //         e.preventDefault();
+    //         return false;
+    //     }
+    //     if (!lastName) {
+    //         console.log("Last name is empty");
+    //         alertAdmin.show(400);
+    //         alertMessageAdmin.text("Last Name is required");
+    //         e.preventDefault();
+    //         return false;
+    //     }
 
-        e.preventDefault();
-    });
+    //     console.log("Form validation successful");
+    // });
 
     //Form Create User
     $("#formCreateUser").submit(function (e) {
@@ -272,11 +276,6 @@ $(".custom-file-input").on("change", function () {
 
 $("#closeAlertAdmin").click(function () {
     $("#alertAdmin").hide(300);
-});
-
-$(".closeAlertEditAdmin").click(function () {
-    let id = $(this).data("id");
-    $("#alertEditAdmin" + id).hide(300);
 });
 
 $("#closeAlertUser").click(function () {
