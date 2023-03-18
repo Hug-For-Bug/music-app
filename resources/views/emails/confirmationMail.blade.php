@@ -93,7 +93,7 @@
   </style>
 
   <!-- MESSAGE SUBJECT -->
-  <title>Confirm email template</title>
+  <title>Confirmation email</title>
 
 </head>
 
@@ -125,7 +125,7 @@
 			padding-top: 25px; 
 			color: #000000;
 			font-family: sans-serif;" class="paragraph">
-              Hi [username],<br> In order to start using your new account, you need to confirm your email address.
+              Hi [name],<br> In order to start using your new account, you need to confirm your email address.
             </td>
           </tr>
           <tr>
