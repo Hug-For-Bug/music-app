@@ -32,4 +32,9 @@ class NotifyMail extends Mailable
         return $this->subject('Mail from Music App (Testing)')
             ->view('emails.demoMail');
     }
+    public function confirmation()
+    {
+        return $this->subject('Confirm your email for Music App)')
+            ->view('emails.confirmationMail');
+    }
 }
