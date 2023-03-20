@@ -439,12 +439,12 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-validation">
-                            <form class="form-valide" id="formEditAdmin" method="POST"
+                            <form class="form-valide formEditAdmin" id="formEditAdmin" method="POST"
                                 action="{{ url('administrator/edit-data-user') }}">
                                 @csrf
                                 <div class="row">
 
-                                    <div class="col-12" id="alertEditAdmin{{ $data->id }}">
+                                    <div class="col-12 alertEditAdmin{{ $data->id }}" id="alertEditAdmin">
                                         <div class="alert alert-danger solid alert-right-icon alert-dismissible show">
                                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
                                                 stroke-width="2" fill="none" stroke-linecap="round"
@@ -461,8 +461,8 @@
                                                 id="closeAlertEditAdmin" aria-label="Close"
                                                 data-id="{{ $data->id }}"><span><i class="mdi mdi-close"></i></span>
                                             </button>
-                                            <strong>Error!</strong> <span
-                                                id="alertMessageEditAdmin{{ $data->id }}">Message Sending
+                                            <strong>Error!</strong> <span class="alertMessageEditAdmin{{ $data->id }}"
+                                                id="alertMessageEditAdmin">Message Sending
                                                 failed.</span>
                                         </div>
                                     </div>
@@ -472,17 +472,18 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-4">
-                                                <input type="text" class="form-control"
-                                                    id="firstNameEditAdmin{{ $data->id }}" name="first_name"
-                                                    placeholder="First Name"
+                                                <input type="text"
+                                                    class="form-control firstNameEditAdmin{{ $data->id }}"
+                                                    id="firstNameEditAdmin" name="first_name" placeholder="First Name"
+                                                    data-userid="{{ $data->id }}"
                                                     @php $name = $data->name;
                                                     $first_name = explode(' ', trim($name))[0]; @endphp
                                                     value="{{ $first_name }}" style="font-size:1.5ch">
                                             </div>
                                             <div class="col-lg-4">
-                                                <input type="text" class="form-control"
-                                                    id="lastNameEditAdmin{{ $data->id }}" name="last_name"
-                                                    placeholder="Last Name"
+                                                <input type="text"
+                                                    class="form-control lastNameEditAdmin{{ $data->id }}"
+                                                    id="lastNameEditAdmin" name="last_name" placeholder="Last Name"
                                                     @php $name = $data->name;
                                                     $last_name = explode(' ', trim($name))[1]; @endphp
                                                     value="{{ $last_name }}" style="font-size:1.5ch">
@@ -494,8 +495,10 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <input type="email" class="form-control" id="email" name="email"
-                                                    placeholder="Email" value="{{ $data->email }}">
+                                                <input type="email"
+                                                    class="form-control emailEditAdmin{{ $data->id }}"
+                                                    id="emailEditAdmin" name="email" placeholder="Email"
+                                                    value="{{ $data->email }}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -503,8 +506,10 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <input type="tel" class="form-control" id="phone" name="phone"
-                                                    placeholder="Phone Number" value="{{ $data->phone }}">
+                                                <input type="tel"
+                                                    class="form-control phoneEditAdmin{{ $data->id }}"
+                                                    id="phoneEditAdmin" name="phone" placeholder="Phone Number"
+                                                    value="{{ $data->phone }}">
                                             </div>
                                         </div>
 
@@ -516,7 +521,8 @@
                                             <label class="col-lg-4 col-form-label" for="gender">Gender
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <select class="col-lg-8 select" id="gender" name="gender">
+                                            <select class="col-lg-8 select genderEditAdmin{{ $data->id }}"
+                                                id="genderEditAdmin" name="gender">
                                                 @if ($data->gender === 'male')
                                                     <option selected value="male">Male
                                                     </option>
@@ -535,8 +541,9 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <input type="password" class="form-control" id="password"
-                                                    name="password" placeholder="Password">
+                                                <input type="password"
+                                                    class="form-control passwordEditAdmin{{ $data->id }}"
+                                                    id="passwordEditAdmin" name="password" placeholder="Password">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -545,8 +552,10 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <input type="password" class="form-control" id="password_confirmation"
-                                                    name="password_confirmation" placeholder="Confirm Password">
+                                                <input type="password"
+                                                    class="form-control passwordConfirmationEditAdmin{{ $data->id }}"
+                                                    id="passwordConfirmationEditAdmin" name="password_confirmation"
+                                                    placeholder="Confirm Password">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -563,8 +572,8 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-lg-8">
-                                                <input type="hidden" id="idEditUser" name="id"
-                                                    value="{{ $data->id }}">
+                                                <input type="hidden" id="idEditAdmin" name="id"
+                                                    value="{{ $data->id }}" data-userid="{{ $data->id }}">
                                             </div>
                                         </div>
 
@@ -575,8 +584,10 @@
                                             </label>
                                             <div class="input-group col-lg-10">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" name="photo"
-                                                        id="photo" value="{{ $data->photo }}" accept="image/*">
+                                                    <input type="file"
+                                                        class="custom-file-input photoEditAdmin{{ $data->id }}"
+                                                        name="photo" id="photoEditAdmin" value="{{ $data->photo }}"
+                                                        accept="image/*">
                                                     <label class="custom-file-label">Choose
                                                         file</label>
 

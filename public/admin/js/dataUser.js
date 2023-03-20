@@ -133,35 +133,6 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-    //Form Edit Admin
-    // $("#formEditAdmin").submit(function (e) {
-    //     console.log("Form Edit Admin");
-
-    //     let id = $(this).data("id");
-    //     let firstName = $("#firstNameEditAdmin" + id).val();
-    //     let lastName = $("#lastNameEditAdmin" + id).val();
-
-    //     let alertAdmin = $("#alertEditAdmin" + id);
-    //     let alertMessageAdmin = $("#alertMessageEditAdmin" + id);
-
-    //     if (!firstName) {
-    //         console.log("First name is empty");
-    //         alertAdmin.show(400);
-    //         alertMessageAdmin.text("First Name is required");
-    //         e.preventDefault();
-    //         return false;
-    //     }
-    //     if (!lastName) {
-    //         console.log("Last name is empty");
-    //         alertAdmin.show(400);
-    //         alertMessageAdmin.text("Last Name is required");
-    //         e.preventDefault();
-    //         return false;
-    //     }
-
-    //     console.log("Form validation successful");
-    // });
-
     //Form Create User
     $("#formCreateUser").submit(function (e) {
         console.log("Form Create User");
