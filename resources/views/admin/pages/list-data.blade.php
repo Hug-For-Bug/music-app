@@ -604,8 +604,9 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary btnEditAdmin" id="btnEditAdmin"> <span
-                                class="btnTextEditAdmin" id="btnTextEditAdmin">Save changes</span></button>
+                        <button type="submit" class="btn btn-primary btnEditAdmin{{ $data->id }}"
+                            id="btnEditAdmin"> <span class="btnTextEditAdmin{{ $data->id }}"
+                                id="btnTextEditAdmin">Change Admin</span></button>
                     </div>
                     </form>
                 </div>

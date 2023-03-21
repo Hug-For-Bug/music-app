@@ -1,6 +1,23 @@
 $(document).ready(function () {
+    let editAdminStatus = localStorage.getItem("edit-admin-success");
+
+    if (editAdminStatus) {
+        Swal.fire({
+            icon: "success",
+            title: "Updated",
+            text: "User Data Updated Successfully!",
+            confirmButtonText: "OK",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.clear();
+            }
+        });
+    }
+
+    // let idForm = $(".formEditAdmin").data("id");
     $(".formEditAdmin").submit(function (e) {
         console.log("Form Edit Admin");
+        // console.log("id form: " + idForm);
 
         let id = $("#idEditAdmin").val();
         console.log("id:", id);
@@ -49,6 +66,38 @@ $(document).ready(function () {
             return false;
         }
 
+        let formData = new FormData($(".formEditAdmin" + idForm)[0]);
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+        });
+        $.ajax({
+            type: "POST",
+            url: $(".formEditAdmin" + idForm).attr("action"),
+            data: formData,
+            dataType: "json",
+            processData: false,
+            contentType: false,
+            beforeSend: function () {
+                $(".btnEditAdmin" + id).prop("disabled", true);
+                $(".btnTextEditAdmin" + id).text("Please wait ...");
+            },
+            success: function (data) {
+                console.log(data);
+                if (!data.success) {
+                    alertAdmin.show(400);
+                    alertMessageAdmin.text(data.message);
+                    $(".btnEditAdmin" + id).prop("disabled", false);
+                    $(".btnTextEditAdmin" + id).text("Change Admin");
+                    return false;
+                } else {
+                    localStorage.setItem("edit-admin-success", true);
+                    window.location.href = "list-data";
+                }
+            },
+        });
+
         e.preventDefault();
     });
 
@@ -62,6 +111,7 @@ $(document).ready(function () {
         let id = $(this).data("id");
         $("#idEditAdmin").val(id);
         console.log(id);
+        console.log("id form: " + idForm);
     });
 
     $(".closeAlertEditAdmin").click(function () {

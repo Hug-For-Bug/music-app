@@ -27,6 +27,7 @@ $(document).ready(function () {
             }
         });
     }
+
     //Form Create Admin
     $("#formCreateAdmin").submit(function (e) {
         console.log("Form Create Admin");
