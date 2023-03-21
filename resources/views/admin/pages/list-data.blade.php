@@ -444,7 +444,8 @@
                                 @csrf
                                 <div class="row">
 
-                                    <div class="col-12 alertEditAdmin{{ $data->id }}" id="alertEditAdmin">
+                                    <div class="col-12 alertEditAdmin{{ $data->id }}" id="alertEditAdmin"
+                                        style="display: none;">
                                         <div class="alert alert-danger solid alert-right-icon alert-dismissible show">
                                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
                                                 stroke-width="2" fill="none" stroke-linecap="round"
@@ -495,7 +496,7 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <input type="email"
+                                                <input type="text"
                                                     class="form-control emailEditAdmin{{ $data->id }}"
                                                     id="emailEditAdmin" name="email" placeholder="Email"
                                                     value="{{ $data->email }}">

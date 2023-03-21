@@ -7,6 +7,8 @@ $(document).ready(function () {
 
         let firstName = $(".firstNameEditAdmin" + id).val();
         let lastName = $(".lastNameEditAdmin" + id).val();
+        let email = $(".emailEditAdmin" + id).val();
+        let phone = $(".phoneEditAdmin" + id).val();
 
         let alertAdmin = $(".alertEditAdmin" + id);
         let alertMessageAdmin = $(".alertMessageEditAdmin" + id);
@@ -21,6 +23,29 @@ $(document).ready(function () {
             console.log("Last name is empty " + id);
             alertAdmin.show(400);
             alertMessageAdmin.text("Last Name is required");
+            return false;
+        }
+
+        if (
+            !email.match(
+                /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            )
+        ) {
+            console.log("Email forma is not correct" + id);
+            alertAdmin.show(400);
+            alertMessageAdmin.text("Email format is not correct");
+            return false;
+        }
+
+        if (!phone) {
+            alertAdmin.show(400);
+            alertMessageAdmin.text("Phone is required");
+            return false;
+        }
+
+        if (phone.length <= 10) {
+            alertAdmin.show(400);
+            alertMessageAdmin.text("Enter a valid cellphone number");
             return false;
         }
 
