@@ -77,12 +77,40 @@ class DataUserController extends Controller
 
     public function editUser(Request $req)
     {
+
+        $email = $req->email;
+        $oldEmail = $req->oldEmail;
+        $phone = $req->phone;
+        $oldPhone = $req->oldPhone;
+
+        // Check email
+        if ($email !== $oldEmail) {
+            $checkEmail = User::where('email', $email)->get();
+            if ($checkEmail->isNotEmpty()) {
+                return response()->json([
+                    "success" => false,
+                    "message" => "Email has been used, choose other email!"
+                ]);
+            }
+        }
+
+        // Check phone
+        if ($phone !== $oldPhone) {
+            $checkPhone = User::where('phone', $phone)->get();
+            if ($checkPhone->isNotEmpty()) {
+                return response()->json([
+                    "success" => false,
+                    "message" => "Phone has been used, choose other Phone!"
+                ]);
+            }
+        }
+
         date_default_timezone_set("Asia/Jakarta");
         User::where("id", $req->id)->update([
             "photo" => $req->photo,
             "name" => $req->first_name . " " . $req->last_name,
-            "email" => $req->email,
-            "phone" => $req->phone,
+            "email" => $email,
+            "phone" => $phone,
             "gender" => $req->gender,
             "password" => Hash::make($req->password),
             "id_plan" => $req->id_plan,
@@ -90,6 +118,9 @@ class DataUserController extends Controller
             "verified_status" => "1",
             "verified_at" => date("Y-m-d H:i:s")
         ]);
+
+        // return redirect("/administrator/list-data")
+        //     ->with("msg_success_user_edit", "berhasil");
         return response()->json([
             "success" => true,
             "message" => "User has been updated"

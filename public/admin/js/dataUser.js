@@ -1,6 +1,7 @@
 $(document).ready(function () {
     let createAdminStatus = localStorage.getItem("create-admin-success");
     let createUserStatus = localStorage.getItem("create-user-success");
+    let editAdminStatus = localStorage.getItem("edit-admin-success");
 
     if (createAdminStatus) {
         Swal.fire({
@@ -8,10 +9,8 @@ $(document).ready(function () {
             title: "Created",
             text: "New Data Admin Added Successfully!",
             confirmButtonText: "OK",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                localStorage.clear();
-            }
+        }).then(() => {
+            localStorage.clear();
         });
     }
 
@@ -25,6 +24,17 @@ $(document).ready(function () {
             if (result.isConfirmed) {
                 localStorage.clear();
             }
+        });
+    }
+
+    if (editAdminStatus) {
+        Swal.fire({
+            icon: "success",
+            title: "Updated",
+            text: "User Data Updated Successfully!",
+            confirmButtonText: "OK",
+        }).then(() => {
+            localStorage.clear();
         });
     }
 
@@ -238,6 +248,100 @@ $(document).ready(function () {
         });
         e.preventDefault();
     });
+
+    // Form Edit Admin
+    $(".formEditAdmin").each(function () {
+        $(this).submit(function (e) {
+            console.log("Form Edit Admin");
+
+            let id = $(this).find("#idEditAdmin").val();
+            console.log("id:", id);
+
+            let firstName = $(this)
+                .find(".firstNameEditAdmin" + id)
+                .val();
+            let lastName = $(this)
+                .find(".lastNameEditAdmin" + id)
+                .val();
+            let email = $(this)
+                .find(".emailEditAdmin" + id)
+                .val();
+            let phone = $(this)
+                .find(".phoneEditAdmin" + id)
+                .val();
+
+            let alertAdmin = $(this).find(".alertEditAdmin" + id);
+            let alertMessageAdmin = $(this).find(".alertMessageEditAdmin" + id);
+
+            if (!firstName) {
+                console.log("First name is empty " + id);
+                alertAdmin.show(400);
+                alertMessageAdmin.text("First Name is required");
+                return false;
+            }
+            if (!lastName) {
+                console.log("Last name is empty " + id);
+                alertAdmin.show(400);
+                alertMessageAdmin.text("Last Name is required");
+                return false;
+            }
+            if (
+                !email.match(
+                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                )
+            ) {
+                alertAdmin.show(400);
+                alertMessageAdmin.text("Email format is not correct");
+                return false;
+            }
+            if (!phone) {
+                alertAdmin.show(400);
+                alertMessageAdmin.text("Phone is required");
+                return false;
+            }
+            if (phone.length <= 10) {
+                alertAdmin.show(400);
+                alertMessageAdmin.text("Enter a valid cellphone number");
+                return false;
+            }
+
+            let formData = new FormData($(this)[0]);
+            $.ajaxSetup({
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                        "content"
+                    ),
+                },
+            });
+            $.ajax({
+                type: "POST",
+                url: $(this).attr("action"),
+                data: formData,
+                dataType: "json",
+                processData: false,
+                contentType: false,
+                beforeSend: function () {
+                    $(".btnEditAdmin" + id).prop("disabled", true);
+                    $(".btnTextEditAdmin" + id).text("Please wait ...");
+                },
+                success: function (data) {
+                    console.log(data);
+                    if (!data.success) {
+                        alertAdmin.show(400);
+                        alertMessageAdmin.text(data.message);
+                        $(".btnEditAdmin" + id).prop("disabled", false);
+                        $(".btnTextEditAdmin" + id).text("Change Admin");
+                        return false;
+                    } else {
+                        localStorage.setItem("edit-admin-success", true);
+                        window.location.href = "list-data";
+                    }
+                },
+            });
+
+            e.preventDefault();
+        });
+    });
 });
 
 // Add the following code if you want the name of the file appear on select
@@ -253,4 +357,22 @@ $("#closeAlertAdmin").click(function () {
 $("#closeAlertUser").click(function () {
     $("#alertUser").hide(300);
     console.log("Close button clicked");
+});
+
+$("#modalEditAdmin").on("show.bs.modal", function (e) {
+    let button = $(e.relatedTarget);
+    let id = button.data("id");
+    $("#idEditAdmin").val(id);
+});
+
+$("a[data-toggle='modal']").click(function () {
+    let id = $(this).data("id");
+    $("#idEditAdmin").val(id);
+    console.log("open form: " + id);
+});
+
+$(".closeAlertEditAdmin").click(function () {
+    let id = $("#idEditAdmin").val();
+    $(".alertEditAdmin" + id).hide(300);
+    console.log("close " + id);
 });
