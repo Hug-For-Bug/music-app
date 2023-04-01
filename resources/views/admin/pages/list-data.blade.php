@@ -121,7 +121,8 @@
                                                                                     <div class="dropdown-menu">
                                                                                         <a class="dropdown-item"
                                                                                             href="#modalEditAdmin{{ $data->id }}"
-                                                                                            data-toggle="modal">Edit
+                                                                                            data-toggle="modal"
+                                                                                            data-id="{{ $data->id }}">Edit
                                                                                         </a>
                                                                                         <a class="dropdown-item text-danger"
                                                                                             href="#modalDeleteAdmin{{ $data->id }}"
@@ -191,18 +192,20 @@
                                                                                     @if ($plan->plan_name === 'Free')
                                                                                         <td
                                                                                             class="badge badge-rounded badge-xs mt-3 badge-info">
-                                                                                            {{ $plan->plan_name }}</td>
+                                                                                            {{ $plan->plan_name }}
+                                                                                        </td>
                                                                                     @endif
                                                                                     @if ($plan->plan_name === 'Silver')
                                                                                         <td
                                                                                             class="badge badge-rounded badge-xs mt-3 badge-light">
-                                                                                            {{ $plan->plan_name }}</td>
+                                                                                            {{ $plan->plan_name }}
+                                                                                        </td>
                                                                                     @endif
                                                                                     {{-- @if ($plan->plan_name === 'Premium')
                                                                                         <td
                                                                                             class="badge badge-rounded badge-xs mt-3 badge-secondary">
                                                                                             {{ $plan->plan_name }}</td>
-                                                                                    @endif --}}
+                                                                @endif --}}
                                                                                 @endif
                                                                             @endforeach
                                                                             <td><a
@@ -438,12 +441,13 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-validation">
-                            <form class="form-valide" id="formEditAdmin{{ $data->id }}" method="POST"
+                            <form class="form-valide formEditAdmin" id="formEditAdmin" method="POST"
                                 action="{{ url('administrator/edit-data-user') }}">
                                 @csrf
                                 <div class="row">
 
-                                    <div class="col-12" id="alertEditAdmin{{ $data->id }}">
+                                    <div class="col-12 alertEditAdmin{{ $data->id }}"
+                                        id="alertEditAdmin{{ $data->id }}" style="display: none;">
                                         <div class="alert alert-danger solid alert-right-icon alert-dismissible show">
                                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
                                                 stroke-width="2" fill="none" stroke-linecap="round"
@@ -456,10 +460,11 @@
                                                 <line x1="9" y1="9" x2="15" y2="15">
                                                 </line>
                                             </svg>
-                                            <button type="button" class="close h-100" data-id="{{ $data->id }}"
-                                                aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+                                            <button type="button" class="close h-100 closeAlertEditAdmin"
+                                                id="closeAlertEditAdmin{{ $data->id }}" aria-label="Close"><span><i
+                                                        class="mdi mdi-close"></i></span>
                                             </button>
-                                            <strong>Error!</strong> <span
+                                            <strong>Error!</strong> <span class="alertMessageEditAdmin{{ $data->id }}"
                                                 id="alertMessageEditAdmin{{ $data->id }}">Message Sending
                                                 failed.</span>
                                         </div>
@@ -470,16 +475,20 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-4">
-                                                <input type="text" class="form-control firstNameEditAdmin"
-                                                    id="firstNameEditAdmin" name="first_name" placeholder="First Name"
-                                                    @php $name = $data->name;
+                                                <input type="text"
+                                                    class="form-control firstNameEditAdmin{{ $data->id }}"
+                                                    id="firstNameEditAdmin{{ $data->id }}" name="first_name"
+                                                    placeholder="First Name"
+                                                    @php $name=$data->name;
                                                     $first_name = explode(' ', trim($name))[0]; @endphp
                                                     value="{{ $first_name }}" style="font-size:1.5ch">
                                             </div>
                                             <div class="col-lg-4">
-                                                <input type="text" class="form-control lastNameEditAdmin"
-                                                    id="lastNameEditAdmin" name="last_name" placeholder="Last Name"
-                                                    @php $name = $data->name;
+                                                <input type="text"
+                                                    class="form-control lastNameEditAdmin{{ $data->id }}"
+                                                    id="lastNameEditAdmin{{ $data->id }}" name="last_name"
+                                                    placeholder="Last Name"
+                                                    @php $name=$data->name;
                                                     $last_name = explode(' ', trim($name))[1]; @endphp
                                                     value="{{ $last_name }}" style="font-size:1.5ch">
                                             </div>
@@ -490,7 +499,11 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <input type="email" class="form-control" id="email" name="email"
+                                                <input type="text"
+                                                    class="form-control emailEditAdmin{{ $data->id }}"
+                                                    id="emailEditAdmin{{ $data->id }}" name="email"
+                                                    placeholder="Email" value="{{ $data->email }}">
+                                                <input type="text" class="form-control" name="oldEmail"
                                                     placeholder="Email" value="{{ $data->email }}">
                                             </div>
                                         </div>
@@ -499,7 +512,11 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <input type="tel" class="form-control" id="phone" name="phone"
+                                                <input type="phone"
+                                                    class="form-control phoneEditAdmin{{ $data->id }}"
+                                                    id="phoneEditAdmin{{ $data->id }}" name="phone"
+                                                    placeholder="Phone Number" value="{{ $data->phone }}">
+                                                <input type="phone" class="form-control" name="oldPhone"
                                                     placeholder="Phone Number" value="{{ $data->phone }}">
                                             </div>
                                         </div>
@@ -512,7 +529,8 @@
                                             <label class="col-lg-4 col-form-label" for="gender">Gender
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <select class="col-lg-8 select" id="gender" name="gender">
+                                            <select class="col-lg-8 select genderEditAdmin{{ $data->id }}"
+                                                id="genderEditAdmin{{ $data->id }}" name="gender">
                                                 @if ($data->gender === 'male')
                                                     <option selected value="male">Male
                                                     </option>
@@ -531,8 +549,10 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <input type="password" class="form-control" id="password"
-                                                    name="password" placeholder="Password">
+                                                <input type="password"
+                                                    class="form-control passwordEditAdmin{{ $data->id }}"
+                                                    name="password" id="passwordEditAdmin{{ $data->id }}"
+                                                    placeholder="Password">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -541,14 +561,16 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <input type="password" class="form-control" id="password_confirmation"
+                                                <input type="password"
+                                                    class="form-control passwordConfirmationEditAdmin{{ $data->id }}"
+                                                    id="passwordConfirmationEditAdmin{{ $data->id }}"
                                                     name="password_confirmation" placeholder="Confirm Password">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-lg-8">
-                                                <input type="hidden" class="form-control" id="id_role" name="id_role"
-                                                    value="1">
+                                                <input type="hidden" class="form-control" name="id_role"
+                                                    id="id_role{{ $data->id }}" value="1">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -559,7 +581,8 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-lg-8">
-                                                <input type="hidden" name="id" value="{{ $data->id }}">
+                                                <input type="hidden" id="idEditAdmin" name="id"
+                                                    value="{{ $data->id }}">
                                             </div>
                                         </div>
 
@@ -570,8 +593,10 @@
                                             </label>
                                             <div class="input-group col-lg-10">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" name="photo"
-                                                        id="photo" value="{{ $data->photo }}" accept="image/*">
+                                                    <input type="file"
+                                                        class="custom-file-input photoEditAdmin{{ $data->id }}"
+                                                        name="photo" id="photoEditAdmin{{ $data->id }}"
+                                                        value="{{ $data->photo }}" accept="image/*">
                                                     <label class="custom-file-label">Choose
                                                         file</label>
 
@@ -587,8 +612,9 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary btnEditAdmin" id="btnEditAdmin"> <span
-                                class="btnTextEditAdmin" id="btnTextEditAdmin">Save changes</span></button>
+                        <button type="submit" class="btn btn-primary btnEditAdmin{{ $data->id }}"
+                            id="btnEditAdmin{{ $data->id }}"> <span class="btnTextEditAdmin{{ $data->id }}"
+                                id="btnTextEditAdmin{{ $data->id }}">Change Admin</span></button>
                     </div>
                     </form>
                 </div>
@@ -801,14 +827,14 @@
                                             <div class="col-lg-4">
                                                 <input type="text" class="form-control" id="first_name"
                                                     name="first_name" placeholder="First Name"
-                                                    @php $name = $data->name;
+                                                    @php $name=$data->name;
                                                     $first_name = explode(' ', trim($name))[0]; @endphp
                                                     value="{{ $first_name }}" style="font-size:1.5ch">
                                             </div>
                                             <div class="col-lg-4">
                                                 <input type="text" class="form-control" id="last_name"
                                                     name="last_name" placeholder="Last Name"
-                                                    @php $name = $data->name;
+                                                    @php $name=$data->name;
                                                     $last_name = explode(' ', trim($name))[1]; @endphp
                                                     value="{{ $last_name }}" style="font-size:1.5ch">
                                             </div>
@@ -968,6 +994,8 @@
 
     @push('after-script')
         <!-- Datatable -->
+        {{-- <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
+            integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script> --}}
         <script src="{{ asset('admin/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
         <script src="{{ asset('admin/js/plugins-init/datatables.init.js') }}"></script>
     @endpush
@@ -1023,4 +1051,100 @@
             })
         </script>
     @endif
+
+    {{-- @foreach ($listData as $l)
+<script>
+    $(`#formEditAdmin{{ $l->id }}`).submit(function (e) {
+        console.log(`Form Edit Admin {{ $l->id }}`);
+
+        let id = $(`#idEditAdmin{{ $l->id }}`).val();
+        console.log("id:", id);
+
+        let firstName = $(`#firstNameEditAdmin{{ $l->id }}`).val();
+        let lastName = $(`#lastNameEditAdmin{{ $l->id }}`).val();
+        let email = $(`#emailEditAdmin{{ $l->id }}`).val();
+        let phone = $(`#phoneEditAdmin{{ $l->id }}`).val();
+
+        console.log({
+            firstName,
+            lastName
+        })
+
+        let alertAdmin = $(`#alertEditAdmin{{ $l->id }}`);
+        let alertMessageAdmin = $(`#alertMessageEditAdmin{{ $l->id }}`);
+
+        if (!firstName) {
+            alertAdmin.show(400);
+            alertMessageAdmin.text("First Name is required");
+            return false;
+        }
+        if (!lastName) {
+            alertAdmin.show(400);
+            alertMessageAdmin.text("Last Name is required");
+            return false;
+        }
+
+        if (
+            !email.match(
+                /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            )
+        ) {
+            console.log("Email forma is not correct" + id);
+            alertAdmin.show(400);
+            alertMessageAdmin.text("Email format is not correct");
+            return false;
+        }
+
+        if (!phone) {
+            alertAdmin.show(400);
+            alertMessageAdmin.text("Phone is required");
+            return false;
+        }
+
+        if (phone.length <= 10) {
+            alertAdmin.show(400);
+            alertMessageAdmin.text("Enter a valid cellphone number");
+            return false;
+        }
+        // console.log("test")
+        let formData = new FormData($(`#formEditAdmin{{ $l->id }}`)[0]);
+        // console.log({
+        //     formData
+        // })
+        // $.ajaxSetup({
+        //     headers: {
+        //         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        //     },
+        // });
+        // $.ajax({
+        //     type: "POST",
+        //     url: $(`#formEditAdmin{{ $l->id }}`).attr("action"),
+        //     data: formData,
+        //     dataType: "json",
+        //     processData: false,
+        //     contentType: false,
+        //     beforeSend: function () {
+        //         $(`#btnEditAdmin{{ $l->id }}`).prop("disabled", true);
+        //         $(`#btnTextEditAdmin{{ $l->id }}`).text("Please wait ...");
+        //     },
+        //     success: function (data) {
+        //         console.log(data);
+        //         if (!data.success) {
+        //             alertAdmin.show(400);
+        //             alertMessageAdmin.text(data.message);
+        //             $(`#btnEditAdmin{{ $l->id }}`).prop("disabled", false);
+        //             $(`#btnTextEditAdmin{{ $l->id }}`).text("Change Admin");
+        //             return false;
+        //         } else {
+        //             localStorage.setItem("edit-admin-success", true);
+        //             window.location.href = "list-data";
+        //         }
+        //     },
+        // });
+
+        e.preventDefault();
+    });
+
+</script>
+@endforeach --}}
 @endsection
