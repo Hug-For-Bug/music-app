@@ -446,8 +446,8 @@
                                 @csrf
                                 <div class="row">
 
-                                    <div class="col-12 alertEditAdmin{{ $data->id }}"
-                                        id="alertEditAdmin{{ $data->id }}" style="display: none;">
+                                    <div class="col-12 alertEditAdmin{{ $data->id }}" id="alertEditAdmin"
+                                        style="display: none;">
                                         <div class="alert alert-danger solid alert-right-icon alert-dismissible show">
                                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
                                                 stroke-width="2" fill="none" stroke-linecap="round"
@@ -461,11 +461,11 @@
                                                 </line>
                                             </svg>
                                             <button type="button" class="close h-100 closeAlertEditAdmin"
-                                                id="closeAlertEditAdmin{{ $data->id }}" aria-label="Close"><span><i
+                                                id="closeAlertEditAdmin" aria-label="Close"><span><i
                                                         class="mdi mdi-close"></i></span>
                                             </button>
                                             <strong>Error!</strong> <span class="alertMessageEditAdmin{{ $data->id }}"
-                                                id="alertMessageEditAdmin{{ $data->id }}">Message Sending
+                                                id="alertMessageEditAdmin">Message Sending
                                                 failed.</span>
                                         </div>
                                     </div>
@@ -477,8 +477,7 @@
                                             <div class="col-lg-4">
                                                 <input type="text"
                                                     class="form-control firstNameEditAdmin{{ $data->id }}"
-                                                    id="firstNameEditAdmin{{ $data->id }}" name="first_name"
-                                                    placeholder="First Name"
+                                                    id="firstNameEditAdmin" name="first_name" placeholder="First Name"
                                                     @php $name=$data->name;
                                                     $first_name = explode(' ', trim($name))[0]; @endphp
                                                     value="{{ $first_name }}" style="font-size:1.5ch">
@@ -486,8 +485,7 @@
                                             <div class="col-lg-4">
                                                 <input type="text"
                                                     class="form-control lastNameEditAdmin{{ $data->id }}"
-                                                    id="lastNameEditAdmin{{ $data->id }}" name="last_name"
-                                                    placeholder="Last Name"
+                                                    id="lastNameEditAdmin" name="last_name" placeholder="Last Name"
                                                     @php $name=$data->name;
                                                     $last_name = explode(' ', trim($name))[1]; @endphp
                                                     value="{{ $last_name }}" style="font-size:1.5ch">
@@ -501,8 +499,8 @@
                                             <div class="col-lg-8">
                                                 <input type="text"
                                                     class="form-control emailEditAdmin{{ $data->id }}"
-                                                    id="emailEditAdmin{{ $data->id }}" name="email"
-                                                    placeholder="Email" value="{{ $data->email }}">
+                                                    id="emailEditAdmin" name="email" placeholder="Email"
+                                                    value="{{ $data->email }}">
                                                 <input type="text" class="form-control" name="oldEmail"
                                                     placeholder="Email" value="{{ $data->email }}">
                                             </div>
@@ -514,8 +512,8 @@
                                             <div class="col-lg-8">
                                                 <input type="phone"
                                                     class="form-control phoneEditAdmin{{ $data->id }}"
-                                                    id="phoneEditAdmin{{ $data->id }}" name="phone"
-                                                    placeholder="Phone Number" value="{{ $data->phone }}">
+                                                    id="phoneEditAdmin" name="phone" placeholder="Phone Number"
+                                                    value="{{ $data->phone }}">
                                                 <input type="phone" class="form-control" name="oldPhone"
                                                     placeholder="Phone Number" value="{{ $data->phone }}">
                                             </div>
@@ -529,8 +527,8 @@
                                             <label class="col-lg-4 col-form-label" for="gender">Gender
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <select class="col-lg-8 select genderEditAdmin{{ $data->id }}"
-                                                id="genderEditAdmin{{ $data->id }}" name="gender">
+                                            <select class="col-lg-8 select genderEditAdmin" id="genderEditAdmin"
+                                                name="gender">
                                                 @if ($data->gender === 'male')
                                                     <option selected value="male">Male
                                                     </option>
@@ -549,10 +547,8 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <input type="password"
-                                                    class="form-control passwordEditAdmin{{ $data->id }}"
-                                                    name="password" id="passwordEditAdmin{{ $data->id }}"
-                                                    placeholder="Password">
+                                                <input type="password" class="form-control passwordEditAdmin"
+                                                    name="password" id="passwordEditAdmin" placeholder="Password">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -561,16 +557,15 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <input type="password"
-                                                    class="form-control passwordConfirmationEditAdmin{{ $data->id }}"
-                                                    id="passwordConfirmationEditAdmin{{ $data->id }}"
-                                                    name="password_confirmation" placeholder="Confirm Password">
+                                                <input type="password" class="form-control passwordConfirmationEditAdmin"
+                                                    id="passwordConfirmationEditAdmin" name="password_confirmation"
+                                                    placeholder="Confirm Password">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-lg-8">
-                                                <input type="hidden" class="form-control" name="id_role"
-                                                    id="id_role{{ $data->id }}" value="1">
+                                                <input type="hidden" class="form-control" name="id_role" id="id_role"
+                                                    value="1">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -593,10 +588,9 @@
                                             </label>
                                             <div class="input-group col-lg-10">
                                                 <div class="custom-file">
-                                                    <input type="file"
-                                                        class="custom-file-input photoEditAdmin{{ $data->id }}"
-                                                        name="photo" id="photoEditAdmin{{ $data->id }}"
-                                                        value="{{ $data->photo }}" accept="image/*">
+                                                    <input type="file" class="custom-file-input photoEditAdmin"
+                                                        name="photo" id="photoEditAdmin" value="{{ $data->photo }}"
+                                                        accept="image/*">
                                                     <label class="custom-file-label">Choose
                                                         file</label>
 
