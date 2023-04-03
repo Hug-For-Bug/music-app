@@ -344,21 +344,24 @@ $(document).ready(function () {
     });
 });
 
-// Add the following code if you want the name of the file appear on select
+// Show text for input photo
 $(".custom-file-input").on("change", function () {
     var fileName = $(this).val().split("\\").pop();
     $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 });
 
+// Close alert create admin
 $("#closeAlertAdmin").click(function () {
     $("#alertAdmin").hide(300);
 });
 
+// Close alert create admin
 $("#closeAlertUser").click(function () {
     $("#alertUser").hide(300);
     console.log("Close button clicked");
 });
 
+// Show modal and close alert edit admin
 $("#modalEditAdmin").on("show.bs.modal", function (e) {
     let button = $(e.relatedTarget);
     let id = button.data("id");
@@ -374,5 +377,24 @@ $("a[data-toggle='modal']").click(function () {
 $(".closeAlertEditAdmin").click(function () {
     let id = $("#idEditAdmin").val();
     $(".alertEditAdmin" + id).hide(300);
+    console.log("close " + id);
+});
+
+// Show modal and close alert edit user
+$("#modalEditUser").on("show.bs.modal", function (e) {
+    let button = $(e.relatedTarget);
+    let id = button.data("id");
+    $("#idEditUser").val(id);
+});
+
+$("a[data-toggle='modal']").click(function () {
+    let id = $(this).data("id");
+    $("#idEditUser").val(id);
+    console.log("open form user: " + id);
+});
+
+$(".closeAlertEditUser").click(function () {
+    let id = $("#idEditUser").val();
+    $(".alertEditUser" + id).hide(300);
     console.log("close " + id);
 });
