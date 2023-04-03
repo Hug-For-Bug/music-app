@@ -22,11 +22,12 @@
                         <div class="custom-tab-1">
                             <ul class="nav nav-tabs col-12">
                                 <li class="nav-item col-6">
-                                    <a class="nav-link active" data-toggle="tab" href="#admin"><i
+                                    <a class="nav-link active" id="adminTab" data-toggle="tab" href="#admin"><i
                                             class="la la-home mr-2"></i> Add Admin</a>
                                 </li>
                                 <li class="nav-item col-6">
-                                    <a class="nav-link" data-toggle="tab" href="#user"><i class="la la-user mr-2"></i>
+                                    <a class="nav-link" id="userTab" data-toggle="tab" href="#user"><i
+                                            class="la la-user mr-2"></i>
                                         Add User</a>
                                 </li>
                             </ul>
@@ -148,7 +149,7 @@
                                         <div class="col-12">
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h4 class="card-title">Data Admin</h4>
+                                                    <h4 class="card-title">Data User</h4>
 
                                                     <!-- Button trigger modal -->
                                                     <button type="button" class="btn btn-rounded btn-primary"

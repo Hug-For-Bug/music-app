@@ -350,6 +350,28 @@ $(".custom-file-input").on("change", function () {
     $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 });
 
+// Localstorage for tab-pane admin and user
+let adminTab = document.querySelector("#adminTab");
+let userTab = document.querySelector("#userTab");
+
+let activeTab = localStorage.getItem("activeTab");
+
+if (activeTab === "admin") {
+    adminTab.classList.add("active");
+    userTab.classList.remove("active");
+}
+if (activeTab === "user") {
+    userTab.classList.add("active");
+    adminTab.classList.remove("active");
+}
+
+adminTab.addEventListener("click", () => {
+    localStorage.setItem("activeTab", "admin");
+});
+userTab.addEventListener("click", () => {
+    localStorage.setItem("activeTab", "user");
+});
+
 // Close alert create admin
 $("#closeAlertAdmin").click(function () {
     $("#alertAdmin").hide(300);
