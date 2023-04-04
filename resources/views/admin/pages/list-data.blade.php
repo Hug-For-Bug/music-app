@@ -120,7 +120,7 @@
                                                                                         </svg>
                                                                                     </button>
                                                                                     <div class="dropdown-menu">
-                                                                                        <a class="dropdown-item"
+                                                                                        <a class="dropdown-item modalEditAdmin"
                                                                                             href="#modalEditAdmin{{ $data->id }}"
                                                                                             data-toggle="modal"
                                                                                             data-id="{{ $data->id }}">Edit
@@ -248,7 +248,7 @@
                                                                                         </svg>
                                                                                     </button>
                                                                                     <div class="dropdown-menu">
-                                                                                        <a class="dropdown-item"
+                                                                                        <a class="dropdown-item modalEditUser"
                                                                                             href="#modalEditUser{{ $data->id }}"
                                                                                             data-toggle="modal"
                                                                                             data-id="{{ $data->id }}">Edit
@@ -607,8 +607,8 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary btnEditAdmin{{ $data->id }}"
-                            id="btnEditAdmin{{ $data->id }}"> <span class="btnTextEditAdmin{{ $data->id }}"
-                                id="btnTextEditAdmin{{ $data->id }}">Change Admin</span></button>
+                            id="btnEditAdmin"> <span class="btnTextEditAdmin{{ $data->id }}"
+                                id="btnTextEditAdmin">Change Admin</span></button>
                     </div>
                     </form>
                 </div>
@@ -809,11 +809,13 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-validation">
-                            <form class="form-valide" method="POST" action="{{ url('administrator/edit-data-user') }}">
+                            <form class="form-valide formEditUser" id="formEditUser" method="POST"
+                                action="{{ url('administrator/edit-data-user') }}">
                                 @csrf
                                 <div class="row">
 
-                                    <div class="col-12 alertEditUser{{ $data->id }}" id="alertEditUser">
+                                    <div class="col-12 alertEditUser{{ $data->id }}" id="alertEditUser"
+                                        style="display: none;">
                                         <div class="alert alert-danger solid alert-right-icon alert-dismissible show">
                                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
                                                 stroke-width="2" fill="none" stroke-linecap="round"
@@ -842,15 +844,17 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-4">
-                                                <input type="text" class="form-control" id="first_name"
-                                                    name="first_name" placeholder="First Name"
+                                                <input type="text"
+                                                    class="form-control firstNameEditUser{{ $data->id }}"
+                                                    id="firstNameEditUser" name="first_name" placeholder="First Name"
                                                     @php $name=$data->name;
                                                     $first_name = explode(' ', trim($name))[0]; @endphp
                                                     value="{{ $first_name }}" style="font-size:1.5ch">
                                             </div>
                                             <div class="col-lg-4">
-                                                <input type="text" class="form-control" id="last_name"
-                                                    name="last_name" placeholder="Last Name"
+                                                <input type="text"
+                                                    class="form-control lastNameEditUser{{ $data->id }}"
+                                                    id="lastNameEditUser" name="last_name" placeholder="Last Name"
                                                     @php $name=$data->name;
                                                     $last_name = explode(' ', trim($name))[1]; @endphp
                                                     value="{{ $last_name }}" style="font-size:1.5ch">
@@ -862,7 +866,11 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <input type="email" class="form-control" id="email" name="email"
+                                                <input type="email"
+                                                    class="form-control emailEditUser{{ $data->id }}"
+                                                    id="emailEditUser" name="email" placeholder="Email"
+                                                    value="{{ $data->email }}">
+                                                <input type="hidden" class="form-control" name="oldEmail"
                                                     placeholder="Email" value="{{ $data->email }}">
                                             </div>
                                         </div>
@@ -871,7 +879,11 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <input type="tel" class="form-control" id="phone" name="phone"
+                                                <input type="phone"
+                                                    class="form-control phoneEditUser{{ $data->id }}"
+                                                    id="phoneEditUser" name="phone" placeholder="Phone Number"
+                                                    value="{{ $data->phone }}">
+                                                <input type="hidden" class="form-control " name="oldPhone"
                                                     placeholder="Phone Number" value="{{ $data->phone }}">
                                             </div>
                                         </div>
@@ -884,7 +896,8 @@
                                             <label class="col-lg-4 col-form-label" for="gender">Gender
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <select class="col-lg-8 select" id="gender" name="gender">
+                                            <select class="col-lg-8 select genderEditUser" id="genderEditUser"
+                                                name="gender">
                                                 @if ($data->gender === 'male')
                                                     <option selected value="male">Male
                                                     </option>
@@ -902,7 +915,8 @@
                                             <label class="col-lg-4 col-form-label" for="id_plan">Plans
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <select class="col-lg-8 select" id="id_plan" name="id_plan">
+                                            <select class="col-lg-8 select planEditUser" id="planEditUser"
+                                                name="id_plan">
                                                 <option selected>Choose Plans
                                                 </option>
                                                 @foreach ($plans as $plan)
@@ -920,8 +934,8 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <input type="password" class="form-control" id="password"
-                                                    name="password" placeholder="Password">
+                                                <input type="password" class="form-control passwordEditUser"
+                                                    id="passwordEditUser" name="password" placeholder="Password">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -930,8 +944,9 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <input type="password" class="form-control" id="password_confirmation"
-                                                    name="password_confirmation" placeholder="Confirm Password">
+                                                <input type="password" class="form-control passwordConfirmationEditUser"
+                                                    id="passwordConfirmationEditUser" name="password_confirmation"
+                                                    placeholder="Confirm Password">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -954,8 +969,9 @@
                                             </label>
                                             <div class="input-group col-lg-10">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" name="photo"
-                                                        id="photo" value="{{ $data->photo }}" accept="image/*">
+                                                    <input type="file" class="custom-file-input photoEditUser"
+                                                        name="photo" id="photoEditUser" value="{{ $data->photo }}"
+                                                        accept="image/*">
                                                     <label class="custom-file-label">Choose
                                                         file</label>
                                                 </div>
@@ -969,8 +985,9 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save
-                            changes</button>
+                        <button type="submit" class="btn btn-primary btnEditUser{{ $data->id }}"
+                            id="btnEditUser"><span class="btnTextEditUser{{ $data->id }}"
+                                id="btnTextEditUser">Change User</span></button>
                     </div>
                     </form>
                 </div>

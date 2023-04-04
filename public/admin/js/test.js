@@ -1,50 +1,50 @@
 // $(document).ready(function () {
-//     let editAdminStatus = localStorage.getItem("edit-admin-success");
+//     let editUserStatus = localStorage.getItem("edit-user-success");
 
-//     if (editAdminStatus) {
+//     if (editUserStatus) {
 //         Swal.fire({
 //             icon: "success",
 //             title: "Updated",
 //             text: "User Data Updated Successfully!",
 //             confirmButtonText: "OK",
 //         }).then(() => {
-//             localStorage.clear();
+//             localStorage.removeItem("edit-user-success");
 //         });
 //     }
 
-//     $(".formEditAdmin").each(function () {
+//     $(".formEditUser").each(function () {
 //         $(this).submit(function (e) {
-//             console.log("Form Edit Admin");
+//             console.log("Form Edit User");
 
-//             let id = $(this).find("#idEditAdmin").val();
+//             const id = $(this).find("#idEditUser").val();
 //             console.log("id:", id);
 
-//             let firstName = $(this)
-//                 .find(".firstNameEditAdmin" + id)
+//             const firstName = $(this)
+//                 .find(".firstNameEditUser" + id)
 //                 .val();
-//             let lastName = $(this)
-//                 .find(".lastNameEditAdmin" + id)
+//             const lastName = $(this)
+//                 .find(".lastNameEditUser" + id)
 //                 .val();
-//             let email = $(this)
-//                 .find(".emailEditAdmin" + id)
+//             const email = $(this)
+//                 .find(".emailEditUser" + id)
 //                 .val();
-//             let phone = $(this)
-//                 .find(".phoneEditAdmin" + id)
+//             const phone = $(this)
+//                 .find(".phoneEditUser" + id)
 //                 .val();
 
-//             let alertAdmin = $(this).find(".alertEditAdmin" + id);
-//             let alertMessageAdmin = $(this).find(".alertMessageEditAdmin" + id);
+//             const alertUser = $(this).find(".alertEditUser" + id);
+//             const alertMessageUser = $(this).find(".alertMessageEditUser" + id);
 
 //             if (!firstName) {
 //                 console.log("First name is empty " + id);
-//                 alertAdmin.show(400);
-//                 alertMessageAdmin.text("First Name is required");
+//                 alertUser.show(500);
+//                 alertMessageUser.text("First Name is required");
 //                 return false;
 //             }
 //             if (!lastName) {
 //                 console.log("Last name is empty " + id);
-//                 alertAdmin.show(400);
-//                 alertMessageAdmin.text("Last Name is required");
+//                 alertUser.show(500);
+//                 alertMessageUser.text("Last Name is required");
 //                 return false;
 //             }
 //             if (
@@ -52,22 +52,22 @@
 //                     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 //                 )
 //             ) {
-//                 alertAdmin.show(400);
-//                 alertMessageAdmin.text("Email format is not correct");
+//                 alertUser.show(500);
+//                 alertMessageUser.text("Email format is not correct");
 //                 return false;
 //             }
 //             if (!phone) {
-//                 alertAdmin.show(400);
-//                 alertMessageAdmin.text("Phone is required");
+//                 alertUser.show(500);
+//                 alertMessageUser.text("Phone is required");
 //                 return false;
 //             }
 //             if (phone.length <= 10) {
-//                 alertAdmin.show(400);
-//                 alertMessageAdmin.text("Enter a valid cellphone number");
+//                 alertUser.show(500);
+//                 alertMessageUser.text("Enter a valid cellphone number");
 //                 return false;
 //             }
 
-//             let formData = new FormData($(this)[0]);
+//             const formData = new FormData($(this)[0]);
 //             $.ajaxSetup({
 //                 headers: {
 //                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
@@ -83,19 +83,19 @@
 //                 processData: false,
 //                 contentType: false,
 //                 beforeSend: function () {
-//                     $(".btnEditAdmin" + id).prop("disabled", true);
-//                     $(".btnTextEditAdmin" + id).text("Please wait ...");
+//                     $(".btnEditUser" + id).prop("disabled", true);
+//                     $(".btnTextEditUser" + id).text("Please wait ...");
 //                 },
 //                 success: function (data) {
 //                     console.log(data);
 //                     if (!data.success) {
-//                         alertAdmin.show(400);
-//                         alertMessageAdmin.text(data.message);
-//                         $(".btnEditAdmin" + id).prop("disabled", false);
-//                         $(".btnTextEditAdmin" + id).text("Change Admin");
+//                         alertUser.show(500);
+//                         alertMessageUser.text(data.message);
+//                         $(".btnEditUser" + id).prop("disabled", false);
+//                         $(".btnTextEditUser" + id).text("Change User");
 //                         return false;
 //                     } else {
-//                         localStorage.setItem("edit-admin-success", true);
+//                         localStorage.setItem("edit-user-success", true);
 //                         window.location.href = "list-data";
 //                     }
 //                 },
