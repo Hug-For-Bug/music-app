@@ -1011,8 +1011,6 @@
 
     @push('after-script')
         <!-- Datatable -->
-        {{-- <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
-            integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script> --}}
         <script src="{{ asset('admin/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
         <script src="{{ asset('admin/js/plugins-init/datatables.init.js') }}"></script>
     @endpush
@@ -1020,30 +1018,6 @@
         crossorigin="anonymous"></script>
     <script src="{{ asset('admin/vendor/toastr/js/toastr.min.js') }}"></script>
     <script src="{{ asset('admin/js/plugins-init/toastr-init.js') }}"></script>
-
-    {{-- Message Success edit --}}
-    {{-- @if (Session::has('msg_success_user_edit'))
-        <script>
-            toastr.success("User Data Updated Successfully!", "Updated", {
-                positionClass: "toast-top-right",
-                timeOut: 5e3,
-                closeButton: !0,
-                debug: !1,
-                newestOnTop: !0,
-                progressBar: !0,
-                preventDuplicates: !0,
-                onclick: null,
-                showDuration: "300",
-                hideDuration: "1000",
-                extendedTimeOut: "1000",
-                showEasing: "swing",
-                hideEasing: "linear",
-                showMethod: "fadeIn",
-                hideMethod: "fadeOut",
-                tapToDismiss: !1
-            })
-        </script>
-    @endif --}}
 
     {{-- Message Success delete --}}
     @if (Session::has('msg_success_user_delete'))
@@ -1068,100 +1042,4 @@
             })
         </script>
     @endif
-
-    {{-- @foreach ($listData as $l)
-<script>
-    $(`#formEditAdmin{{ $l->id }}`).submit(function (e) {
-        console.log(`Form Edit Admin {{ $l->id }}`);
-
-        let id = $(`#idEditAdmin{{ $l->id }}`).val();
-        console.log("id:", id);
-
-        let firstName = $(`#firstNameEditAdmin{{ $l->id }}`).val();
-        let lastName = $(`#lastNameEditAdmin{{ $l->id }}`).val();
-        let email = $(`#emailEditAdmin{{ $l->id }}`).val();
-        let phone = $(`#phoneEditAdmin{{ $l->id }}`).val();
-
-        console.log({
-            firstName,
-            lastName
-        })
-
-        let alertAdmin = $(`#alertEditAdmin{{ $l->id }}`);
-        let alertMessageAdmin = $(`#alertMessageEditAdmin{{ $l->id }}`);
-
-        if (!firstName) {
-            alertAdmin.show(400);
-            alertMessageAdmin.text("First Name is required");
-            return false;
-        }
-        if (!lastName) {
-            alertAdmin.show(400);
-            alertMessageAdmin.text("Last Name is required");
-            return false;
-        }
-
-        if (
-            !email.match(
-                /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            )
-        ) {
-            console.log("Email forma is not correct" + id);
-            alertAdmin.show(400);
-            alertMessageAdmin.text("Email format is not correct");
-            return false;
-        }
-
-        if (!phone) {
-            alertAdmin.show(400);
-            alertMessageAdmin.text("Phone is required");
-            return false;
-        }
-
-        if (phone.length <= 10) {
-            alertAdmin.show(400);
-            alertMessageAdmin.text("Enter a valid cellphone number");
-            return false;
-        }
-        // console.log("test")
-        let formData = new FormData($(`#formEditAdmin{{ $l->id }}`)[0]);
-        // console.log({
-        //     formData
-        // })
-        // $.ajaxSetup({
-        //     headers: {
-        //         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-        //     },
-        // });
-        // $.ajax({
-        //     type: "POST",
-        //     url: $(`#formEditAdmin{{ $l->id }}`).attr("action"),
-        //     data: formData,
-        //     dataType: "json",
-        //     processData: false,
-        //     contentType: false,
-        //     beforeSend: function () {
-        //         $(`#btnEditAdmin{{ $l->id }}`).prop("disabled", true);
-        //         $(`#btnTextEditAdmin{{ $l->id }}`).text("Please wait ...");
-        //     },
-        //     success: function (data) {
-        //         console.log(data);
-        //         if (!data.success) {
-        //             alertAdmin.show(400);
-        //             alertMessageAdmin.text(data.message);
-        //             $(`#btnEditAdmin{{ $l->id }}`).prop("disabled", false);
-        //             $(`#btnTextEditAdmin{{ $l->id }}`).text("Change Admin");
-        //             return false;
-        //         } else {
-        //             localStorage.setItem("edit-admin-success", true);
-        //             window.location.href = "list-data";
-        //         }
-        //     },
-        // });
-
-        e.preventDefault();
-    });
-
-</script>
-@endforeach --}}
 @endsection

@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    let createAdminStatus = localStorage.getItem("create-admin-success");
-    let createUserStatus = localStorage.getItem("create-user-success");
-    let editAdminStatus = localStorage.getItem("edit-admin-success");
+    const createAdminStatus = localStorage.getItem("create-admin-success");
+    const createUserStatus = localStorage.getItem("create-user-success");
+    const editAdminStatus = localStorage.getItem("edit-admin-success");
 
     if (createAdminStatus) {
         Swal.fire({
@@ -20,10 +20,8 @@ $(document).ready(function () {
             title: "Created",
             text: "New Data User Added Successfully",
             confirmButtonText: "OK",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                localStorage.clear();
-            }
+        }).then(() => {
+            localStorage.clear();
         });
     }
 
@@ -53,12 +51,12 @@ $(document).ready(function () {
         const alertMessageAdmin = $("#alertMessageAdmin");
 
         if (!firstName) {
-            alertAdmin.show(400);
+            alertAdmin.show(500);
             alertMessageAdmin.text("First Name is required");
             return false;
         }
         if (!lastName) {
-            alertAdmin.show(400);
+            alertAdmin.show(500);
             alertMessageAdmin.text("Last Name is required");
             return false;
         }
@@ -67,49 +65,49 @@ $(document).ready(function () {
                 /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             )
         ) {
-            alertAdmin.show(400);
+            alertAdmin.show(500);
             alertMessageAdmin.text("Email format is not correct");
             return false;
         }
         if (!phone) {
-            alertAdmin.show(400);
+            alertAdmin.show(500);
             alertMessageAdmin.text("Phone is required");
             return false;
         }
         if (phone.length <= 10) {
-            alertAdmin.show(400);
+            alertAdmin.show(500);
             alertMessageAdmin.text("Enter a valid cellphone number");
             return false;
         }
         if (gender == "") {
-            alertAdmin.show(400);
+            alertAdmin.show(500);
             alertMessageAdmin.text("Please select gender");
             return false;
         }
         if (!password) {
-            alertAdmin.show(400);
+            alertAdmin.show(500);
             alertMessageAdmin.text("Password is required");
             return false;
         }
         if (password.length <= 5) {
-            alertAdmin.show(400);
+            alertAdmin.show(500);
             alertMessageAdmin.text(
                 "The password must consist of at least 5 characters"
             );
             return false;
         }
         if (!passwordConfirmation) {
-            alertAdmin.show(400);
+            alertAdmin.show(500);
             alertMessageAdmin.text("Password Confirmation is required");
             return false;
         }
         if (password != passwordConfirmation) {
-            alertAdmin.show(400);
+            alertAdmin.show(500);
             alertMessageAdmin.text("Passwords are not the same");
             return false;
         }
 
-        let formData = new FormData($("#formCreateAdmin")[0]);
+        const formData = new FormData($("#formCreateAdmin")[0]);
         $.ajaxSetup({
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -129,7 +127,7 @@ $(document).ready(function () {
             success: function (data) {
                 console.log(data);
                 if (!data.success) {
-                    alertAdmin.show(400);
+                    alertAdmin.show(500);
                     alertMessageAdmin.text(data.message);
                     $("#btnCreateAdmin").prop("disabled", false);
                     $("#btnTextAdmin").text("Create Admin");
@@ -159,12 +157,12 @@ $(document).ready(function () {
         const alertMessageUser = $("#alertMessageUser");
 
         if (!firstName) {
-            alertUser.show(400);
+            alertUser.show(500);
             alertMessageUser.text("First Name is required");
             return false;
         }
         if (!lastName) {
-            alertUser.show(400);
+            alertUser.show(500);
             alertMessageUser.text("Last Name is required");
             return false;
         }
@@ -173,49 +171,49 @@ $(document).ready(function () {
                 /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             )
         ) {
-            alertUser.show(400);
+            alertUser.show(500);
             alertMessageUser.text("Email format is not correct");
             return false;
         }
         if (!phone) {
-            alertUser.show(400);
+            alertUser.show(500);
             alertMessageUser.text("Phone is required");
             return false;
         }
         if (phone.length <= 10) {
-            alertUser.show(400);
+            alertUser.show(500);
             alertMessageUser.text("Enter a valid cellphone number");
             return false;
         }
         if (gender == "") {
-            alertUser.show(400);
+            alertUser.show(500);
             alertMessageUser.text("Please select gender");
             return false;
         }
         if (!password) {
-            alertUser.show(400);
+            alertUser.show(500);
             alertMessageUser.text("Password is required");
             return false;
         }
         if (password.length <= 5) {
-            alertUser.show(400);
+            alertUser.show(500);
             alertMessageUser.text(
                 "The password must consist of at least 5 characters"
             );
             return false;
         }
         if (!passwordConfirmation) {
-            alertUser.show(400);
+            alertUser.show(500);
             alertMessageUser.text("Password Confirmation is required");
             return false;
         }
         if (password != passwordConfirmation) {
-            alertUser.show(400);
+            alertUser.show(500);
             alertMessageUser.text("Passwords are not the same");
             return false;
         }
 
-        let formData = new FormData($("#formCreateUser")[0]);
+        const formData = new FormData($("#formCreateUser")[0]);
         $.ajaxSetup({
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -235,7 +233,7 @@ $(document).ready(function () {
             success: function (data) {
                 console.log(data);
                 if (!data.success) {
-                    alertUser.show(400);
+                    alertUser.show(500);
                     alertMessageUser.text(data.message);
                     $("#btnCreateUser").prop("disabled", false);
                     $("#btnTextUser").text("Create User");
@@ -254,34 +252,36 @@ $(document).ready(function () {
         $(this).submit(function (e) {
             console.log("Form Edit Admin");
 
-            let id = $(this).find("#idEditAdmin").val();
+            const id = $(this).find("#idEditAdmin").val();
             console.log("id:", id);
 
-            let firstName = $(this)
+            const firstName = $(this)
                 .find(".firstNameEditAdmin" + id)
                 .val();
-            let lastName = $(this)
+            const lastName = $(this)
                 .find(".lastNameEditAdmin" + id)
                 .val();
-            let email = $(this)
+            const email = $(this)
                 .find(".emailEditAdmin" + id)
                 .val();
-            let phone = $(this)
+            const phone = $(this)
                 .find(".phoneEditAdmin" + id)
                 .val();
 
-            let alertAdmin = $(this).find(".alertEditAdmin" + id);
-            let alertMessageAdmin = $(this).find(".alertMessageEditAdmin" + id);
+            const alertAdmin = $(this).find(".alertEditAdmin" + id);
+            const alertMessageAdmin = $(this).find(
+                ".alertMessageEditAdmin" + id
+            );
 
             if (!firstName) {
                 console.log("First name is empty " + id);
-                alertAdmin.show(400);
+                alertAdmin.show(500);
                 alertMessageAdmin.text("First Name is required");
                 return false;
             }
             if (!lastName) {
                 console.log("Last name is empty " + id);
-                alertAdmin.show(400);
+                alertAdmin.show(500);
                 alertMessageAdmin.text("Last Name is required");
                 return false;
             }
@@ -290,22 +290,22 @@ $(document).ready(function () {
                     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
                 )
             ) {
-                alertAdmin.show(400);
+                alertAdmin.show(500);
                 alertMessageAdmin.text("Email format is not correct");
                 return false;
             }
             if (!phone) {
-                alertAdmin.show(400);
+                alertAdmin.show(500);
                 alertMessageAdmin.text("Phone is required");
                 return false;
             }
             if (phone.length <= 10) {
-                alertAdmin.show(400);
+                alertAdmin.show(500);
                 alertMessageAdmin.text("Enter a valid cellphone number");
                 return false;
             }
 
-            let formData = new FormData($(this)[0]);
+            const formData = new FormData($(this)[0]);
             $.ajaxSetup({
                 headers: {
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
@@ -327,7 +327,7 @@ $(document).ready(function () {
                 success: function (data) {
                     console.log(data);
                     if (!data.success) {
-                        alertAdmin.show(400);
+                        alertAdmin.show(500);
                         alertMessageAdmin.text(data.message);
                         $(".btnEditAdmin" + id).prop("disabled", false);
                         $(".btnTextEditAdmin" + id).text("Change Admin");
@@ -346,23 +346,29 @@ $(document).ready(function () {
 
 // Show text for input photo
 $(".custom-file-input").on("change", function () {
-    var fileName = $(this).val().split("\\").pop();
+    let fileName = $(this).val().split("\\").pop();
     $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 });
 
 // Localstorage for tab-pane admin and user
-let adminTab = document.querySelector("#adminTab");
-let userTab = document.querySelector("#userTab");
+const adminTab = document.querySelector("#adminTab");
+const userTab = document.querySelector("#userTab");
+const adminTabpane = document.querySelector("#admin");
+const userTabpane = document.querySelector("#user");
 
-let activeTab = localStorage.getItem("activeTab");
+const activeTab = localStorage.getItem("activeTab");
 
 if (activeTab === "admin") {
     adminTab.classList.add("active");
+    adminTabpane.classList.add("show", "active");
     userTab.classList.remove("active");
+    userTabpane.classList.remove("show", "active");
 }
 if (activeTab === "user") {
     userTab.classList.add("active");
+    userTabpane.classList.add("show", "active");
     adminTab.classList.remove("active");
+    adminTabpane.classList.remove("show", "active");
 }
 
 adminTab.addEventListener("click", () => {
@@ -374,49 +380,49 @@ userTab.addEventListener("click", () => {
 
 // Close alert create admin
 $("#closeAlertAdmin").click(function () {
-    $("#alertAdmin").hide(300);
+    $("#alertAdmin").hide(500);
 });
 
 // Close alert create admin
 $("#closeAlertUser").click(function () {
-    $("#alertUser").hide(300);
+    $("#alertUser").hide(500);
     console.log("Close button clicked");
 });
 
 // Show modal and close alert edit admin
 $("#modalEditAdmin").on("show.bs.modal", function (e) {
-    let button = $(e.relatedTarget);
-    let id = button.data("id");
+    const button = $(e.relatedTarget);
+    const id = button.data("id");
     $("#idEditAdmin").val(id);
 });
 
 $("a[data-toggle='modal']").click(function () {
-    let id = $(this).data("id");
+    const id = $(this).data("id");
     $("#idEditAdmin").val(id);
     console.log("open form: " + id);
 });
 
 $(".closeAlertEditAdmin").click(function () {
-    let id = $("#idEditAdmin").val();
-    $(".alertEditAdmin" + id).hide(300);
+    const id = $("#idEditAdmin").val();
+    $(".alertEditAdmin" + id).hide(500);
     console.log("close " + id);
 });
 
 // Show modal and close alert edit user
 $("#modalEditUser").on("show.bs.modal", function (e) {
-    let button = $(e.relatedTarget);
-    let id = button.data("id");
+    const button = $(e.relatedTarget);
+    const id = button.data("id");
     $("#idEditUser").val(id);
 });
 
 $("a[data-toggle='modal']").click(function () {
-    let id = $(this).data("id");
+    const id = $(this).data("id");
     $("#idEditUser").val(id);
     console.log("open form user: " + id);
 });
 
 $(".closeAlertEditUser").click(function () {
-    let id = $("#idEditUser").val();
-    $(".alertEditUser" + id).hide(300);
+    const id = $("#idEditUser").val();
+    $(".alertEditUser" + id).hide(500);
     console.log("close " + id);
 });
