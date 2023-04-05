@@ -50,7 +50,7 @@ $(document).ready(function () {
 
     //Form Create Admin
     $("#formCreateAdmin").submit(function (e) {
-        console.log("Form Create Admin");
+        console.log("Create Admin");
         const firstName = $("#firstNameAdmin").val();
         const lastName = $("#lastNameAdmin").val();
         const email = $("#emailAdmin").val();
@@ -65,11 +65,19 @@ $(document).ready(function () {
         if (!firstName) {
             alertAdmin.show(500);
             alertMessageAdmin.text("First Name is required");
+            $("#firstNameAdmin").focus();
             return false;
         }
         if (!lastName) {
             alertAdmin.show(500);
             alertMessageAdmin.text("Last Name is required");
+            $("#lastNameAdmin").focus();
+            return false;
+        }
+        if (!email) {
+            alertAdmin.show(500);
+            alertMessageAdmin.text("Email is required");
+            $("#emailAdmin").focus();
             return false;
         }
         if (
@@ -79,26 +87,31 @@ $(document).ready(function () {
         ) {
             alertAdmin.show(500);
             alertMessageAdmin.text("Email format is not correct");
+            $("#emailAdmin").focus();
             return false;
         }
         if (!phone) {
             alertAdmin.show(500);
             alertMessageAdmin.text("Phone is required");
+            $("#phoneAdmin").focus();
             return false;
         }
         if (phone.length <= 10) {
             alertAdmin.show(500);
             alertMessageAdmin.text("Enter a valid cellphone number");
+            $("#phoneAdmin").focus();
             return false;
         }
         if (gender == "") {
             alertAdmin.show(500);
             alertMessageAdmin.text("Please select gender");
+            $("#genderAdmin").focus();
             return false;
         }
         if (!password) {
             alertAdmin.show(500);
             alertMessageAdmin.text("Password is required");
+            $("#passwordAdmin").focus();
             return false;
         }
         if (password.length <= 5) {
@@ -106,16 +119,19 @@ $(document).ready(function () {
             alertMessageAdmin.text(
                 "The password must consist of at least 5 characters"
             );
+            $("#passwordAdmin").focus();
             return false;
         }
         if (!passwordConfirmation) {
             alertAdmin.show(500);
             alertMessageAdmin.text("Password Confirmation is required");
+            $("#passwordConfirmationAdmin").focus();
             return false;
         }
         if (password != passwordConfirmation) {
             alertAdmin.show(500);
             alertMessageAdmin.text("Passwords are not the same");
+            $("#passwordConfirmationAdmin").focus();
             return false;
         }
 
@@ -136,9 +152,14 @@ $(document).ready(function () {
                 $("#btnCreateAdmin").prop("disabled", true);
                 $("#btnTextAdmin").text("Please Wait ...");
             },
+            error: function (err) {
+                console.log("Some error occured", err);
+                alertAdmin.show(500);
+                alertMessageAdmin.text(data.message);
+            },
             success: function (data) {
-                console.log(data);
-                if (!data.success) {
+                const status = data.success;
+                if (!status) {
                     alertAdmin.show(500);
                     alertMessageAdmin.text(data.message);
                     $("#btnCreateAdmin").prop("disabled", false);

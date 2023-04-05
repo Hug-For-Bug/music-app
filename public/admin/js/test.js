@@ -109,14 +109,10 @@
 $("#firstNameAdmin").on("input", function () {
     const firstName = $(this).val();
     const alertAdmin = $("#alertAdmin");
-    if (firstName) {
-        alertAdmin.hide(500);
-    }
+    if (firstName) alertAdmin.hide(500);
 });
 $("#lastNameAdmin").on("input", function () {
     const lastName = $(this).val();
     const alertAdmin = $("#alertAdmin");
-    if (lastName) {
-        alertAdmin.hide(500);
-    }
+    if (lastName) alertAdmin.hide(500);
 });
