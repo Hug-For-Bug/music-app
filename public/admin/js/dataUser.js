@@ -198,7 +198,7 @@ $(document).ready(function () {
         if (!lastName) {
             alertUser.show(500);
             alertMessageUser.text("Last Name is required");
-            $("#lastNameUser").focus();
+            $("#firstNameUser").focus();
             return false;
         }
         if (!email) {
@@ -339,6 +339,11 @@ $(document).ready(function () {
                 alertMessageAdmin.text("Last Name is required");
                 return false;
             }
+            if (!email) {
+                alertAdmin.show(500);
+                alertMessageAdmin.text("Email is required");
+                return false;
+            }
             if (
                 !email.match(
                     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -377,6 +382,11 @@ $(document).ready(function () {
                 beforeSend: function () {
                     $(".btnEditAdmin" + id).prop("disabled", true);
                     $(".btnTextEditAdmin" + id).text("Please wait ...");
+                },
+                error: function (err) {
+                    console.log("Some error occured", err);
+                    alertAdmin.show(500);
+                    alertMessageAdmin.text(data.message);
                 },
                 success: function (data) {
                     console.log(data);
@@ -433,6 +443,11 @@ $(document).ready(function () {
                 alertMessageUser.text("Last Name is required");
                 return false;
             }
+            if (!email) {
+                alertUser.show(500);
+                alertMessageUser.text("Email is required");
+                return false;
+            }
             if (
                 !email.match(
                     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -471,6 +486,11 @@ $(document).ready(function () {
                 beforeSend: function () {
                     $(".btnEditUser" + id).prop("disabled", true);
                     $(".btnTextEditUser" + id).text("Please wait ...");
+                },
+                error: function (err) {
+                    console.log("some error occured", err);
+                    alertUser.show(500);
+                    alertMessageUser.text(data.message);
                 },
                 success: function (data) {
                     console.log(data);
