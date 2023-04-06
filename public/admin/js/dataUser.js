@@ -192,11 +192,19 @@ $(document).ready(function () {
         if (!firstName) {
             alertUser.show(500);
             alertMessageUser.text("First Name is required");
+            $("#firstNameUser").focus();
             return false;
         }
         if (!lastName) {
             alertUser.show(500);
             alertMessageUser.text("Last Name is required");
+            $("#lastNameUser").focus();
+            return false;
+        }
+        if (!email) {
+            alertUser.show(500);
+            alertMessageUser.text("Email is required");
+            $("#emailUser").focus();
             return false;
         }
         if (
@@ -206,26 +214,31 @@ $(document).ready(function () {
         ) {
             alertUser.show(500);
             alertMessageUser.text("Email format is not correct");
+            $("#emailUser").focus();
             return false;
         }
         if (!phone) {
             alertUser.show(500);
             alertMessageUser.text("Phone is required");
+            $("#phoneUser").focus();
             return false;
         }
         if (phone.length <= 10) {
             alertUser.show(500);
             alertMessageUser.text("Enter a valid cellphone number");
+            $("#phoneUser").focus();
             return false;
         }
         if (gender == "") {
             alertUser.show(500);
             alertMessageUser.text("Please select gender");
+            $("#genderUser").focus();
             return false;
         }
         if (!password) {
             alertUser.show(500);
             alertMessageUser.text("Password is required");
+            $("#passwordUser").focus();
             return false;
         }
         if (password.length <= 5) {
@@ -233,16 +246,19 @@ $(document).ready(function () {
             alertMessageUser.text(
                 "The password must consist of at least 5 characters"
             );
+            $("#passwordUser").focus();
             return false;
         }
         if (!passwordConfirmation) {
             alertUser.show(500);
             alertMessageUser.text("Password Confirmation is required");
+            $("#passwordConfirmationUser").focus();
             return false;
         }
         if (password != passwordConfirmation) {
             alertUser.show(500);
             alertMessageUser.text("Passwords are not the same");
+            $("#passwordConfirmationUser").focus();
             return false;
         }
 
@@ -263,9 +279,14 @@ $(document).ready(function () {
                 $("#btnCreateUser").prop("disabled", true);
                 $("#btnTextUser").text("Please Wait ...");
             },
+            error: function (err) {
+                console.log("some error occured", err);
+                alertUser.show(500);
+                alertMessageUser.text(data.message);
+            },
             success: function (data) {
-                console.log(data);
-                if (!data.success) {
+                const status = data.success;
+                if (!status) {
                     alertUser.show(500);
                     alertMessageUser.text(data.message);
                     $("#btnCreateUser").prop("disabled", false);
