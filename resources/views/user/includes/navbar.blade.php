@@ -1,9 +1,10 @@
 <div class="container relative  px-md-5 ">
 
-    <a class="offcanvas dl-trigger paper-nav-toggle" type="button" data-toggle="offcanvas" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="offcanvas dl-trigger paper-nav-toggle" type="button" data-toggle="offcanvas" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
         <i></i>
     </a>
-    <a class="navbar-brand" href="index.html">
+    <a class="navbar-brand" href="{{ route('dashboard') }}">
         <div class="d-flex align-items-center s-14 l-s-2">
             <span>RECORD</span>
         </div>
@@ -33,14 +34,16 @@
                 </li>
 
                 <li>
-                    @if($user)
-                    <a href="{{ url('login') }}" class="btn btn-light font-weight-bold nav-btn" style="color: black !important;">
-                        {{ $user->name }}
-                    </a>
+                    @if ($user)
+                        <a href="{{ url('login') }}" class="btn btn-light font-weight-bold nav-btn"
+                            style="color: black !important;">
+                            {{ $user->name }}
+                        </a>
                     @else
-                    <a href="{{ url('login') }}" class="btn btn-primary nav-btn" data-toggle="modal" data-target="#modalSignUp">
-                        Sign In
-                    </a>
+                        <a href="{{ url('login') }}" class="btn btn-primary nav-btn" data-toggle="modal"
+                            data-target="#modalSignUp">
+                            Sign In
+                        </a>
                     @endif
                 </li>
             </ul>
