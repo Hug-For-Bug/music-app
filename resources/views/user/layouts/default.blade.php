@@ -76,12 +76,12 @@
         </div>
     </div>
 
-    {{-- <!-- @Pre loader--> --}}
+    <!-- @Pre loader-->
     <div id="rekord-app">
 
         <!-- Sidebar -->
         @if ($navbarType == 'side')
-        @include('user.includes.sidebar')
+            @include('user.includes.sidebar')
         @endif
         <!-- End Sidebar -->
 
@@ -95,19 +95,22 @@
             <defs>
                 <symbol id="icon-cross" viewBox="0 0 24 24">
                     <title>cross</title>
-                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                    <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
                 </symbol>
             </defs>
         </svg>
         <div class="searchOverlay page">
-            <button id="btn-searchOverlay-close" class="btn btn--searchOverlay-close" aria-label="Close searchOverlay form">
+            <button id="btn-searchOverlay-close" class="btn btn--searchOverlay-close"
+                aria-label="Close searchOverlay form">
                 <svg class="icon icon--cross">
                     <use xlink:href="#icon-cross"></use>
                 </svg>
             </button>
             <div class="searchOverlay__inner  searchOverlay__inner--up">
                 <form class="searchOverlay__form" action="https://xvelopers.com/demos/html/rekord/index.html">
-                    <input class="searchOverlay__input" name="searchOverlay" type="text" placeholder="Search" autocomplete="off" spellcheck="false" />
+                    <input class="searchOverlay__input" name="searchOverlay" type="text" placeholder="Search"
+                        autocomplete="off" spellcheck="false" />
                     <span class="searchOverlay__info">Hit enter to searchOverlay or ESC to close</span>
                 </form>
             </div>
@@ -244,7 +247,7 @@
 
             <!-- Navbar -->
             @if ($navbarType == 'top')
-            @include('user.includes.navbar')
+                @include('user.includes.navbar')
             @endif
             <!-- End Sidebar -->
 
@@ -253,7 +256,7 @@
         <nav id="menu" class="navbar-wrapper navbar-bottom-fixed shadow">
             <!--footer-->
             @if (!$login)
-            @include('user.includes.footer')
+                @include('user.includes.footer')
             @endif
 
         </nav>
