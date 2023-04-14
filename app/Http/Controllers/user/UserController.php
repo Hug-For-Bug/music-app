@@ -53,4 +53,10 @@ class UserController extends Controller
         $data['user'] = Auth::user();
         return view("user.pages.profile", $data);
     }
+    
+    public function getMusic()
+    {
+        $data['list'] = curl.get('https://deezerdevs-deezer.p.rapidapi.com/album');
+        return $data;
+    }
 }
