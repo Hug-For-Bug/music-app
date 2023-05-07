@@ -33,6 +33,7 @@ return [
     |
     */
 
+    // Set up mailer from environment
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
