@@ -56,7 +56,5 @@
         playAudio.style.display = "block"
         console.log("pause music");
     }
-
-
     
 </script>
