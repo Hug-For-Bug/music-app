@@ -37,6 +37,7 @@ Route::get('/categories', [UserController::class, 'categories']);
 Route::get('/albums', [UserController::class, 'albums']);
 Route::get('/artist', [UserController::class, 'artist']);
 Route::get('/create', [UserController::class, 'create']);
+Route::get('/get-music', [UserController::class, 'getMusic']);
 
 Route::get('/login', [AuthController::class, 'index']);
 Route::post('/signIn', [AuthController::class, 'login']);
