@@ -255,8 +255,11 @@
 
         <nav id="menu" class="navbar-wrapper navbar-bottom-fixed shadow">
             <!--footer-->
-            @if (!$login)
-                @include('user.includes.footer')
+            @if ($footer == 'home')
+                @include('user.includes.footer1')
+            @endif
+            @if ($footer == 'other')
+                @include('user.includes.footer2')
             @endif
 
         </nav>

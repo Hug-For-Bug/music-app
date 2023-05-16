@@ -14,6 +14,7 @@ class UserController extends Controller
     public function index()
     {
         $data["navbarType"] = "top";
+        $data["footer"] = "home";
         $data["login"] = false;
         $data["title"] = "Home";
         $data['user'] = Auth::user();
@@ -23,6 +24,7 @@ class UserController extends Controller
     public function categories()
     {
         $data["navbarType"] = "side";
+        $data["footer"] = "other";
         $data["login"] = false;
         $data["title"] = "Category";
         $data['user'] = Auth::user();
@@ -32,6 +34,7 @@ class UserController extends Controller
     public function albums()
     {
         $data["navbarType"] = "side";
+        $data["footer"] = "other";
         $data["login"] = false;
         $data["title"] = "Albums";
         $data['user'] = Auth::user();
@@ -41,6 +44,7 @@ class UserController extends Controller
     public function artist()
     {
         $data["navbarType"] = "side";
+        $data["footer"] = "other";
         $data["login"] = false;
         $data["title"] = "Artist";
         $data['user'] = Auth::user();
@@ -50,6 +54,7 @@ class UserController extends Controller
     public function profile()
     {
         $data["navbarType"] = "side";
+        $data["footer"] = "other";
         $data["login"] = false;
         $data["title"] = "Profile";
         $data['user'] = Auth::user();
