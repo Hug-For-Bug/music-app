@@ -6,7 +6,6 @@
   <meta name="format-detection" content="telephone=no" />
 
   <style>
-    /* Reset styles */
     body {
       margin: 0;
       padding: 0;
@@ -91,13 +90,10 @@
       color: #999999;
     }
   </style>
-
-  <!-- MESSAGE SUBJECT -->
   <title>Confirmation email</title>
 
 </head>
 
-<!-- BODY -->
 <body topmargin="0" rightmargin="0" bottommargin="0" leftmargin="0" marginwidth="0" marginheight="0" width="100%" style="border-collapse: collapse; border-spacing: 0;  padding: 0; width: 100%; height: 100%; -webkit-font-smoothing: antialiased; text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 100%;
 	background-color: #F0F0F0;
 	color: #000000;" bgcolor="#F0F0F0" text="#000000">
