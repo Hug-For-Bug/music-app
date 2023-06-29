@@ -1,5 +1,5 @@
 <h4 class="fw-bold py-3 mb-4">
-  <span class="text-muted fw-light">Admin /</span> Event & Ticket
+  <span class="text-muted fw-light">Admin /</span> Event & Ticket List
 </h4>
 
 <div class="row">
