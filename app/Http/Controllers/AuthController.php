@@ -49,11 +49,4 @@ class AuthController extends Controller
         ]);
     }
 
-
-    public function logout()
-    {
-        auth()->logout();
-        session()->flash("message", "You Have Been Logged Out");
-        return redirect("/login");
-    }
 }
