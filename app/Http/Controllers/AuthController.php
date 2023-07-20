@@ -19,32 +19,6 @@ class AuthController extends Controller
         return view("login", $data);
     }
 
-    public function login(Request $req)
-    {
-        if (!Auth::attempt(["email" => $req->email, "password" => $req->password])) {
-            return response()->json([
-                "success" => false,
-                "message" => "Email or password you entered is incorrect!"
-            ]);
-        } else {
-            $user = Auth::user();
-            if ($user->id_role == 1) {
-                return response()->json([
-                    "success" => true,
-                    "message" => "Login Success",
-                    "user" => $user,
-                    "redirect" => "administrator"
-                ]);
-            } else {
-                return response()->json([
-                    "success" => true,
-                    "message" => "Login Success",
-                    "user" => $user,
-                    "redirect" => "user"
-                ]);
-            }
-        }
-    }
 
     public function register()
     {
