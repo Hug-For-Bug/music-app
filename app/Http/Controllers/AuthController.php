@@ -34,25 +34,6 @@ class AuthController extends Controller
         date_default_timezone_set('Asia/Jakarta');
         $getUUID = DB::select("SELECT uuid() as uuid");
         $uuid = $getUUID[0]->uuid;
-        $general = $this->getAdditionalInfo();
-
-        $email = $req->email;
-        $phone = $req->phone;
-        $checkEmail = DB::select("SELECT count(*) as total FROM users WHERE email = '$email'");
-        if ($checkEmail[0]->total != 0) {
-            return response()->json([
-                "success" => false,
-                "message" => "Email has been used, choose other email!"
-            ]);
-        }
-        $checkPhone = DB::select("SELECT count(*) as total FROM users WHERE phone = '$phone'");
-        if ($checkPhone[0]->total != 0) {
-            return response()->json([
-                "success" => false,
-                "message" => "Phone has been used, choose other phone number!"
-            ]);
-        }
-
         User::create([
             "id" => $uuid,
             "name" => $req->name,
