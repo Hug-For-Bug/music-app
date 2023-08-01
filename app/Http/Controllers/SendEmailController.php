@@ -15,7 +15,14 @@ class SendEmailController extends Controller
             'body' => 'Thank you for your registration on our music platform, Enjoy!!!'
         ];
 
-        Mail::to('krisnahendrawijaya@gmail.com')->send(new \App\Mail\NotifyMail($details));
-        dd("Email is Sent.");
+        try {
+            Mail::to('krisnahendrawijaya@gmail.com')->send(new NotifyMail($details));
+            return "Email is Sent.";
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Failed to send email.',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
     }
 }
