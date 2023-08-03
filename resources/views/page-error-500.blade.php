@@ -4,13 +4,17 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>ERES - Bootstrap Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>500 Internal Server Error - ERES</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ admin('admin/images/favicon.png') }}">
-    <link href="{{ admin('admin/css/style.css') }}" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin/images/favicon.png') }}">
+    <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
 
-</head>
+    <!-- Required vendors -->
+    <script src="{{ asset('admin/vendor/global/global.min.js') }}"></script>
+    <script src="{{ asset('admin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('admin/js/custom.min.js') }}"></script>
+    <script src="{{ asset('admin/js/deznav-init.js') }}"></script>
 </head>
 
 <body class="h-100">
@@ -20,8 +24,8 @@
                 <div class="col-md-5">
                     <div class="form-input-content text-center error-page">
                         <h1 class="error-text font-weight-bold">500</h1>
-                        <h4><i class="fa fa-times-circle text-danger"></i> Internal Server Error</h4>
-                        <p>You do not have permission to view this resource</p>
+                        <h4><i class="fa fa-exclamation-circle text-danger"></i> Internal Server Error</h4>
+                        <p>Sorry, something went wrong on the server. You do not have permission to view this resource.</p>
                         <div>
                             <a class="btn btn-primary" href="{{ url('administrator') }}">Back to Home</a>
                         </div>
@@ -31,13 +35,5 @@
         </div>
     </div>
 </body>
-<!--**********************************
- Scripts
-***********************************-->
-<!-- Required vendors -->
-<script src="{{ asset('admin/vendor/global/global.min.js') }}"></script>
-<script src="{{ asset('admin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-<script src="{{ asset('admin/js/custom.min.js') }}"></script>
-<script src="{{ asset('admin/js/deznav-init.js') }}"></script>
 
 </html>
