@@ -4,12 +4,18 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>ERES - Bootstrap Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404 Error - Page Not Found</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin/images/favicon.png') }}">
-    <link href="{{ asset(admin / css / style . css) }}" rel="stylesheet">
-
+    <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
+    <!-- Add custom CSS file if needed -->
+    <!-- <link href="{{ asset('path-to-custom-css.css') }}" rel="stylesheet"> -->
+    <!-- Required vendors -->
+    <script src="{{ asset('admin/vendor/global/global.min.js') }}" defer></script>
+    <script src="{{ asset('admin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}" defer></script>
+    <script src="{{ asset('admin/js/custom.min.js') }}" defer></script>
+    <script src="{{ asset('admin/js/deznav-init.js') }}" defer></script>
 </head>
 
 <body class="h-100">
@@ -19,11 +25,11 @@
                 <div class="col-md-5">
                     <div class="form-input-content text-center error-page">
                         <h1 class="error-text font-weight-bold">404</h1>
-                        <h4><i class="fa fa-exclamation-triangle text-warning"></i> The page you were looking for is not
-                            found!</h4>
+                        <h4><i class="fa fa-exclamation-triangle text-warning"></i> The page you were looking for is not found!</h4>
                         <p>You may have mistyped the address or the page may have moved.</p>
                         <div>
-                            <a class="btn btn-primary" href="{{ url('administrator') }}">Back to Home</a>
+                            <!-- Update the link URL for the home page if needed -->
+                            <a class="btn btn-primary" href="{{ url('/') }}">Back to Home</a>
                         </div>
                     </div>
                 </div>
@@ -31,13 +37,5 @@
         </div>
     </div>
 </body>
-<!--**********************************
- Scripts
-***********************************-->
-<!-- Required vendors -->
-<script src="{{ asset('admin/vendor/global/global.min.js') }}"></script>
-<script src="{{ asset('admin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-<script src="{{ asset('admin/js/custom.min.js') }}"></script>
-<script src="{{ asset('admin/js/deznav-init.js') }}"></script>
 
 </html>
