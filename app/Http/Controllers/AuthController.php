@@ -12,105 +12,105 @@ class AuthController extends Controller
 {
     public function index()
     {
-        $data["navbarType"] = "top";
-        $data["login"] = true;
-        $data["title"] = "Login";
-        $data['user'] = Auth::user();
+        $data = [
+            "navbarType" => "top",
+            "login" => true,
+            "title" => "Login",
+            "user" => Auth::user(),
+        ];
         return view("login", $data);
     }
 
-    public function login(Request $req)
+    public function login(Request $request)
     {
-        if (!Auth::attempt(["email" => $req->email, "password" => $req->password])) {
+        $credentials = $request->only("email", "password");
+
+        if (!Auth::attempt($credentials)) {
             return response()->json([
                 "success" => false,
-                "message" => "Email or password you entered is incorrect!"
+                "message" => "Email or password you entered is incorrect!",
             ]);
-        } else {
-            $user = Auth::user();
-            if ($user->id_role == 1) {
-                return response()->json([
-                    "success" => true,
-                    "message" => "Login Success",
-                    "user" => $user,
-                    "redirect" => "administrator"
-                ]);
-            } else {
-                return response()->json([
-                    "success" => true,
-                    "message" => "Login Success",
-                    "user" => $user,
-                    "redirect" => "user"
-                ]);
-            }
         }
+
+        $user = Auth::user();
+        $redirect = ($user->id_role == 1) ? "administrator" : "user";
+
+        return response()->json([
+            "success" => true,
+            "message" => "Login Success",
+            "user" => $user,
+            "redirect" => $redirect,
+        ]);
     }
 
     public function register()
     {
-        $data["navbarType"] = "top";
-        $data["login"] = true;
-        $data["title"] = "Register";
-        $data['user'] = Auth::user();
+        $data = [
+            "navbarType" => "top",
+            "login" => true,
+            "title" => "Register",
+            "user" => Auth::user(),
+        ];
         return view("register", $data);
     }
 
-    public function postRegister(Request $req)
+    public function postRegister(Request $request)
     {
         date_default_timezone_set('Asia/Jakarta');
-        $getUUID = DB::select("SELECT uuid() as uuid");
-        $uuid = $getUUID[0]->uuid;
+        $uuid = DB::select("SELECT uuid() as uuid")[0]->uuid;
+        $email = $request->email;
+        $phone = $request->phone;
+
+        $checkEmail = DB::select("SELECT count(*) as total FROM users WHERE email = ?", [$email])[0]->total;
+        if ($checkEmail != 0) {
+            return response()->json([
+                "success" => false,
+                "message" => "Email has been used, choose other email!",
+            ]);
+        }
+
+        $checkPhone = DB::select("SELECT count(*) as total FROM users WHERE phone = ?", [$phone])[0]->total;
+        if ($checkPhone != 0) {
+            return response()->json([
+                "success" => false,
+                "message" => "Phone has been used, choose other phone number!",
+            ]);
+        }
+
         $general = $this->getAdditionalInfo();
-
-        $email = $req->email;
-        $phone = $req->phone;
-        $checkEmail = DB::select("SELECT count(*) as total FROM users WHERE email = '$email'");
-        if ($checkEmail[0]->total != 0) {
-            return response()->json([
-                "success" => false,
-                "message" => "Email has been used, choose other email!"
-            ]);
-        }
-        $checkPhone = DB::select("SELECT count(*) as total FROM users WHERE phone = '$phone'");
-        if ($checkPhone[0]->total != 0) {
-            return response()->json([
-                "success" => false,
-                "message" => "Phone has been used, choose other phone number!"
-            ]);
-        }
-
         User::create([
             "id" => $uuid,
-            "name" => $req->name,
+            "name" => $request->name,
             "email" => $email,
             "phone" => $phone,
-            "password" => Hash::make($req->password),
+            "password" => Hash::make($request->password),
             "id_plan" => $general['id_plan'],
             "id_role" => $general['id_role'],
             "verified_status" => "1",
-            "verified_at" => date("Y-m-d H:i:s")
+            "verified_at" => now(),
         ]);
+
         return response()->json([
             "success" => true,
-            "message" => "User has been registered!"
+            "message" => "User has been registered!",
         ]);
     }
 
     public function getAdditionalInfo()
     {
-        $user = DB::select("SELECT * FROM roles WHERE role_name = 'User'");
-        $free = DB::select("SELECT * FROM plans WHERE plan_name = 'Free'");
-        
+        $user = DB::select("SELECT * FROM roles WHERE role_name = 'User'")[0];
+        $free = DB::select("SELECT * FROM plans WHERE plan_name = 'Free'")[0];
+
         return [
-            'id_role' => $user[0]->id,
-            'id_plan' => $user[0]->id
+            'id_role' => $user->id,
+            'id_plan' => $free->id,
         ];
     }
 
     public function logout()
     {
         auth()->logout();
-        session()->flash("message", "You Have Been Logged Out");
+        
         return redirect("/login");
     }
 }
