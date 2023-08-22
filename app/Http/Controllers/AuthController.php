@@ -100,11 +100,11 @@ class AuthController extends Controller
     {
         $user = DB::select("SELECT * FROM roles WHERE role_name = 'User'");
         $free = DB::select("SELECT * FROM plans WHERE plan_name = 'Free'");
-        $data = [
+        
+        return [
             'id_role' => $user[0]->id,
-            'id_plan' => $free[0]->id
+            'id_plan' => $user[0]->id
         ];
-        return $data;
     }
 
     public function logout()
