@@ -15,10 +15,6 @@
                                 <div class="pt-3 mb-5">
                                     <p>Lorem ipsum dolor sit amet, sapiente tenetur ut, veritatis.</p>
                                 </div>
-                                <a href="{{ url('register') }}"><input type="submit" value="Create Account" class="btn btn-outline-primary s-14 pl-4 pr-4"></a>
-
-
-
                             </div>
                         </div>
                     </div>
