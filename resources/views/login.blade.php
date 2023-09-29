@@ -8,32 +8,6 @@
                     <div class="mt-5">
                         <div class="row grid">
                             <div class="col-md-7 card p-5">
-                                <form class="form-material" id="formLogin" method="GET" action="{{ url('signIn') }}">
-                                    @csrf
-                                    <!-- Input -->
-                                    <div class="body">
-                                        <div class="form-group form-float">
-                                            <div class="form-line">
-                                                <input type="text" id="email" name="email" class="form-control">
-                                                <label class="form-label">Email</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group form-float">
-                                            <div class="form-line">
-                                                <input type="password" id="password" name="password" class="form-control">
-                                                <label class="form-label">Password</label>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                    <!-- #END# Input -->
-                                    <input type="submit" id="btnLogin" class="btn btn-primary btn-sm pl-4 pr-4 p-2" value="Log In">
-
-                                    <div class="pt-5">
-                                        <small><a href="#">Forgot Password?</a></small>
-                                    </div>
-                                </form>
                             </div>
                             <div class="col-md-5  p-5">
                                 <h1 class="mt-3 font-weight-lighter">Are You New Here?</h1>
