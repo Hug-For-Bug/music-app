@@ -8,8 +8,6 @@
                     <div class="mt-5">
                         <div class="row grid">
                             <div class="col-md-12  p-5">
-                                <h1 class="mt-3 font-weight-lighter">Are You New Here?</h1>
-
                                 <div class="pt-3 mb-5">
                                     <p>Lorem ipsum dolor sit amet, sapiente tenetur ut, veritatis.</p>
                                 </div>
