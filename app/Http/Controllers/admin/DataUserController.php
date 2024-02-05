@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Plan;
 use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
 
@@ -22,6 +23,13 @@ class DataUserController extends Controller
                 "message" => "Email has been used, choose other email!"
             ]);
         }
+        $checkPhone = User::where('phone', $phone)->get();
+        if ($checkPhone->isNotEmpty()) {
+            return response()->json([
+                "success" => false,
+                "message" => "Phone has been used, choose other Phone!"
+            ]);
+        }
 
         // Validation for photo
         if ($req->file('photo')) {
@@ -34,16 +42,16 @@ class DataUserController extends Controller
                 ]);
             }
 
-            if ($file->getSize() > 3072 * 1024) {
+            if ($file->getSize() > 2048 * 1024) {
                 return response()->json([
                     "success" => false,
                     "message" => "Photo size exceeds the maximum allowed size of 2 MB."
                 ]);
             }
 
-            $photo_path = $file->store('asset/images/user/main/', 'public');
+            $photo_path = $file->store('asset/images/user', 'public');
         } else {
-            $photo_path = 'admin/images/default_user.jpg';
+            $photo_path = 'admin/images/default_user_photo.png';
         }
 
         date_default_timezone_set("Asia/Jakarta");
@@ -84,17 +92,22 @@ class DataUserController extends Controller
         ]);
         return redirect("/administrator/list-data")
             ->with("msg_success_user_edit", "berhasil");
+        // return response()->json([
+        //     "success" => true,
+        //     "message" => "User has been updated"
+        // ]);
     }
 
     public function deleteUser(Request $req)
     {
         User::where("id", $req->id)->delete();
-        return redirect("/administrator/list-data");
+        return redirect("/administrator/list-data")
+            ->with("msg_success_user_delete", "berhasil");
     }
 
     public function getUUID()
     {
-        $uuid = DB::select("SELECT uuid() as unique_id");
-        return $uuid[0]->unique_id;
+        $uuid = DB::select("SELECT uuid() as uuid");
+        return $uuid[0]->uuid;
     }
 }
