@@ -41,7 +41,7 @@ class DataUserController extends Controller
                 ]);
             }
 
-            $photo_path = $file->store('asset/images/user', 'public');
+            $photo_path = $file->store('asset/images/user/main/', 'public');
         } else {
             $photo_path = 'admin/images/default_user_photo.png';
         }
