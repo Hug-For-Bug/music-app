@@ -94,7 +94,7 @@ class DataUserController extends Controller
 
     public function getUUID()
     {
-        $uuid = DB::select("SELECT uuid() as uuid");
-        return $uuid[0]->uuid;
+        $uuid = DB::select("SELECT uuid() as unique_id");
+        return $uuid[0]->unique_id;
     }
 }
