@@ -89,8 +89,7 @@ class DataUserController extends Controller
     public function deleteUser(Request $req)
     {
         User::where("id", $req->id)->delete();
-        return redirect("/administrator/list-data")
-            ->with("msg_success_user_delete", "berhasil");
+        return redirect("/administrator/list-data");
     }
 
     public function getUUID()
