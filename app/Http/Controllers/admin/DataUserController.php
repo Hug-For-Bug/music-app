@@ -84,10 +84,6 @@ class DataUserController extends Controller
         ]);
         return redirect("/administrator/list-data")
             ->with("msg_success_user_edit", "berhasil");
-        // return response()->json([
-        //     "success" => true,
-        //     "message" => "User has been updated"
-        // ]);
     }
 
     public function deleteUser(Request $req)
