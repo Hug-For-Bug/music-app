@@ -22,13 +22,6 @@ class DataUserController extends Controller
                 "message" => "Email has been used, choose other email!"
             ]);
         }
-        $checkPhone = User::where('phone', $phone)->get();
-        if ($checkPhone->isNotEmpty()) {
-            return response()->json([
-                "success" => false,
-                "message" => "Phone has been used, choose other Phone!"
-            ]);
-        }
 
         // Validation for photo
         if ($req->file('photo')) {
