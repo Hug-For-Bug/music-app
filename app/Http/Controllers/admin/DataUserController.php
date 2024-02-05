@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\Plan;
 use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
 
@@ -23,13 +22,6 @@ class DataUserController extends Controller
                 "message" => "Email has been used, choose other email!"
             ]);
         }
-        $checkPhone = User::where('phone', $phone)->get();
-        if ($checkPhone->isNotEmpty()) {
-            return response()->json([
-                "success" => false,
-                "message" => "Phone has been used, choose other Phone!"
-            ]);
-        }
 
         // Validation for photo
         if ($req->file('photo')) {
@@ -42,14 +34,14 @@ class DataUserController extends Controller
                 ]);
             }
 
-            if ($file->getSize() > 2048 * 1024) {
+            if ($file->getSize() > 3072 * 1024) {
                 return response()->json([
                     "success" => false,
                     "message" => "Photo size exceeds the maximum allowed size of 2 MB."
                 ]);
             }
 
-            $photo_path = $file->store('asset/images/user', 'public');
+            $photo_path = $file->store('asset/images/user/main/', 'public');
         } else {
             $photo_path = 'admin/images/default_user_photo.png';
         }
@@ -92,10 +84,6 @@ class DataUserController extends Controller
         ]);
         return redirect("/administrator/list-data")
             ->with("msg_success_user_edit", "berhasil");
-        // return response()->json([
-        //     "success" => true,
-        //     "message" => "User has been updated"
-        // ]);
     }
 
     public function deleteUser(Request $req)
