@@ -34,7 +34,7 @@ class DataUserController extends Controller
                 ]);
             }
 
-            if ($file->getSize() > 2048 * 1024) {
+            if ($file->getSize() > 3072 * 1024) {
                 return response()->json([
                     "success" => false,
                     "message" => "Photo size exceeds the maximum allowed size of 2 MB."
