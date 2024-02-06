@@ -45,14 +45,6 @@
 
 
                             </div>
-                            <div class="col-md-5  p-5">
-                                <h1 class="mt-3 font-weight-lighter">Are You New Here?</h1>
-
-                                <div class="pt-3 mb-5">
-                                    <p>Lorem ipsum dolor sit amet, sapiente tenetur ut, veritatis.</p>
-                                </div>
-                                <input type="button" value="Create Account" class="btn btn-outline-primary s-14 pl-4 pr-4">
-                            </div>
                         </div>
                     </div>
                 </div>
