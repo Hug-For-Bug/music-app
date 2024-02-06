@@ -32,8 +32,6 @@
 
 
                                     </div>
-                                    <!-- #END# Input -->
-                                    <input type="submit" id="btnRegister" class="btn btn-primary btn-sm pl-4 pr-4 btn-block p-2" value="Register">
                                 </form>
 
 
