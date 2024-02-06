@@ -26,12 +26,6 @@
                                         </div>
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input name="phone" id="phone" type="text" class="form-control">
-                                                <label class="form-label">Phone</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group form-float">
-                                            <div class="form-line">
                                                 <input name="password" id="password" type="password" class="form-control">
                                                 <label class="form-label">Password</label>
                                             </div>
