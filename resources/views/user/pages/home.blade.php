@@ -3,7 +3,7 @@
     <!--Banner Slider-->
     <section>
         <div class="text-white">
-            <div class="lightSlider" data-item="1" data-controls="true" data-slide-margin="0" data-gallery="false"
+            <div class="lightSlider" data-item="3" data-controls="true" data-slide-margin="0" data-gallery="false"
                 data-pause="8000" data-pauseonhover="true" data-auto="false" data-pager="false" data-loop="true">
                 <div class="xv-slide" data-bg-possition="top" style="background-image:url('assets/img/demo/b1.jpg');">
                     <div class="wrapper has-bottom-gradient">
