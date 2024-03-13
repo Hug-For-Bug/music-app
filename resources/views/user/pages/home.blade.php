@@ -28,7 +28,7 @@
         <!--slider Wrap-->
     </section>
     <!--@Banner Slider-->
-    <div class="wrapper p-md-5 p-3  ">
+    <div class="wrapper p-md-4 p-2  ">
         <!--New Releases-->
         <section class="section">
             <div class="lightSlider has-items-overlay playlist" data-item="6" data-item-lg="3" data-item-md="3"
