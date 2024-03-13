@@ -35,13 +35,6 @@
     <div class="wrapper p-md-5 p-3  ">
         <!--New Releases-->
         <section class="section">
-            <div class="d-flex relative align-items-center justify-content-between">
-                <div class="mb-4">
-                    <h4>New Releases For You</h4>
-                    <p>Enjoy some new awesome music</p>
-                </div>
-                <a href="albums.html">View Albums<i class="icon-angle-right ml-3"></i></a>
-            </div>
             <div class="lightSlider has-items-overlay playlist" data-item="6" data-item-lg="3" data-item-md="3"
                 data-item-sm="2" data-auto="false" data-pager="false" data-controls="true" data-loop="false">
                 <div>
