@@ -16,10 +16,6 @@
                                             mattis
                                             suscipit. <br>Suspendisse
                                             potenti non ipsum.</p>
-                                        <div class="pt-3">
-                                            <a href="#" class="btn btn-primary btn-lg">Buy Now
-                                                At iTunes</a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
