@@ -40,7 +40,6 @@
                 <div>
                     <figure>
                         <div class="img-wrapper">
-                            <img src="assets/img/demo/a8.jpg" alt="/">
                             <div class="img-overlay text-white">
                                 <div class="figcaption">
                                     <ul class="list-inline d-flex align-items-center justify-content-between">
