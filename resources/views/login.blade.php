@@ -3,13 +3,6 @@
 <main>
     <div id="primary">
         <div class="container">
-            <div class="text-center s-14 l-s-2 my-5">
-                <a class="my-5" href="index.html">
-
-                    <span>RECORD</span>
-
-                </a>
-            </div>
             <div class="row">
                 <div class="col-md-10 mx-md-auto">
                     <div class="mt-5">
