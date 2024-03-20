@@ -27,9 +27,6 @@
 
 
                                     </div>
-                                    <!-- #END# Input -->
-                                    <input type="submit" id="btnLogin" class="btn btn-primary btn-sm pl-4 pr-4 p-2" value="Log In">
-
                                     <div class="pt-5">
                                         <small><a href="#">Forgot Password?</a></small>
                                     </div>
