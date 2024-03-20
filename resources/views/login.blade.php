@@ -9,7 +9,6 @@
                         <div class="row grid">
                             <div class="col-md-7 card p-5">
                                 <form class="form-material" id="formLogin" method="GET" action="{{ url('signIn') }}">
-                                    @csrf
                                     <!-- Input -->
                                     <div class="body">
                                         <div class="form-group form-float">
